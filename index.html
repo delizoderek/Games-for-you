@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Games For You!</title>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"/>
@@ -132,14 +132,76 @@
           <input class="form-input" type="text" placeholder="Search by Name" id="name" />
           <button class="btn btn-primary input-group-btn">Search</button>
         </div>
-        <div class="input-group">
-          <input class="form-input" type="text" placeholder="Search by Genre" id="genre"/>
-          <button class="btn btn-primary input-group-btn">Search</button>
-        </div>
-        <div class="input-group">
-          <input class="form-input" type="text" placeholder="Search by Age Rating" id="rating"/>
-          <button class="btn btn-primary input-group-btn">Search</button>
-        </div>
+        <div class="input-group columns">
+            <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Action
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Adventure
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Arcade
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Casual
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Educational
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Family
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Fighting
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Indie
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Platformer
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Puzzle
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Racing
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> RPG
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Simulation
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Shooter
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Sports
+              </label>
+              <label class="form-checkbox column col-3 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Strategy
+              </label>
+          <button class="btn btn-primary input-group-btn mx-2">Search by Genre</button>
+        </div> 
+          <!-- dropdown button group -->
+          <div class="dropdown">
+            <div class="btn-group">
+              <a href="#" class="btn">
+                Search by Age Rating
+              </a>
+              <a href="#" class="btn dropdown-toggle" tabindex="0">
+                <i class="icon icon-caret"></i>
+              </a>
+          
+              <!-- menu component -->
+              <ul class="menu">
+                <li class="ageRating" id="everyone">Everyone</li>
+                <li class="ageRating" id="everyone10">Everyone 10+</li>
+                <li class="ageRating" id="teen">Teen</li>
+                <li class="ageRating" id="mature">Mature</li>
+              </ul>
+            </div>
+          </div>
       </div>
     </div>
     <script src="./assets/js/script.js"></script>
