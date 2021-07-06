@@ -1,6 +1,14 @@
 body{
     background-color: aqua;
 }
+html{
+    position: relative;
+    min-height: 100%;
+}
+.landingPage{
+    flex-grow: 1;
+    margin: 0 0 25px;
+}
 .previews{
     margin: 20px;
 }
@@ -9,6 +17,8 @@ body{
 }
 footer{
     position: fixed;
+    /* position: absolute; */
+    display: block;
     bottom: 0;
     width: 99%;
     justify-content: space-between;
