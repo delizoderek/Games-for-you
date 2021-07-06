@@ -34,6 +34,7 @@ let game = {
 }
 
 let searchBtn = document.querySelector("#searching-game");
+let ageSearch = document.querySelector("#searchAge");
 let gameList = [];
 
 searchBtn.addEventListener("click",function(event){
@@ -49,6 +50,8 @@ searchBtn.addEventListener("click",function(event){
     // gameSearch(searchTerm);
     genreSearch();
 });
+
+ageSearch.addEventListener("click",tagsSearch);
 
 // function apiSearch(event,searchType){
 
@@ -113,25 +116,26 @@ function genreSearch(){
     });
 }
 
-function tagsSearch(){
+function tagsSearch(event){
+    event.preventDefault();
     // TODO: Search by and display results
-    let tagsUrl = `https://api.rawg.io/api/genres?page_size=50&key=${rawgKey}`;
+    let tagsUrl = "https://api.rawg.io/api/tags?page_size=50&key=4ff9656ea1344d38abef9231d5a4547f";
     fetch(tagsUrl)
     .then(function(response){
         return response.json();
     })
     .then(function(data){
-        let strOut = "";
-        for(let genre of data.results){
-            strOut += `${genre.name.toLowerCase()}: ${genre.id},\n`;
-        }
-        console.log(strOut);
+        // let strOut = "";
+        // for(let genre of data.results){
+        //     strOut += `${genre.name.toLowerCase()}: ${genre.id},\n`;
+        // }
+        console.log(data);
     });
 }
 
-function ageSearch(){
-    // TODO: Search for games by age
-}
+// function ageSearch(){
+//     // TODO: Search for games by age
+// }
 
 createCheckboxes();
 
