@@ -1,3 +1,6 @@
+var rawgApi = "a64070dd102e45d4bbd286bc64075645";
+var bgAtlasApi = "id6TuxDAFr";
+
 let key = "c8b7f2f435b2c64e0004efde1aeeeefdc372de08";
 let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 let baseUrl = "https://www.giantbomb.com/api";
@@ -36,6 +39,11 @@ let game = {
 let searchBtn = document.querySelector("#searching-game");
 let ageSearch = document.querySelector("#searchAge");
 let gameList = [];
+
+var car1 = document.getElementById("car1");
+var car2 = document.getElementById("car2");
+var car3 = document.getElementById("car3");
+var car4 = document.getElementById("car4");
 
 searchBtn.addEventListener("click",function(event){
     event.preventDefault();
@@ -137,6 +145,23 @@ function tagsSearch(event){
 //     // TODO: Search for games by age
 // }
 
-createCheckboxes();
+function carouselImg(){
+    fetch(`https://api.rawg.io/api/games?page_size=10&key=${rawgApi}`)
+    .then(function(data){
+        return data.json();
+    })
+    .then(function(data){
+        car1.setAttribute("src", `${data.results[Math.floor(Math.random() * 10)].background_image}`)
+        car3.setAttribute("src", `${data.results[Math.floor(Math.random() * 10)].background_image}`)
+    })
+    fetch(`https://api.boardgameatlas.com/api/search?name=Catan&client_id=${bgAtlasApi}`)
+    .then(function(data){
+        return data.json()
+    })
+    .then(function(data){
+        console.log(data)
+    })
+}
 
-
+//createCheckboxes();
+carouselImg()
