@@ -1,0 +1,9 @@
+.search-form {
+    margin: 1.2rem;
+}
+#searchCol {
+    background-color: blue;
+}
+#resultsCol {
+    background-color: red;
+}
