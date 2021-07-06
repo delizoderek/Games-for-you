@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,3 +30,169 @@
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="landingPage">
+    <header class="navbar">
+      <section class="navbar-section">
+        <h1>Games for You!</h1>
+      </section>
+      <section class="navbar-center">
+        <div class="input-group input-inline">
+          <input class="form-input" type="text" placeholder="search" />
+          <button class="btn btn-primary input-group-btn">Search</button>
+        </div>
+      </section>
+      <section class="navbar-section">
+        <a href="./index.html" class="btn btn-link">Home</a>
+        <a href="#" class="btn btn-link">Popular</a>
+        <a href="#" class="btn btn-link">Favorites</a>
+      </section>
+    </header>
+    <div class="container flex-centered">
+      <div class="column col-8">
+        <div class="carousel previews">
+          <!-- carousel locator -->
+          <input
+            class="carousel-locator"
+            id="slide-1"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+            checked=""
+          />
+          <input
+            class="carousel-locator"
+            id="slide-2"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+          />
+          <input
+            class="carousel-locator"
+            id="slide-3"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+          />
+          <input
+            class="carousel-locator"
+            id="slide-4"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+          />
+
+          <!-- carousel container -->
+          <div class="carousel-container">
+            <!-- carousel item -->
+            <figure class="carousel-item">
+              <label class="item-prev btn btn-action btn-lg" for="slide-4"
+                ><i class="icon icon-arrow-left"></i
+              ></label>
+              <label class="item-next btn btn-action btn-lg" for="slide-2"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img
+                class="img-responsive rounded"
+                src="img/osx-yosemite.jpg"
+                alt="macOS Yosemite Wallpaper"
+                id="car1"
+              />
+            </figure>
+            <figure class="carousel-item">
+              <label class="item-prev btn btn-action btn-lg" for="slide-1"
+                ><i class="icon icon-arrow-left"></i
+              ></label>
+              <label class="item-next btn btn-action btn-lg" for="slide-3"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img
+                class="img-responsive rounded"
+                src="img/osx-yosemite-2.jpg"
+                alt="macOS Yosemite Wallpaper"
+                id="car2"
+              />
+            </figure>
+            <figure class="carousel-item">
+              <label class="item-prev btn btn-action btn-lg" for="slide-2"
+                ><i class="icon icon-arrow-left"></i
+              ></label>
+              <label class="item-next btn btn-action btn-lg" for="slide-4"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img
+                class="img-responsive rounded"
+                src="img/osx-el-capitan.jpg"
+                alt="macOS El Capitan Wallpaper"
+                id="car3"
+              />
+            </figure>
+            <figure class="carousel-item">
+              <label class="item-prev btn btn-action btn-lg" for="slide-3"
+                ><i class="icon icon-arrow-left"></i
+              ></label>
+              <label class="item-next btn btn-action btn-lg" for="slide-1"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img class="img-responsive rounded" src="img/osx-el-capitan-2.jpg" alt="macOS El Capitan Wallpaper" id="car4"/>
+            </figure>
+          </div>
+          <!-- carousel navigation -->
+          <div class="carousel-nav">
+            <label class="nav-item text-hide c-hand" for="slide-1">1</label>
+            <label class="nav-item text-hide c-hand" for="slide-2">2</label>
+            <label class="nav-item text-hide c-hand" for="slide-3">3</label>
+            <label class="nav-item text-hide c-hand" for="slide-4">4</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="filterBox container flex-centered">
+      <div class="col-6">
+        <div class="input-group">
+          <input class="form-input" type="text" placeholder="Search by Name" id="name" />
+          <button class="btn btn-primary input-group-btn">Search</button>
+        </div>
+        <div class="input-group">
+          <input class="form-input" type="text" placeholder="Search by Genre" id="genre"/>
+          <button class="btn btn-primary input-group-btn">Search</button>
+        </div>
+        <div class="input-group">
+          <input class="form-input" type="text" placeholder="Search by Age Rating" id="rating"/>
+          <button class="btn btn-primary input-group-btn">Search</button>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+<footer class="container">
+  <div class="columns">
+    <div class="column col-2 contact text-center">
+      <a href="https://github.com/delizoderek" target="_blank" class="btn btn-link">Derek</a>
+    </div>
+    <div class="column col-2 contact text-center">
+        <a href="https://github.com/eriiklew" target="_blank" class="btn btn-link">Erik</a>
+     </div>
+     <div class="column col-4 contact text-center">
+         <h4>Contact Us!</h4>
+     </div>
+     <div class="columns col-2 contact text-center">
+         <a href="https://github.com/TheHebi" target="_blank" class="btn btn-link">Nate</a>
+     </div>
+     <div class="columns col-2 contact text-center">
+         <a href="https://github.com/zmaurer1" target="_blank" class="btn btn-link">Zach</a>
+    </div>
+  </div>
+</footer>
+</html>
+>>>>>>> develop

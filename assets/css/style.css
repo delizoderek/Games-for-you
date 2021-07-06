@@ -1,9 +1,27 @@
-.search-form {
-    margin: 1.2rem;
+body{
+    background-color: aqua;
 }
-#searchCol {
-    background-color: blue;
+html{
+    position: relative;
+    min-height: 100%;
 }
-#resultsCol {
-    background-color: red;
+.landingPage{
+    flex-grow: 1;
+    margin: 0 0 25px;
+}
+.previews{
+    margin: 20px;
+}
+.filterBox{
+    margin-top: 20px;
+}
+footer{
+    position: fixed;
+    /* position: absolute; */
+    display: block;
+    bottom: 0;
+    width: 99%;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
 }
