@@ -1,4 +1,6 @@
 var reqURL = 'https://api.boardgameatlas.com/api'
+var searchBtn = document.getElementById('search-btn')
+var searchBar = document.getElementById('search-bar')
 console.log(reqURL)
 https://api.boardgameatlas.com/api/search?order_by=popularity&ascending=false&client_id=JLBr5npPhV
 var jsonResponse = ''
@@ -37,3 +39,8 @@ async function getData(typeParam, typeValue) {
 //         value: "Adventure"})
 getParams({doThis: "getCategories"})
 getParams({type: "name", value: "star trek"})
+
+
+searchBtn.addEventListener('click', function() {
+    console.log(searchBar.value)
+})
