@@ -9,12 +9,6 @@ let key = "bBS0ShoGPv";
 let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 let baseUrl = "https://www.giantbomb.com/api";
 
-// Set Dropdown Click Listeners
-document.querySelector("#everyone").addEventListener("click",esrbSearch);
-document.querySelector("#everyone10").addEventListener("click",esrbSearch);
-document.querySelector("#teen").addEventListener("click",esrbSearch);
-document.querySelector("#mature").addEventListener("click",esrbSearch);
-
 genreBtn.addEventListener("click",function(event){
     event.preventDefault();
     genreSearch();

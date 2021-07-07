@@ -10,6 +10,12 @@ let searchBtn = document.querySelector("#name-btn");
 let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
+// Set Dropdown Click Listeners
+document.querySelector("#everyone").addEventListener("click",esrbSearch);
+document.querySelector("#everyone10").addEventListener("click",esrbSearch);
+document.querySelector("#teen").addEventListener("click",esrbSearch);
+document.querySelector("#mature").addEventListener("click",esrbSearch);
+
 function carouselImg() {
   fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)
     .then(function (response) {
