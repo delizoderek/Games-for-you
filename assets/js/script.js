@@ -1,7 +1,7 @@
 var rawgApi = "a64070dd102e45d4bbd286bc64075645";
 var bgAtlasApi = "id6TuxDAFr";
 
-let key = "c8b7f2f435b2c64e0004efde1aeeeefdc372de08";
+let key = "bBS0ShoGPv";
 let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 let baseUrl = "https://www.giantbomb.com/api";
 
@@ -36,8 +36,8 @@ let game = {
     stores: [],
 }
 
-let searchBtn = document.querySelector("#searching-game");
-let ageSearch = document.querySelector("#searchAge");
+let searchBtn = document.querySelector("#name-search");
+let ageSearch = document.querySelector("#everyone");
 let gameList = [];
 
 var car1 = document.getElementById("car1");
@@ -45,21 +45,21 @@ var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
 var car4 = document.getElementById("car4");
 
-searchBtn.addEventListener("click",function(event){
-    event.preventDefault();
-    let searchInput = document.querySelector("#searchBox");
-    let searchTerm = searchInput.value.trim();
-    if(searchTerm !== "" || searchTerm !== null){
-        searchTerm = searchTerm.toLowerCase();
-        if(searchTerm.includes(" ")){
-            searchTerm = searchTerm.replaceAll(" ","+");
-        }
-    }
-    // gameSearch(searchTerm);
-    genreSearch();
-});
+// searchBtn.addEventListener("click",function(event){
+//     event.preventDefault();
+//     let searchInput = document.querySelector("#searchBox");
+//     let searchTerm = searchInput.value.trim();
+//     if(searchTerm !== "" || searchTerm !== null){
+//         searchTerm = searchTerm.toLowerCase();
+//         if(searchTerm.includes(" ")){
+//             searchTerm = searchTerm.replaceAll(" ","+");
+//         }
+//     }
+//     // gameSearch(searchTerm);
+//     genreSearch();
+// });
 
-ageSearch.addEventListener("click",tagsSearch);
+searchBtn.addEventListener("click",tagsSearch);
 
 // function apiSearch(event,searchType){
 
@@ -91,7 +91,6 @@ function gameSearch(searchTerm){
         return response.json();
     })
     .then(function(data){
-        console.log(data);
         if(data.results.length > 0){
             for(let result of data.results){
                 console.log(result);
@@ -127,23 +126,39 @@ function genreSearch(){
 function tagsSearch(event){
     event.preventDefault();
     // TODO: Search by and display results
-    let tagsUrl = "https://api.rawg.io/api/tags?page_size=50&key=4ff9656ea1344d38abef9231d5a4547f";
+    let tagsUrl = "https://api.rawg.io/api/games?page_size=50&key=4ff9656ea1344d38abef9231d5a4547f";
+    tagCall(tagsUrl);
+    
+}
+
+function getEsrbResults(ratedE){
+    let tagsUrl = "https://api.rawg.io/api/games?page_size=50&key=4ff9656ea1344d38abef9231d5a4547f";
     fetch(tagsUrl)
     .then(function(response){
         return response.json();
+    }).then(function(data){
+        let results = ageFilter(data.results,ratedE);
+        console.log(results);
     })
-    .then(function(data){
-        // let strOut = "";
-        // for(let genre of data.results){
-        //     strOut += `${genre.name.toLowerCase()}: ${genre.id},\n`;
-        // }
-        console.log(data);
-    });
 }
 
-// function ageSearch(){
-//     // TODO: Search for games by age
-// }
+function searchByAge(event, esrb){
+    // TODO: Search for games by age
+    event.preventDefault();
+    getEsrbResults(esrb);
+}
+
+function ageFilter(gameList,ageRating){
+    let filteredResults = []
+    for(let result of gameList){
+        if(result.esrb_rating != null){
+            if(result.esrb_rating.id <= ageRating){
+                filteredResults.push(result);
+            }
+        }
+    }
+    return filteredResults;
+}
 
 function carouselImg(){
     fetch(`https://api.rawg.io/api/games?page_size=10&key=${rawgApi}`)
@@ -154,12 +169,9 @@ function carouselImg(){
         car1.setAttribute("src", `${data.results[Math.floor(Math.random() * 10)].background_image}`)
         car3.setAttribute("src", `${data.results[Math.floor(Math.random() * 10)].background_image}`)
     })
-    fetch(`https://api.boardgameatlas.com/api/search?name=Catan&client_id=${bgAtlasApi}`)
+    fetch(`https://api.boardgameatlas.com/api/search?name=Catan&client_id=${key}`)
     .then(function(data){
         return data.json()
-    })
-    .then(function(data){
-        console.log(data)
     })
 }
 

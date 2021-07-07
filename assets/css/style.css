@@ -25,6 +25,7 @@ footer{
     justify-content: space-between;
     margin-left: 5px;
     margin-right: 5px;
+    z-index: 2000;
 }
 .ageRating{
     cursor: pointer;
