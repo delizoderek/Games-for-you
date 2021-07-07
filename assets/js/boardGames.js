@@ -26,13 +26,23 @@ async function getData(typeParam, typeValue) {
         .then(response => response.json())
         .then(data => {
             // genCards(data.games)
-            generateCards(data.games)
+            console.log(data)
+            useData(data)
         })
 }
 
+// checks data to see if needs to run fetch again with selected categories or generate cards
+function useData(data) {
+    if(data.games) {
+        generateCards(data.games)
+    }
+    if(data.category) {
+        console.log("do this")
+        
+    }
+}
 
 function generateCards(games) {
-    console.log(games)
     var list = document.getElementById('testRes');
     var columns = document.createElement('div');
     list.append(columns);
@@ -81,7 +91,7 @@ function generateCards(games) {
 
 // getParams({type: "categories",
 //         value: "Adventure"})
-// getParams({doThis: "getCategories"})
+getParams({doThis: "getCategories"})
 
 
 searchBtn.addEventListener('click', function() {
