@@ -6,6 +6,10 @@ var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
 var car4 = document.getElementById("car4");
 
+let searchBtn = document.querySelector("#name-btn");
+let genreBtn = document.querySelector("#genre-search");
+let checkboxList = document.querySelectorAll("input[type='checkbox']");
+
 function carouselImg() {
   fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)
     .then(function (response) {

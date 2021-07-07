@@ -9,10 +9,6 @@ let key = "bBS0ShoGPv";
 let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 let baseUrl = "https://www.giantbomb.com/api";
 
-let searchBtn = document.querySelector("#name-search");
-let genreBtn = document.querySelector("#genre-search");
-let checkboxList = document.querySelectorAll("input[type='checkbox']");
-
 // Set Dropdown Click Listeners
 document.querySelector("#everyone").addEventListener("click",esrbSearch);
 document.querySelector("#everyone10").addEventListener("click",esrbSearch);

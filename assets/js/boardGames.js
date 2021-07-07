@@ -1,8 +1,6 @@
 var reqURL = 'https://api.boardgameatlas.com/api'
-var searchBtn = document.getElementById('name-btn')
-var searchBar = document.getElementById('name')
-console.log(reqURL)
-https://api.boardgameatlas.com/api/search?order_by=popularity&ascending=false&client_id=JLBr5npPhV
+var searchBar = document.getElementById('name');
+
 var jsonResponse = ''
 function getParams(reqParams) {
     console.log(reqParams)
@@ -21,6 +19,7 @@ function getParams(reqParams) {
     }
     
 }
+
 async function getData(typeParam, typeValue) {
     fetch(`${reqURL}/${typeParam}${typeValue}&client_id=JLBr5npPhV`)
         .then(response => response.json())
@@ -37,7 +36,7 @@ function useData(data) {
         generateCards(data.games)
     }
     if(data.category) {
-        console.log("do this")
+        console.log("do this");
         
     }
 }
