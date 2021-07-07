@@ -100,3 +100,9 @@ function filterByEsrb(gameList,ageRating){
     }
     return filteredResults;
 }
+
+// Set Dropdown Click Listeners
+document.querySelector("#everyone").addEventListener("click",esrbSearch);
+document.querySelector("#everyone10").addEventListener("click",esrbSearch);
+document.querySelector("#teen").addEventListener("click",esrbSearch);
+document.querySelector("#mature").addEventListener("click",esrbSearch);
