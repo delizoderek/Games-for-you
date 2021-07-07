@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games For You!</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="landingPage">
+    <header class="navbar">
+      <section class="navbar-section" id="navName">
+        <h1>Games for You!</h1>
+      </section>
+      <section class="navbar-center">
+        
+      </section>
+      <section class="navbar-section" id="navLinks">
+        <a href="./index.html" class="btn btn-link" id="home">Home</a>
+        <a href="#" class="btn btn-link" id="popular">Popular</a>
+        <a href="#" class="btn btn-link" id="favorites">Favorites</a>
+      </section>
+    </header>
+    <div class="container flex-centered col-12 carDiv">
+      <div class="column col-8 col-sm-12 carDiv">
+        <div class="carousel previews carPre">
+          <!-- carousel locator -->
+          <input
+            class="carousel-locator"
+            id="slide-1"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+            checked=""
+          />
+          <input
+            class="carousel-locator"
+            id="slide-2"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+          />
+          <input
+            class="carousel-locator"
+            id="slide-3"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+          />
+          <input
+            class="carousel-locator"
+            id="slide-4"
+            type="radio"
+            name="carousel-radio"
+            hidden=""
+          />
+
+          <!-- carousel container -->
+          <div class="carousel-container">
+            <!-- carousel item -->
+            <figure class="carousel-item">
+                <p class="carTitle" id="carName1"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-4"
+                ><i class="icon icon-arrow-left"></i
+                    ></label>
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-2"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img
+              class="img-responsive rounded carImg"
+              src=""
+              alt="Carousel Image 1"
+              id="car1"
+              />
+            </figure>
+            <figure class="carousel-item">
+                <p class="carTitle" id="carName2"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-1"
+                ><i class="icon icon-arrow-left"></i
+              ></label>
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-3"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img
+                class="img-responsive rounded carImg"
+                src=""
+                alt="Carousel Image 2"
+                id="car2"
+              />
+            </figure>
+            <figure class="carousel-item">
+                <p class="carTitle" id="carName3"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-2"
+                ><i class="icon icon-arrow-left"></i
+              ></label>
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-4"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img
+                class="img-responsive rounded carImg"
+                src=""
+                alt="Carousel Image 3"
+                id="car3"
+              />
+            </figure>
+            <figure class="carousel-item">
+                <p class="carTitle" id="carName4"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-3"
+                ><i class="icon icon-arrow-left"></i
+              ></label>
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-1"
+                ><i class="icon icon-arrow-right"></i
+              ></label>
+              <img class="img-responsive rounded carImg" src="" alt="Carousel Image 4" id="car4"/>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-10 tabBlock">
+    <ul class="tab tab-block">
+        <li class="tab-item" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
+        <li class="tab-item"><a class="" id="genreTab" data-name="Genre">Genre</a></li>
+        <li class="tab-item" > <a class="" id="ageTab" data-name="Age">Age</a></li>
+      </ul>
+    </div>
+    <div class="filterBox container flex-centered">
+      <div class="col-7 col-sm-10">
+        <div class="input-group" id="nameSearch">
+          <input class="form-input" type="text" placeholder="Search by Name" id="name" />
+          <button class="btn btn-primary input-group-btn">Search</button>
+        </div>
+        <div class="input-group columns hidden" id="genreSearch">
+            <label class="form-checkbox column col-3 col-md-4  col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Action
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Adventure
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Arcade
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Casual
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Educational
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Family
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Fighting
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Indie
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Platformer
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Puzzle
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Racing
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> RPG
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Simulation
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Shooter
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Sports
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Strategy
+              </label>
+              
+          <button class="btn btn-primary input-group-btn mx-2">Search by Genre</button>
+        </div> 
+          <!-- dropdown button group -->
+          <div class="dropdown hidden" id="ageSearch">
+            <div class="btn-group">
+              <a class="btn">
+                Search by Age Rating
+              </a>
+              <a class="btn dropdown-toggle" tabindex="0">
+                <i class="icon icon-caret"></i>
+              </a>
+          
+              <!-- menu component -->
+              <ul class="menu">
+                <li class="ageRating" id="everyone">Everyone</li>
+                <li class="ageRating" id="everyone10">Everyone 10+</li>
+                <li class="ageRating" id="teen">Teen</li>
+                <li class="ageRating" id="mature">Mature</li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+    <footer class="container">
+      <div class="columns">
+        <div class="column col-2 contact text-center">
+          <a href="https://github.com/delizoderek" target="_blank" class="btn btn-link">Derek</a>
+        </div>
+        <div class="column col-2 contact text-center">
+            <a href="https://github.com/eriiklew" target="_blank" class="btn btn-link">Erik</a>
+         </div>
+         <div class="column col-4 contact text-center">
+             <h4>Contact Us!</h4>
+         </div>
+         <div class="columns col-2 contact text-center">
+             <a href="https://github.com/TheHebi" target="_blank" class="btn btn-link">Nate</a>
+         </div>
+         <div class="columns col-2 contact text-center">
+             <a href="https://github.com/zmaurer1" target="_blank" class="btn btn-link">Zach</a>
+        </div>
+      </div>
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
