@@ -14,8 +14,8 @@ header{
     color: var(--buttons) !important;
     border-bottom-color: var(--buttons) !important;
 }
-.customLink:hover{
-    color: var(--buttons);
+a:hover{
+    color: var(--buttons) !important;
 }
 .customButtons{
     background-color: var(--buttons) !important;
