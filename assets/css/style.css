@@ -35,6 +35,19 @@ html{
 .hidden{
     display: none;
 }
+.testRes {
+    display: flex!important;
+    flex-direction: row!important;
+}
+.game {
+    display: flex;
+    height: 100%;
+}
+.game img {
+    margin: auto;
+    width: 50%;
+    max-width: 250px;
+}
 .landingPage{
     flex-grow: 1;
     margin: 0 0 25px;

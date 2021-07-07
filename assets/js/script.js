@@ -1,13 +1,25 @@
 var rawgApi = "a64070dd102e45d4bbd286bc64075645";
 var bgAtlasApi = "id6TuxDAFr";
+
 var car1 = document.getElementById("car1");
 var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
 var car4 = document.getElementById("car4");
+
+let searchBtn = document.querySelector("#name-btn");
+let genreBtn = document.querySelector("#genre-search");
+let checkboxList = document.querySelectorAll("input[type='checkbox']");
+
+// Set Dropdown Click Listeners
+document.querySelector("#everyone").addEventListener("click",esrbSearch);
+document.querySelector("#everyone10").addEventListener("click",esrbSearch);
+document.querySelector("#teen").addEventListener("click",esrbSearch);
+document.querySelector("#mature").addEventListener("click",esrbSearch);
+
 function carouselImg() {
   fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)
-    .then(function (data) {
-      return data.json();
+    .then(function (response) {
+      return response.json();
     })
     .then(function (data) {
       let index = Math.floor(Math.random() * 4);
@@ -43,6 +55,7 @@ function carouselImg() {
       car4.setAttribute("src", `${data.games[0].image_url}`);
     });
 }
+
 var changeTab = function (event) {
   document.getElementById("nameTab").classList.remove("active");
   document.getElementById("ageTab").classList.remove("active");
