@@ -19,7 +19,7 @@ html{
 footer{
     position: fixed;
     /* position: absolute; */
-    display: block;
+    display: none;
     bottom: 0;
     width: 99%;
     justify-content: space-between;

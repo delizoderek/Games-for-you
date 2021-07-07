@@ -38,6 +38,7 @@ let game = {
 
 let searchBtn = document.querySelector("#name-search");
 let ageSearch = document.querySelector("#everyone");
+
 let gameList = [];
 
 var car1 = document.getElementById("car1");
@@ -45,44 +46,26 @@ var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
 var car4 = document.getElementById("car4");
 
-// searchBtn.addEventListener("click",function(event){
-//     event.preventDefault();
-//     let searchInput = document.querySelector("#searchBox");
-//     let searchTerm = searchInput.value.trim();
-//     if(searchTerm !== "" || searchTerm !== null){
-//         searchTerm = searchTerm.toLowerCase();
-//         if(searchTerm.includes(" ")){
-//             searchTerm = searchTerm.replaceAll(" ","+");
-//         }
-//     }
-//     // gameSearch(searchTerm);
-//     genreSearch();
-// });
+// Set Dropdown Click Listeners
+document.querySelector("#everyone").addEventListener("click",esrbSearch);
+document.querySelector("#everyone10").addEventListener("click",esrbSearch);
+document.querySelector("#teen").addEventListener("click",esrbSearch);
+document.querySelector("#mature").addEventListener("click",esrbSearch);
 
-searchBtn.addEventListener("click",tagsSearch);
+// genreSearch();
 
-// function apiSearch(event,searchType){
-
-// }
-
-function createCheckboxes(){
-    let checkContainer = document.querySelector("#checkboxes");
-    for(let check in genreChoices){
-        let checkLabel = document.createElement("label");
-        let cBox = document.createElement("input");
-        let btnText = document.createElement("i");
-        checkLabel.setAttribute("class","form-checkbox");
-        cBox.setAttribute("type","checkbox");
-        cBox.setAttribute("data-rawg-id",genreChoices[check]);
-        btnText.setAttribute("class","form-icon");
-        genreCheckboxes.push(cBox);
-        checkLabel.append(cBox);
-        checkLabel.append(btnText);
-        checkLabel.append(check);
-        checkContainer.append(checkLabel);
+searchBtn.addEventListener("click",function(event){
+    event.preventDefault();
+    let searchInput = document.querySelector("#searchBox");
+    let searchTerm = searchInput.value.trim();
+    if(searchTerm !== "" || searchTerm !== null){
+        searchTerm = searchTerm.toLowerCase();
+        if(searchTerm.includes(" ")){
+            searchTerm = searchTerm.replaceAll(" ","+");
+        }
     }
-
-}
+    gameSearch(searchTerm);
+});
 
 function gameSearch(searchTerm){
     let requestUrl = `https://api.rawg.io/api/games?search=${searchTerm}&search_precise=true&page_size=50&key=${rawgKey}`;
@@ -123,32 +106,25 @@ function genreSearch(){
     });
 }
 
-function tagsSearch(event){
-    event.preventDefault();
-    // TODO: Search by and display results
-    let tagsUrl = "https://api.rawg.io/api/games?page_size=50&key=4ff9656ea1344d38abef9231d5a4547f";
-    tagCall(tagsUrl);
-    
-}
-
 function getEsrbResults(ratedE){
     let tagsUrl = "https://api.rawg.io/api/games?page_size=50&key=4ff9656ea1344d38abef9231d5a4547f";
     fetch(tagsUrl)
     .then(function(response){
         return response.json();
     }).then(function(data){
-        let results = ageFilter(data.results,ratedE);
+        let results = filterByEsrb(data.results,ratedE);
         console.log(results);
     })
 }
 
-function searchByAge(event, esrb){
+function esrbSearch(event){
     // TODO: Search for games by age
     event.preventDefault();
-    getEsrbResults(esrb);
+    console.log(event.target);
+    // getEsrbResults(esrb);
 }
 
-function ageFilter(gameList,ageRating){
+function filterByEsrb(gameList,ageRating){
     let filteredResults = []
     for(let result of gameList){
         if(result.esrb_rating != null){
@@ -175,5 +151,4 @@ function carouselImg(){
     })
 }
 
-//createCheckboxes();
 carouselImg()
