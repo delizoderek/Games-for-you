@@ -1,0 +1,22 @@
+.custom-container{
+    border:black ;
+}
+
+.custom-column{
+    border:black;
+    height: 100%;
+}
+
+body{
+    background-color: cadetblue;
+}
+
+#searchby{
+    padding: 2rem;
+
+}
+
+#searchresults{
+    padding: 2rem;
+}
+
