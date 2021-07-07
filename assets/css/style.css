@@ -6,9 +6,19 @@
 }
 body{
     background-color: var(--main-bg);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 header{
     background-color: var(--secondary-bg);
+}
+h1{
+    padding-left: 10px;
+}
+.customSize{
+    font-size: 20px;
+}
+.links{
+    padding-right: 10px;
 }
 .active{
     color: var(--buttons) !important;
