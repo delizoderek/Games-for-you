@@ -65,4 +65,8 @@ footer{
         width: auto;
         margin: auto;
     }
+    #navName{
+        margin: auto;
+        width: fit-content;
+    }
 }
