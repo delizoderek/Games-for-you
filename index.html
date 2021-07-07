@@ -12,24 +12,21 @@
   </head>
   <body class="landingPage">
     <header class="navbar">
-      <section class="navbar-section">
+      <section class="navbar-section" id="navName">
         <h1>Games for You!</h1>
       </section>
       <section class="navbar-center">
-        <div class="input-group input-inline">
-          <input class="form-input" type="text" placeholder="search"/>
-          <button class="btn btn-primary input-group-btn">Search</button>
-        </div>
+        
       </section>
-      <section class="navbar-section">
-        <a href="./index.html" class="btn btn-link">Home</a>
-        <a href="#" class="btn btn-link">Popular</a>
-        <a href="#" class="btn btn-link">Favorites</a>
+      <section class="navbar-section" id="navLinks">
+        <a href="./index.html" class="btn btn-link" id="home">Home</a>
+        <a href="#" class="btn btn-link" id="popular">Popular</a>
+        <a href="#" class="btn btn-link" id="favorites">Favorites</a>
       </section>
     </header>
-    <div class="container flex-centered">
-      <div class="column col-8">
-        <div class="carousel previews">
+    <div class="container flex-centered col-12 carDiv">
+      <div class="column col-8 col-sm-12 carDiv">
+        <div class="carousel previews carPre">
           <!-- carousel locator -->
           <input
             class="carousel-locator"
@@ -65,74 +62,78 @@
           <div class="carousel-container">
             <!-- carousel item -->
             <figure class="carousel-item">
-              <label class="item-prev btn btn-action btn-lg" for="slide-4"
+                <p class="carTitle" id="carName1"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-4"
                 ><i class="icon icon-arrow-left"></i
-              ></label>
-              <label class="item-next btn btn-action btn-lg" for="slide-2"
+                    ></label>
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-2"
                 ><i class="icon icon-arrow-right"></i
               ></label>
               <img
-                class="img-responsive rounded"
-                src=""
-                alt="Carousel Image 1"
-                id="car1"
+              class="img-responsive rounded carImg"
+              src=""
+              alt="Carousel Image 1"
+              id="car1"
               />
             </figure>
             <figure class="carousel-item">
-              <label class="item-prev btn btn-action btn-lg" for="slide-1"
+                <p class="carTitle" id="carName2"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-1"
                 ><i class="icon icon-arrow-left"></i
               ></label>
-              <label class="item-next btn btn-action btn-lg" for="slide-3"
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-3"
                 ><i class="icon icon-arrow-right"></i
               ></label>
               <img
-                class="img-responsive rounded"
+                class="img-responsive rounded carImg"
                 src=""
                 alt="Carousel Image 2"
                 id="car2"
               />
             </figure>
             <figure class="carousel-item">
-              <label class="item-prev btn btn-action btn-lg" for="slide-2"
+                <p class="carTitle" id="carName3"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-2"
                 ><i class="icon icon-arrow-left"></i
               ></label>
-              <label class="item-next btn btn-action btn-lg" for="slide-4"
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-4"
                 ><i class="icon icon-arrow-right"></i
               ></label>
               <img
-                class="img-responsive rounded"
+                class="img-responsive rounded carImg"
                 src=""
                 alt="Carousel Image 3"
                 id="car3"
               />
             </figure>
             <figure class="carousel-item">
-              <label class="item-prev btn btn-action btn-lg" for="slide-3"
+                <p class="carTitle" id="carName4"></p>
+              <label class="item-prev btn btn-action btn-lg carNav" for="slide-3"
                 ><i class="icon icon-arrow-left"></i
               ></label>
-              <label class="item-next btn btn-action btn-lg" for="slide-1"
+              <label class="item-next btn btn-action btn-lg carNav" for="slide-1"
                 ><i class="icon icon-arrow-right"></i
               ></label>
-              <img class="img-responsive rounded" src="" alt="Carousel Image 4" id="car4"/>
+              <img class="img-responsive rounded carImg" src="" alt="Carousel Image 4" id="car4"/>
             </figure>
-          </div>
-          <!-- carousel navigation -->
-          <div class="carousel-nav">
-            <label class="nav-item text-hide c-hand" for="slide-1">1</label>
-            <label class="nav-item text-hide c-hand" for="slide-2">2</label>
-            <label class="nav-item text-hide c-hand" for="slide-3">3</label>
-            <label class="nav-item text-hide c-hand" for="slide-4">4</label>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-10 tabBlock">
+    <ul class="tab tab-block">
+        <li class="tab-item" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
+        <li class="tab-item"><a class="" id="genreTab" data-name="Genre">Genre</a></li>
+        <li class="tab-item" > <a class="" id="ageTab" data-name="Age">Age</a></li>
+      </ul>
+    </div>
     <div class="filterBox container flex-centered">
-      <div class="col-6">
-        <div class="input-group">
-          <input class="form-input" type="text" placeholder="Search by Name" id="name-search" />
-          <button class="btn btn-primary input-group-btn" id="search-btn">Search</button>
+      <div class="col-7 col-sm-10">
+        <div class="input-group" id="nameSearch">
+          <input class="form-input" type="text" placeholder="Search by Name" id="name" />
+          <button class="btn btn-primary input-group-btn" id="name-btn">Search</button>
         </div>
-        <div class="input-group columns">
+        <div class="input-group columns hidden" id="genreSearch">
             <label class="form-checkbox column col-3 col-md-4  col-sm-6 form-inline text-center">
                 <input type="checkbox"><i class="form-icon mx-2"></i> Action
               </label>
@@ -181,15 +182,16 @@
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
                 <input type="checkbox"><i class="form-icon mx-2"></i> Strategy
               </label>
+              
           <button class="btn btn-primary input-group-btn mx-2">Search by Genre</button>
         </div> 
           <!-- dropdown button group -->
-          <div class="dropdown">
+          <div class="dropdown hidden" id="ageSearch">
             <div class="btn-group">
-              <a href="#" class="btn">
+              <a class="btn">
                 Search by Age Rating
               </a>
-              <a href="#" class="btn dropdown-toggle" tabindex="0">
+              <a class="btn dropdown-toggle" tabindex="0">
                 <i class="icon icon-caret"></i>
               </a>
           
@@ -203,8 +205,15 @@
             </div>
           </div>
       </div>
+      
     </div>
+    <section>
+        <div class="container" id="testRes">
+            
+        </div>
+    </section>
     <footer class="container">
+        
       <div class="columns">
         <div class="column col-2 contact text-center">
           <a href="https://github.com/delizoderek" target="_blank" class="btn btn-link">Derek</a>
@@ -229,13 +238,3 @@
 </html>
 
 
-<div class="container">
-    <div class="columns">
-        <div class="column col-xs-12 col-md-4 col-lg-3">
-
-        </div>
-        <div class="column col-xs-12 col-md-8 col-lg-9">
-            
-        </div>
-    </div>
-</div>
