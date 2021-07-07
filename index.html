@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Games For You!</title>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"/>
@@ -73,8 +73,8 @@
               ></label>
               <img
                 class="img-responsive rounded"
-                src="img/osx-yosemite.jpg"
-                alt="macOS Yosemite Wallpaper"
+                src=""
+                alt="Carousel Image 1"
                 id="car1"
               />
             </figure>
@@ -87,8 +87,8 @@
               ></label>
               <img
                 class="img-responsive rounded"
-                src="img/osx-yosemite-2.jpg"
-                alt="macOS Yosemite Wallpaper"
+                src=""
+                alt="Carousel Image 2"
                 id="car2"
               />
             </figure>
@@ -101,8 +101,8 @@
               ></label>
               <img
                 class="img-responsive rounded"
-                src="img/osx-el-capitan.jpg"
-                alt="macOS El Capitan Wallpaper"
+                src=""
+                alt="Carousel Image 3"
                 id="car3"
               />
             </figure>
@@ -113,7 +113,7 @@
               <label class="item-next btn btn-action btn-lg" for="slide-1"
                 ><i class="icon icon-arrow-right"></i
               ></label>
-              <img class="img-responsive rounded" src="img/osx-el-capitan-2.jpg" alt="macOS El Capitan Wallpaper" id="car4"/>
+              <img class="img-responsive rounded" src="" alt="Carousel Image 4" id="car4"/>
             </figure>
           </div>
           <!-- carousel navigation -->
@@ -132,35 +132,110 @@
           <input class="form-input" type="text" placeholder="Search by Name" id="name" />
           <button class="btn btn-primary input-group-btn">Search</button>
         </div>
-        <div class="input-group">
-          <input class="form-input" type="text" placeholder="Search by Genre" id="genre"/>
-          <button class="btn btn-primary input-group-btn">Search</button>
-        </div>
-        <div class="input-group">
-          <input class="form-input" type="text" placeholder="Search by Age Rating" id="rating"/>
-          <button class="btn btn-primary input-group-btn">Search</button>
-        </div>
+        <div class="input-group columns">
+            <label class="form-checkbox column col-3 col-md-4  col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Action
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Adventure
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Arcade
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Casual
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Educational
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Family
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Fighting
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Indie
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Platformer
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Puzzle
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Racing
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> RPG
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Simulation
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Shooter
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Sports
+              </label>
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
+                <input type="checkbox"><i class="form-icon mx-2"></i> Strategy
+              </label>
+          <button class="btn btn-primary input-group-btn mx-2">Search by Genre</button>
+        </div> 
+          <!-- dropdown button group -->
+          <div class="dropdown">
+            <div class="btn-group">
+              <a href="#" class="btn">
+                Search by Age Rating
+              </a>
+              <a href="#" class="btn dropdown-toggle" tabindex="0">
+                <i class="icon icon-caret"></i>
+              </a>
+          
+              <!-- menu component -->
+              <ul class="menu">
+                <li class="ageRating" id="everyone">Everyone</li>
+                <li class="ageRating" id="everyone10">Everyone 10+</li>
+                <li class="ageRating" id="teen">Teen</li>
+                <li class="ageRating" id="mature">Mature</li>
+              </ul>
+            </div>
+          </div>
       </div>
     </div>
+    <footer class="container">
+      <div class="columns">
+        <div class="column col-2 contact text-center">
+          <a href="https://github.com/delizoderek" target="_blank" class="btn btn-link">Derek</a>
+        </div>
+        <div class="column col-2 contact text-center">
+            <a href="https://github.com/eriiklew" target="_blank" class="btn btn-link">Erik</a>
+         </div>
+         <div class="column col-4 contact text-center">
+             <h4>Contact Us!</h4>
+         </div>
+         <div class="columns col-2 contact text-center">
+             <a href="https://github.com/TheHebi" target="_blank" class="btn btn-link">Nate</a>
+         </div>
+         <div class="columns col-2 contact text-center">
+             <a href="https://github.com/zmaurer1" target="_blank" class="btn btn-link">Zach</a>
+        </div>
+      </div>
+    </footer>
     <script src="./assets/js/script.js"></script>
-</body>
-<footer class="container">
-  <div class="columns">
-    <div class="column col-2 contact text-center">
-      <a href="https://github.com/delizoderek" target="_blank" class="btn btn-link">Derek</a>
-    </div>
-    <div class="column col-2 contact text-center">
-        <a href="https://github.com/eriiklew" target="_blank" class="btn btn-link">Erik</a>
-     </div>
-     <div class="column col-4 contact text-center">
-         <h4>Contact Us!</h4>
-     </div>
-     <div class="columns col-2 contact text-center">
-         <a href="https://github.com/TheHebi" target="_blank" class="btn btn-link">Nate</a>
-     </div>
-     <div class="columns col-2 contact text-center">
-         <a href="https://github.com/zmaurer1" target="_blank" class="btn btn-link">Zach</a>
-    </div>
-  </div>
-</footer>
+    <script src="./assets/js/boardGames.js"></script>
+  </body>
 </html>
+
+
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-12 col-md-4 col-lg-3">
+
+        </div>
+        <div class="column col-xs-12 col-md-8 col-lg-9">
+            
+        </div>
+    </div>
+</div>

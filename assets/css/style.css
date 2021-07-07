@@ -16,7 +16,7 @@ html{
     margin-top: 20px;
 }
 footer{
-    position: fixed;
+    position: relative;
     /* position: absolute; */
     display: block;
     bottom: 0;
@@ -24,4 +24,7 @@ footer{
     justify-content: space-between;
     margin-left: 5px;
     margin-right: 5px;
+}
+.ageRating{
+    cursor: pointer;
 }
