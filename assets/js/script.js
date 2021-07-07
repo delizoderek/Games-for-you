@@ -13,7 +13,7 @@ function carouselImg() {
       let index = Math.floor(Math.random() * 4);
       let index2 = Math.floor(Math.random() * 4);
       while (index === index2) {
-        index2 = Math.floor(Math.random() * 20);
+        index2 = Math.floor(Math.random() * 4);
       }
       car1.setAttribute("src", `${data.results[index].background_image}`);
       document.getElementById("carName1").textContent =
