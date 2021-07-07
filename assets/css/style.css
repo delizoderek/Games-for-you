@@ -14,8 +14,8 @@ header{
     color: var(--buttons) !important;
     border-bottom-color: var(--buttons) !important;
 }
-.active:hover{
-    color: var(--buttons) !important;
+.customLink:hover{
+    color: var(--buttons);
 }
 .customButtons{
     background-color: var(--buttons) !important;
@@ -34,19 +34,6 @@ html{
 }
 .hidden{
     display: none;
-}
-.testRes {
-    display: flex!important;
-    flex-direction: row!important;
-}
-.game {
-    display: flex;
-    height: 100%;
-}
-.game img {
-    margin: auto;
-    width: 50%;
-    max-width: 250px;
 }
 .landingPage{
     flex-grow: 1;
