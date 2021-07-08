@@ -11,9 +11,18 @@ body{
 
 .card{
     display: inline-block;
+    height:150px;
+    width:150px;
+    border: 10px solid black;
+    position:static;
+    
+    
 }
 .game-card{
-    width: 400px;
+    
+    height:max-content;
+    width: 250px;
+    
 }
 
 .cardTitle{
