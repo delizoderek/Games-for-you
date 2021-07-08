@@ -37,13 +37,31 @@ function popularModal(){
       return response.json();
     })
     .then(function (data) {
-      document.getElementById("vg1Name").textContent = data.results[0].name
-      document.getElementById("vg1Img").setAttribute("src", `${data.results[0].background_image}`)
-      document.getElementById("vg1Img").style.width = `70%`
-      document.getElementById("vg1Img").style.height = `70%`
-      document.getElementById("vg1Link").setAttribute("href", `https://rawg.io/games/${data.results[0].id}`)
-      document.getElementById("vg1Link").textContent = `https://rawg.io/games/${data.results[0].id}`
+      for (let i = 0; i <= 3; i++) {
+        document.getElementById(`vg${i+1}Name`).textContent = data.results[i].name
+        document.getElementById(`vg${i+1}Img`).setAttribute("src", `${data.results[i].background_image}`)
+        document.getElementById(`vg${i+1}Img`).style.width = `70%`
+        document.getElementById(`vg${i+1}Img`).style.height = `70%`
+        document.getElementById(`vg${i+1}Link`).setAttribute("href", `https://rawg.io/games/${data.results[i].id}`)
+        document.getElementById(`vg${i+1}Link`).textContent = `https://rawg.io/games/${data.results[i].id}`
+        
+      }
     });
+    fetch(`https://api.boardgameatlas.com/api/search?order_by=popularity&client_id=${bgAtlasApi}`)
+    .then(function(response){
+      return response.json()
+    })
+    .then(function(response){
+      for (let i = 0; i <= 3; i++) {
+        
+        document.getElementById(`bg${i+1}Name`).textContent = response.games[i].name
+        document.getElementById(`bg${i+1}Img`).setAttribute("src", `${response.games[i].image_url}`)
+        document.getElementById(`bg${i+1}Img`).style.width = `70%`
+        document.getElementById(`bg${i+1}Img`).style.height = `70%`
+        document.getElementById(`bg${i+1}Link`).setAttribute("href", `${response.games[i].url}`)
+        document.getElementById(`bg${i+1}Link`).textContent  = `${response.games[i].url}`
+      }
+    })
 }
 
 function carouselImg() {
