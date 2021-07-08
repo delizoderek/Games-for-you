@@ -1,10 +1,3 @@
-let game = {
-    name: "",
-    esrbRating:"",
-    genres: [],
-    stores: [],
-}
-
 let key = "bBS0ShoGPv";
 let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 let baseUrl = "https://www.giantbomb.com/api";
@@ -20,21 +13,17 @@ genreBtn.addEventListener("click",function(event){
     genreSearch();
 });
 
-searchBtn.addEventListener("click",function(event){
-    event.preventDefault();
-    let searchInput = document.querySelector("#searchBox");
-    let searchTerm = searchInput.value.trim();
-    if(searchTerm !== "" || searchTerm !== null){
-        searchTerm = searchTerm.toLowerCase();
-        if(searchTerm.includes(" ")){
-            searchTerm = searchTerm.replaceAll(" ","+");
-        }
-    }
-    gameSearch(searchTerm);
-});
+// searchBtn.addEventListener("click",function(event){
+//     event.preventDefault();
+    
+//     gameSearch(searchTerm);
+// });
+
+function getVideoGameUrl(searchTerm){
+    return `https://api.rawg.io/api/games?search=${searchTerm}&search_precise=true&page_size=50&key=${rawgKey}`;
+}
 
 function gameSearch(searchTerm){
-    let requestUrl = `https://api.rawg.io/api/games?search=${searchTerm}&search_precise=true&page_size=50&key=${rawgKey}`;
     fetch(requestUrl)
     .then(function(response){
         return response.json();
