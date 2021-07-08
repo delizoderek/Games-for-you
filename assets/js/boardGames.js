@@ -2,21 +2,6 @@ var reqURL = 'https://api.boardgameatlas.com/api'
 var searchBar = document.getElementById('name');
 
 var jsonResponse = ''
-function getBoardGameUrl(reqParams){
-    if(reqParams.type) {
-        if(reqParams.type === "name") {
-            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
-        } else if(reqParams.type === "categories") {
-            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
-        } else {
-            alert("could not find any games that match the description")
-        }
-    } else if(reqParams.doThis) {
-        if(reqParams.doThis === "getCategories") {
-            getData("game","/categories?pretty=true")
-        }
-    }
-}
 
 function getParams(reqParams) {
     if(reqParams.type) {

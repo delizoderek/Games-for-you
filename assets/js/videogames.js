@@ -19,10 +19,6 @@ genreBtn.addEventListener("click",function(event){
 //     gameSearch(searchTerm);
 // });
 
-function getVideoGameUrl(searchTerm){
-    return `https://api.rawg.io/api/games?search=${searchTerm}&search_precise=true&page_size=50&key=${rawgKey}`;
-}
-
 function gameSearch(searchTerm){
     fetch(requestUrl)
     .then(function(response){

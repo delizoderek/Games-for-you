@@ -22,8 +22,8 @@ searchBtn.addEventListener("click",function(event){
             searchTerm = searchTerm.replaceAll(" ","+");
         }
     }
-
-    searchByName(searchTerm);
+    location.assign(`./searchresults.html?q=${searchTerm}`);
+    // searchByName(searchTerm);
 });
 
 /*
