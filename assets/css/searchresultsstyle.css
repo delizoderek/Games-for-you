@@ -107,6 +107,10 @@ body {
 .game-card{
     width: 400px;
 }
+.tabBlock {
+    margin: auto;
+    cursor: pointer;
+  }
 .cardTitle{
     color:black!important;
 }
