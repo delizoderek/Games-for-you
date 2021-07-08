@@ -23,31 +23,70 @@ searchBtn.addEventListener("click",function(event){
         }
     }
     location.assign(`./searchresults.html?q=${searchTerm}`);
-    // searchByName(searchTerm);
 });
+
+genreBtn.addEventListener("click",function(event){
+    event.preventDefault();
+    let genreString = buildGenreString();
+    searchByGenre(genreString);
+});
+
+function buildGenreString(){
+    let genreQuery = "";
+    for(let i = 0; i < checkboxList.length; i++){
+        if(checkboxList[i].checked){
+            genreQuery += `${checkboxList[i].dataset.rawgId},`;
+        }
+    }
+    return genreQuery.substring(0,genreQuery.length-1);
+}
+
+function getVideoGameUrl(searchObject){
+    if(searchObject.type){
+        if(searchObject.type === 'search'){
+            // type is search
+            return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&search_precise=true&page_size=50&key=${rawgApi}`;
+        } else if(searchObject.type === 'genres'){
+            // type is genres
+            return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&page_size=50&key=${rawgApi}`
+        }
+    }
+}
+
+function getBoardGameUrl(reqParams){
+    if(reqParams.type) {
+        if(reqParams.type === "name") {
+            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
+        } else if(reqParams.type === "categories") {
+            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
+        } else {
+            alert("could not find any games that match the description")
+        }
+    }
+}
 
 /*
 * 
 */
-async function searchByName(query) {
-    let tagsUrl = getVideoGameUrl(query);
-    let bgUrl = getBoardGameUrl({type: 'name', value: query});
-    const rawgResp = await fetch(tagsUrl);
+async function searchByGenre(query) {
+    let vgUrl = getVideoGameUrl({type: 'genres', value: query});
+    // let bgUrl = getBoardGameUrl({type: 'name', value: query});
+    const rawgResp = await fetch(vgUrl);
     const rawgResults = await rawgResp.json();
-    const atlasResponse = await fetch(bgUrl);
-    const atlasResults = await atlasResponse.json();
+    // const atlasResponse = await fetch(bgUrl);
+    // const atlasResults = await atlasResponse.json();
 
     // populate list
-    let tempList = [];
+    let resultList = [];
     for(let result of rawgResults.results){
-        tempList.push({name: result.name, image: result.background_image, link: `https://rawg.io/games/${result.id}`});
+        resultList.push({name: result.name, image: result.background_image, link: `https://rawg.io/games/${result.id}`});
     }
-    for(let bGame of atlasResults.games){
-        tempList.push({name: bGame.name, image: bGame.image_url, link: bGame.url});
-    }
+    // for(let bGame of atlasResults.games){
+    //     resultList.push({name: bGame.name, image: bGame.image_url, link: bGame.url});
+    // }
     // // Sort results by name
-    tempList.sort(sortGames);
-    console.log(tempList);
+    resultList.sort(sortGames);
+    // console.log(resultList);
 }
 
 function sortGames(item1,item2){

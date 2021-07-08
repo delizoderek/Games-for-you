@@ -8,17 +8,6 @@ document.querySelector("#everyone10").addEventListener("click",esrbSearch);
 document.querySelector("#teen").addEventListener("click",esrbSearch);
 document.querySelector("#mature").addEventListener("click",esrbSearch);
 
-genreBtn.addEventListener("click",function(event){
-    event.preventDefault();
-    genreSearch();
-});
-
-// searchBtn.addEventListener("click",function(event){
-//     event.preventDefault();
-    
-//     gameSearch(searchTerm);
-// });
-
 function gameSearch(searchTerm){
     fetch(requestUrl)
     .then(function(response){
@@ -47,15 +36,15 @@ function genreSearch(){
     });
 }
 
-function buildGenreString(){
-    let genreQuery = "";
-    for(let i = 0; i < checkboxList.length; i++){
-        if(checkboxList[i].checked){
-            genreQuery += `${checkboxList[i].dataset.gid},`;
-        }
-    }
-    return genreQuery.substring(0,genreQuery.length-1);
-}
+// function buildGenreString(){
+//     let genreQuery = "";
+//     for(let i = 0; i < checkboxList.length; i++){
+//         if(checkboxList[i].checked){
+//             genreQuery += `${checkboxList[i].dataset.gid},`;
+//         }
+//     }
+//     return genreQuery.substring(0,genreQuery.length-1);
+// }
 
 function esrbSearch(event){
     // TODO: Search for games by age

@@ -14,8 +14,16 @@ function parseQuery(){
     }
 }
 
-function getVideoGameUrl(searchTerm){
-    return `https://api.rawg.io/api/games?search=${searchTerm}&search_precise=true&page_size=50&key=${rawgApi}`;
+function getVideoGameUrl(searchObject){
+    if(searchObject.type){
+        if(searchObject.type === 'search'){
+            // type is search
+            return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&search_precise=true&page_size=50&key=${rawgApi}`;
+        } else if(searchObject.type === 'genres'){
+            // type is genres
+            return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&page_size=50&key=${rawgApi}`
+        }
+    }
 }
 
 function getBoardGameUrl(reqParams){
@@ -27,10 +35,6 @@ function getBoardGameUrl(reqParams){
         } else {
             alert("could not find any games that match the description")
         }
-    } else if(reqParams.doThis) {
-        if(reqParams.doThis === "getCategories") {
-            getData("game","/categories?pretty=true")
-        }
     }
 }
 
@@ -41,9 +45,9 @@ function getBoardGameUrl(reqParams){
 * link: Link to 'store' page - type String
 */
 async function searchByName(query) {
-    let tagsUrl = getVideoGameUrl(query);
+    let vgUrl = getVideoGameUrl({type: 'search', value: query});
     let bgUrl = getBoardGameUrl({type: 'name', value: query});
-    const rawgResp = await fetch(tagsUrl);
+    const rawgResp = await fetch(vgUrl);
     const rawgResults = await rawgResp.json();
     const atlasResponse = await fetch(bgUrl);
     const atlasResults = await atlasResponse.json();
@@ -81,7 +85,7 @@ function getData(){
         useData(data)
     })
 }
-// getData()
+getData()
 
 function useData(gameData){
     console.log(gameData.games[0].image_url)
@@ -129,5 +133,5 @@ function useData(gameData){
     }
 
 }
-// useData()
+useData()
 parseQuery();
