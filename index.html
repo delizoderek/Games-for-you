@@ -5,23 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Games For You!</title>
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body class="landingPage">
     <header class="navbar">
-      <section class="navbar-section" id="navName">
-        <h1>Games for You!</h1>
-      </section>
-      <section class="navbar-center">
-        
+      <section class="navbar-section" >
+        <h1 id="navName" class="customColor">Games for You!</h1>
       </section>
       <section class="navbar-section" id="navLinks">
-        <a href="./index.html" class="btn btn-link" id="home">Home</a>
-        <a href="#" class="btn btn-link" id="popular">Popular</a>
-        <a href="#" class="btn btn-link" id="favorites">Favorites</a>
+        <a href="./index.html" class="btn btn-link customColor" id="home">Home</a>
+        <a href="#" class="btn btn-link customColor" id="popular">Popular</a>
+        <a href="#" class="btn btn-link customColor" id="favorites">Favorites</a>
       </section>
     </header>
     <div class="container flex-centered col-12 carDiv">
@@ -122,88 +128,89 @@
     </div>
     <div class="col-10 tabBlock">
     <ul class="tab tab-block">
-        <li class="tab-item" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
-        <li class="tab-item"><a class="" id="genreTab" data-name="Genre">Genre</a></li>
-        <li class="tab-item" > <a class="" id="ageTab" data-name="Age">Age</a></li>
+        <li class="tab-item customLink" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
+        <li class="tab-item customLink"><a class="" id="genreTab" data-name="Genre">Genre</a></li>
+        <li class="tab-item customLink" > <a class="" id="ageTab" data-name="Age">Age</a></li>
       </ul>
     </div>
     <div class="filterBox container flex-centered">
       <div class="col-7 col-sm-10">
         <div class="input-group" id="nameSearch">
           <input class="form-input" type="text" placeholder="Search by Name" id="name" />
-          <button class="btn btn-primary input-group-btn" id="name-btn">Search</button>
+          <button id="name-btn" class="btn btn-primary input-group-btn customButtons">Search</button>
         </div>
         <div class="input-group columns hidden" id="genreSearch">
-            <label class="form-checkbox column col-3 col-md-4  col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Action
+            <label class="form-checkbox column col-3 col-md-4  col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="4" value="Action"><i class="form-icon mx-2 customButtons"></i> Action
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Adventure
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="3" value="Adventure"><i class="form-icon mx-2 customButtons"></i> Adventure
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Arcade
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="11" value="Arcade"><i class="form-icon mx-2 customButtons"></i> Arcade
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Casual
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="40" value="Casual"><i class="form-icon mx-2 customButtons"></i> Casual
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Educational
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="34" value="Educational"><i class="form-icon mx-2 customButtons"></i> Educational
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Family
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="19" value="Family"><i class="form-icon mx-2 customButtons"></i> Family
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Fighting
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="6" value="Fighting"><i class="form-icon mx-2 customButtons"></i> Fighting
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Indie
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="51" value="Indie"><i class="form-icon mx-2 customButtons"></i> Indie
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Platformer
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-rawg-id="83" value="Platformer"><i class="form-icon mx-2 customButtons"></i> Platformer
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Puzzle
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="7" value="Puzzle"><i class="form-icon mx-2 customButtons"></i> Puzzle
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Racing
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="1" value="Racing"><i class="form-icon mx-2 customButtons"></i> Racing
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> RPG
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="5" value="RPG"><i class="form-icon mx-2 customButtons"></i> RPG
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Simulation
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="14" value="Simulation"><i class="form-icon mx-2 customButtons"></i> Simulation
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Shooter
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="2" value="Shooter"><i class="form-icon mx-2 customButtons"></i> Shooter
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Sports
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="15" value="Sports"><i class="form-icon mx-2 customButtons"></i> Sports
               </label>
-              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center">
-                <input type="checkbox"><i class="form-icon mx-2"></i> Strategy
+              <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
+                <input type="checkbox" data-gid="10" value="Strategy"><i class="form-icon mx-2 customButtons"></i> Strategy
               </label>
               
-          <button class="btn btn-primary input-group-btn mx-2">Search by Genre</button>
+          <button id="genre-search" class="btn btn-primary input-group-btn mx-2 customButtons">Search by Genre</button>
         </div> 
           <!-- dropdown button group -->
           <div class="dropdown hidden" id="ageSearch">
             <div class="btn-group">
-              <a class="btn">
+              <a class="btn customButtons">
                 Search by Age Rating
               </a>
-              <a class="btn dropdown-toggle" tabindex="0">
+              <a class="btn dropdown-toggle customButtons" tabindex="0">
                 <i class="icon icon-caret"></i>
               </a>
           
               <!-- menu component -->
-              <ul class="menu">
-                <li class="ageRating" id="everyone">Everyone</li>
-                <li class="ageRating" id="everyone10">Everyone 10+</li>
-                <li class="ageRating" id="teen">Teen</li>
-                <li class="ageRating" id="mature">Mature</li>
+              <ul class="menu customButtons">
+                <li class="ageRating customButtons" id="everyone" data-esrbId="1">Everyone</li>
+                <li class="ageRating customButtons" id="everyone10" data-esrbId="2">Everyone 10+</li>
+                <li class="ageRating customButtons" id="teen" data-esrbId="3">Teen</li>
+                <li class="ageRating customButtons" id="mature" data-esrbId="4">Mature</li>
               </ul>
             </div>
           </div>
+        </div>
       </div>
       
     </div>
@@ -216,24 +223,26 @@
         
       <div class="columns">
         <div class="column col-2 contact text-center">
-          <a href="https://github.com/delizoderek" target="_blank" class="btn btn-link">Derek</a>
+          <a href="https://github.com/delizoderek" target="_blank" class="btn btn-link customLink">Derek</a>
         </div>
         <div class="column col-2 contact text-center">
-            <a href="https://github.com/eriiklew" target="_blank" class="btn btn-link">Erik</a>
+            <a href="https://github.com/eriiklew" target="_blank" class="btn btn-link customLink">Erik</a>
          </div>
          <div class="column col-4 contact text-center">
-             <h4>Contact Us!</h4>
+             <h4 class="customColor">Contact Us!</h4>
          </div>
          <div class="columns col-2 contact text-center">
-             <a href="https://github.com/TheHebi" target="_blank" class="btn btn-link">Nate</a>
+             <a href="https://github.com/TheHebi" target="_blank" class="btn btn-link customLink">Nate</a>
          </div>
          <div class="columns col-2 contact text-center">
-             <a href="https://github.com/zmaurer1" target="_blank" class="btn btn-link">Zach</a>
+             <a href="https://github.com/zmaurer1" target="_blank" class="btn btn-link customLink">Zach</a>
         </div>
       </div>
     </footer>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/boardGames.js"></script>
+    <script src="./assets/js/videogames.js"></script>
+    
   </body>
 </html>
 

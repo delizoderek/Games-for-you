@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games for You!</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/searchresultsstyle.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <section class="navbar-section">
+        <h1>Games for You!</h1>
+      </section>
+      <section class="navbar-center">
+        <div class="input-group input-inline">
+          <input class="form-input" type="text" placeholder="search" />
+          <button class="btn btn-primary input-group-btn">Search</button>
+        </div>
+      </section>
+      <section class="navbar-section">
+        <a href="./index.html" class="btn btn-link">Home</a>
+        <a href="#" class="btn btn-link">Popular</a>
+        <a href="#" class="btn btn-link">Favorites</a>
+      </section>
+      <section class="col-6"></section>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="columns col-gapless">
+          <div class="column col-3">Search Bar</div>
+          <div class="column col-9" id="card-list"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./assets/js/scriptresults.js"></script>
+  </body>
+</html>

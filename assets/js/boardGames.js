@@ -1,88 +1,93 @@
 var reqURL = 'https://api.boardgameatlas.com/api'
 var reqCID = '&client_id=JLBr5npPhV'
 var rawgURL = 'https://api.rawg.io/api'
-var rawgKey = '67a03305827341eaaf787bd38cb5cafa'
-var searchBtn = document.getElementById('name-btn')
-var searchBar = document.getElementById('name')
+// var rawgKey = '67a03305827341eaaf787bd38cb5cafa'
+// var searchBtn = document.getElementById('name-btn')
+// var searchBar = document.getElementById('name')
 var categenre = [];
 var newArr = [];
-console.log(reqURL)
-https://api.boardgameatlas.com/api/search?order_by=popularity&ascending=false&client_id=JLBr5npPhV
 
 
 function getParams(reqParams) {
-    console.log(reqParams)
     if(reqParams.type) {
         if(reqParams.type === "name") {
-            return getData(reqURL, reqCID, `search?${reqParams.type}=`, reqParams.value)
+            getData(reqURL, reqCID, `search?${reqParams.type}=`, reqParams.value, 'nameResults')
         }
     } else if(reqParams.doThis) {
         if(reqParams.doThis === "getCategories") {
-            getData(reqURL, reqCID, "game","/categories?pretty=true")
+            getData(reqURL, reqCID, "game","/categories?pretty=true", 'categoriesResults')
         }
     } else if(reqParams.rawg) {
         if(reqParams.rawg === "genres") {
-            getData(rawgURL, rawgKey, "genres", '?key=')
+            getData(rawgURL, rawgKey, "genres", '?key=', 'rawgGenres')
         }
-    } else if(reqParams.catObject) {
-        var qString = ''
-        console.log(reqParams.catObject)
-        for(var i = 0; i < reqParams.catObject.length; i++) {
-            qString += `categories=${reqParams.catObject[i].id}`
-            if(i < reqParams.catObject.length - 1) {
-                qString += `&`;
-            }
-            
+    } else if(reqParams.genreArray) {
+        console.log(reqParams.genreArray)
+        for(var i = 0; i < reqParams.genreArray.length; i++) {
+            console.log(newArr[i].name)
+            if(newArr[i].name = reqParams.genreArray[i]) {
+                getData(reqURL, reqCID, "search?", `categories=${newArr[i].id}`, 'genreResults')
+            }  
         }
-        console.log(qString)
-        getData(reqURL, reqCID, "search?", qString)
+        
     }
     
 }
-async function getData(url, key, typeParam, typeValue) {
+async function getData(url, key, typeParam, typeValue, type) {
+    console.log((`${url}/${typeParam}${typeValue}${key}`))
     fetch(`${url}/${typeParam}${typeValue}${key}`)
         .then(response => response.json())
         .then(data => {
             // genCards(data.games)
             console.log(data)
-            useData(data)
+            useData({results: data, purpose: type})
         })
 }
 
 // checks data to see if needs to run fetch again with selected categories or generate cards
 function useData(data) {
-    if(data.games) {
-        generateCards(data.games)
+    if(data.purpose === 'nameResults') {
+        //this code executes if the data object received is a list of games from searching
+        console.log(data)
+        generateCards(data.results.games)
     }
-    else if(data.categories) {
-        console.log(data.categories.length)
+    else if(data.purpose === 'categoriesResults') {
+        //this code executes if the data received from getData() is the list of categories from atlas api, gets ids for all of the genres that were selected
         for(var i = 0; i < categenre.length; i++) {
-            console.log(i)
-            for(var x = 0; x < data.categories.length; x++) {
-                if(categenre[i] === data.categories[x].name) {
-                    newArr.push({id: data.categories[x].id, name: categenre[i]})
+            for(var x = 0; x < data.results.categories.length; x++) {
+                if(categenre[i] === data.results.categories[x].name) {
+                    newArr.push({id: data.results.categories[x].id, name: categenre[i]})
                 }
             }
         }
         getParams({catObject: newArr})
-        console.log(newArr)
         
-    } else if(data.results.length = 19) {
-        for(var i = 0; i < data.results.length; i++) {
-            categenre.push(data.results[i].name)
+    } else if(data.purpose === 'rawgGenres') {
+        //this code executes if data passed from getData() is the genres array from rawg api
+        for(var i = 0; i < data.results.results.length; i++) {
+            categenre.push(data.results.results[i].name)
         }
         console.log(categenre)
         getParams({doThis: "getCategories"})
-        console.log('correct data')
+    } else if(data.purpose === 'genreResults') {
+        filteredGenreResults = filteredGenreResults.concat(data.results.games.slice(0, 10))  
+        console.log(filteredGenreResults)
     }
 }
+
+
+
 
 function generateCards(games) {
     var list = document.getElementById('testRes');
     var columns = document.createElement('div');
     list.append(columns);
     columns.setAttribute('class', 'columns')
-    for(var i = 0; i < 20; i++) {
+    var maxLength = 20
+    if(games.length < 20) {
+        maxLength = games.length
+    }
+    for(var i = 0; i < maxLength; i++) {
         var col = document.createElement('div'); 
         col.setAttribute('class', 'column col-sm-6 col-md-4 col-lg-3 col-xl-3')
 
@@ -131,7 +136,7 @@ getParams({rawg: 'genres'})
 // getParams({type: 'categories', value: ''})
 
 searchBtn.addEventListener('click', function() {
-    getParams({type: 'name', value: searchBar.value})
+    getParams({type: 'name', value: searchInput.value})
 })
 
 
