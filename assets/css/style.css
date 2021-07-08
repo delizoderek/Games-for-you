@@ -1,103 +1,149 @@
-:root{
-    --main-bg: #171717;
-    --secondary-bg: #444444;
-    --buttons: #da0037;
-    --text: #ededed;
+:root {
+  --main-bg: #171717;
+  --secondary-bg: #444444;
+  --buttons: #da0037;
+  --text: #ededed;
 }
-body{
-    background-color: var(--main-bg);
+body {
+  background-color: var(--main-bg);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
-header{
-    background-color: var(--secondary-bg);
+header {
+  background-color: var(--secondary-bg);
 }
-.active{
-    color: var(--buttons) !important;
-    border-bottom-color: var(--buttons) !important;
+h1 {
+  padding-left: 10px;
 }
-a:hover{
-    color: var(--buttons) !important;
+footer {
+  background-color: var(--secondary-bg);
+  /* position: fixed; */
+  position: absolute;
+  display: block;
+  bottom: 0;
+  width: 99%;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 20px;
 }
-.customButtons{
-    background-color: var(--buttons) !important;
-    border: var(--buttons) !important;
-    color: var(--text) !important;
+.customSize {
+  font-size: 20px;
 }
-.customColor{
-    color: var(--buttons) !important;
+.links {
+  padding-right: 10px;
 }
-.customLink{
-    color: var(--text) !important;
+.active {
+  color: var(--buttons) !important;
+  border-bottom-color: var(--buttons) !important;
 }
-html{
-    position: relative;
-    min-height: 100%;  
+.customLink:hover {
+  color: var(--buttons) !important;
 }
-.hidden{
-    display: none;
+a:hover {
+  color: var(--buttons) !important;
 }
-.landingPage{
-    flex-grow: 1;
-    margin: 0 0 25px;
+.customButtons {
+  background-color: var(--buttons) !important;
+  border: var(--buttons) !important;
+  color: var(--text) !important;
 }
-.previews{
-    margin: 20px;
+.customColor {
+  color: var(--buttons) !important;
 }
-.filterBox{
-    margin-top: 20px;
-    margin-bottom: 100px;
+.customLink {
+  color: var(--text) !important;
 }
-.tabBlock{
-    margin: auto;
-    cursor: pointer;
+html {
+  position: relative;
+  min-height: 100%;
 }
-footer{
-    background-color: var(--secondary-bg);
-    /* position: fixed; */
-    position: absolute;
-    display: block;
-    bottom: 0;
-    width: 99%;
-    justify-content: space-between;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 20px;
+.hidden {
+  display: none;
 }
-.ageRating{
-    cursor: pointer;
+.landingPage {
+  flex-grow: 1;
+  margin: 0 0 25px;
 }
-.carNav{
-    background-color: black !important;
+.previews {
+  margin: 20px;
 }
-.carImg{
-    margin: auto;
-    height: auto;
-    width: auto;
+.filterBox {
+  margin-top: 20px;
+  margin-bottom: 100px;
 }
-.carTitle{
-    text-align: center;
-    background-color: transparent;
-    margin: 0;
+.tabBlock {
+  margin: auto;
+  cursor: pointer;
+}
+.modal-title {
+  color: var(--text);
+}
+.modal-container {
+  background: var(--main-bg);
+}
+.popModal {
+  height: auto;
+  width: auto;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ageRating {
+  cursor: pointer;
+}
+.carNav {
+  background-color: black !important;
+}
+.carImg {
+  margin: auto;
+  height: auto;
+  width: auto;
+}
+.carTitle {
+  text-align: center;
+  background-color: transparent;
+  margin: 0;
+}
+.popLink{
+    word-wrap: break-word;
+}
+.modal-overlay{
+    background: #f7f8f9bf !important;
+}
+.popDiv{
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 @media (max-width: 768px) {
-    .navbar{
-        justify-content: center;
-    }
-    .carDiv{
-        margin: 0;
-        padding: 0;
-    }
-    .carPre{
-        width: auto;
-        margin: auto;
-    }
-    #navName{
-        /* margin-right: 80px; */
-        margin-bottom: 0;
-        width: 375px;
-        text-align: center;  
-    }
-    #navLinks{
-        justify-content: center;
-    }
+  .navbar {
+    justify-content: center;
+  }
+  .carDiv {
+    margin: 0;
+    padding: 0;
+  }
+  .carPre {
+    width: auto;
+    margin: auto;
+  }
+  .popModal{
+      max-width: 99vw !important;
+  }
+  
+  #navName {
+    /* margin-right: 80px; */
+    margin-bottom: 0;
+    width: 375px;
+    text-align: center;
+  }
+  #navLinks {
+    justify-content: center;
+  }
 }

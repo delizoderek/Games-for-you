@@ -153,38 +153,32 @@ searchBtn.addEventListener('click', function() {
 //     var columns = document.createElement('div');
 //     columns.setAttribute('class', 'columns')
 
-//     for(var i = 0; i < 20; i++) {
-//         columns.append(generateCard(dataArr[i].name, dataArr[i].image_url, dataArr[i].price, dataArr[i].description))
-//     }
-// }
-
-// function generateCard(cardTitle, cardSubtitle, cardImg, cardBody) {
-//     console.log(cardBody)
-//     var col = document.createElement('div');
-//     col.setAttribute('class', 'column col-6')
-//     var card = document.createElement('div');
-//     var cardImg = document.createElement('div');
-//     var img = document.createElement('img');
-//     var cardHeader = document.createElement('div');
-//     var cardTitle = document.createElement('div');
-//     var cardSubtitle = document.createElement('div');
-//     var cardBody = document.createElement('div');
-//     card.setAttribute('class', 'card game');
-//     cardImg.setAttribute('class', 'card-image');
-//     img.setAttribute('class', 'img-responsive');
-//     cardHeader.setAttribute('class', 'card-header');
-//     cardTitle.setAttribute('class', 'card-title h5');
-//     cardSubtitle.setAttribute('class', 'card-subtitle text-gray');
-//     cardBody.setAttribute('class', 'card-body');
-//     img.src = cardImg;
-//     img.alt = cardImg;
+function generateCard(cardTitle, cardSubtitle, cardImg, cardBody) {
+    var col = document.createElement('div');
+    col.setAttribute('class', 'column col-6')
+    var card = document.createElement('div');
+    var cardImg = document.createElement('div');
+    var img = document.createElement('img');
+    var cardHeader = document.createElement('div');
+    var cardTitle = document.createElement('div');
+    // var cardSubtitle = document.createElement('div');
+    var cardBody = document.createElement('div');
+    card.setAttribute('class', 'card game');
+    cardImg.setAttribute('class', 'card-image');
+    img.setAttribute('class', 'img-responsive');
+    cardHeader.setAttribute('class', 'card-header');
+    cardTitle.setAttribute('class', 'card-title h5');
+    // cardSubtitle.setAttribute('class', 'card-subtitle text-gray');
+    cardBody.setAttribute('class', 'card-body');
+    img.src = cardImg;
+    img.alt = cardImg;
         
-//     cardTitle.textContent = cardTitle
-//     cardSubtitle.textContent = cardSubtitle
-//     // cardBody.innerHTML = cardBody.slice(0, 300)
-//     cardImg.append(img)
-//     cardHeader.append(cardTitle, cardSubtitle)
-//     card.append(cardImg, cardHeader, cardBody)
-//     col.append(card)
-//     return col;
-// }
+    cardTitle.textContent = cardTitle
+    cardSubtitle.textContent = cardSubtitle
+    // cardBody.innerHTML = cardBody.slice(0, 300)
+    cardImg.append(img)
+    // cardHeader.append(cardTitle, cardSubtitle)
+    card.append(cardImg, cardHeader, cardBody)
+    col.append(card)
+    return col;
+}
