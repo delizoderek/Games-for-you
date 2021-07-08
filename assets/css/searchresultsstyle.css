@@ -1,3 +1,25 @@
+:root{
+    --main-bg: #171717;
+    --secondary-bg: #444444;
+    --buttons: #da0037;
+    --text: #ededed;
+}
+
+body{
+    background-color:rgb(110, 4, 9);
+}
+
+.card{
+    display: inline-block;
+}
+.game-card{
+    width: 400px;
+}
+
+.cardTitle{
+    color:black!important;
+}
+
 .custom-container{
     border:black ;
 }
@@ -5,10 +27,6 @@
 .custom-column{
     border:black;
     height: 100%;
-}
-
-body{
-    background-color:rgb(110, 4, 9);
 }
 
 #searchby{
@@ -33,16 +51,6 @@ body{
     width: 300px;
 }
 
-.game-card{
-    width: 400px;
-}
-.cardTitle{
-    color:black!important;
-}
 
-:root{
-    --main-bg: #171717;
-    --secondary-bg: #444444;
-    --buttons: #da0037;
-    --text: #ededed;
-}
+
+
