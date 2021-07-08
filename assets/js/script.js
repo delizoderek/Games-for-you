@@ -5,12 +5,46 @@ var car1 = document.getElementById("car1");
 var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
 var car4 = document.getElementById("car4");
+var favModal = document.getElementById("favModal")
+var showFavModal = document.getElementById("favorites")
+var closeFavModal = document.getElementById("closeFavModal")
+var popModal = document.getElementById("popModal")
+var showPopModal = document.getElementById("popular")
+var closePopModal = document.getElementById("closePopModal")
 
 let searchBtn = document.querySelector("#name-btn");
 let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
+showFavModal.addEventListener("click", function(){
+  favModal.classList.add("active")
+})
+closeFavModal.addEventListener("click", function(){
+  favModal.classList.remove("active")
+})
 
+showPopModal.addEventListener("click", function(){
+  popModal.classList.add("active")
+  popularModal()
+})
+closePopModal.addEventListener("click", function(){
+  popModal.classList.remove("active")
+})
+
+function popularModal(){
+  fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      document.getElementById("vg1Name").textContent = data.results[0].name
+      document.getElementById("vg1Img").setAttribute("src", `${data.results[0].background_image}`)
+      document.getElementById("vg1Img").style.width = `70%`
+      document.getElementById("vg1Img").style.height = `70%`
+      document.getElementById("vg1Link").setAttribute("href", `https://rawg.io/games/${data.results[0].id}`)
+      document.getElementById("vg1Link").textContent = `https://rawg.io/games/${data.results[0].id}`
+    });
+}
 
 function carouselImg() {
   fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)

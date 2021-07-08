@@ -93,9 +93,9 @@ function generateCards(games) {
 getParams({doThis: "getCategories"})
 
 
-searchBtn.addEventListener('click', function() {
-    getParams({type: 'name', value: searchBar.value})
-})
+// searchBtn.addEventListener('click', function() {
+//     getParams({type: 'name', value: searchBar.value})
+// })
 
 
 
@@ -125,14 +125,14 @@ function generateCard(cardTitle, cardSubtitle, cardImg, cardBody) {
     var img = document.createElement('img');
     var cardHeader = document.createElement('div');
     var cardTitle = document.createElement('div');
-    var cardSubtitle = document.createElement('div');
+    // var cardSubtitle = document.createElement('div');
     var cardBody = document.createElement('div');
     card.setAttribute('class', 'card game');
     cardImg.setAttribute('class', 'card-image');
     img.setAttribute('class', 'img-responsive');
     cardHeader.setAttribute('class', 'card-header');
     cardTitle.setAttribute('class', 'card-title h5');
-    cardSubtitle.setAttribute('class', 'card-subtitle text-gray');
+    // cardSubtitle.setAttribute('class', 'card-subtitle text-gray');
     cardBody.setAttribute('class', 'card-body');
     img.src = cardImg;
     img.alt = cardImg;
@@ -141,7 +141,7 @@ function generateCard(cardTitle, cardSubtitle, cardImg, cardBody) {
     cardSubtitle.textContent = cardSubtitle
     // cardBody.innerHTML = cardBody.slice(0, 300)
     cardImg.append(img)
-    cardHeader.append(cardTitle, cardSubtitle)
+    // cardHeader.append(cardTitle, cardSubtitle)
     card.append(cardImg, cardHeader, cardBody)
     col.append(card)
     return col;

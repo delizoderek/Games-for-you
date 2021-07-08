@@ -9,10 +9,10 @@ let key = "bBS0ShoGPv";
 let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 let baseUrl = "https://www.giantbomb.com/api";
 
-genreBtn.addEventListener("click",function(event){
-    event.preventDefault();
-    genreSearch();
-});
+// genreBtn.addEventListener("click",function(event){
+//     event.preventDefault();
+//     genreSearch();
+// });
 
 searchBtn.addEventListener("click",function(event){
     event.preventDefault();
