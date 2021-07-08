@@ -1,133 +1,149 @@
-:root{
-    --main-bg: #171717;
-    --secondary-bg: #444444;
-    --buttons: #da0037;
-    --text: #ededed;
+:root {
+  --main-bg: #171717;
+  --secondary-bg: #444444;
+  --buttons: #da0037;
+  --text: #ededed;
 }
-body{
-    background-color: var(--main-bg);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+body {
+  background-color: var(--main-bg);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
-header{
-    background-color: var(--secondary-bg);
+header {
+  background-color: var(--secondary-bg);
 }
-h1{
-    padding-left: 10px;
+h1 {
+  padding-left: 10px;
 }
-.customSize{
-    font-size: 20px;
+footer {
+  background-color: var(--secondary-bg);
+  /* position: fixed; */
+  position: absolute;
+  display: block;
+  bottom: 0;
+  width: 99%;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 20px;
 }
-.links{
-    padding-right: 10px;
+.customSize {
+  font-size: 20px;
 }
-.active{
-    color: var(--buttons) !important;
-    border-bottom-color: var(--buttons) !important;
+.links {
+  padding-right: 10px;
 }
-.customLink:hover{
-    color: var(--buttons) !important;
+.active {
+  color: var(--buttons) !important;
+  border-bottom-color: var(--buttons) !important;
 }
-a:hover{
-    color: var(--buttons) !important;
+.customLink:hover {
+  color: var(--buttons) !important;
 }
-.customButtons{
-    background-color: var(--buttons) !important;
-    border: var(--buttons) !important;
-    color: var(--text) !important;
+a:hover {
+  color: var(--buttons) !important;
 }
-.customColor{
-    color: var(--buttons) !important;
+.customButtons {
+  background-color: var(--buttons) !important;
+  border: var(--buttons) !important;
+  color: var(--text) !important;
 }
-.customLink{
-    color: var(--text) !important;
+.customColor {
+  color: var(--buttons) !important;
 }
-html{
-    position: relative;
-    min-height: 100%;  
+.customLink {
+  color: var(--text) !important;
 }
-.hidden{
-    display: none;
+html {
+  position: relative;
+  min-height: 100%;
 }
-.landingPage{
-    flex-grow: 1;
-    margin: 0 0 25px;
+.hidden {
+  display: none;
 }
-.previews{
-    margin: 20px;
+.landingPage {
+  flex-grow: 1;
+  margin: 0 0 25px;
 }
-.filterBox{
-    margin-top: 20px;
-    margin-bottom: 100px;
+.previews {
+  margin: 20px;
 }
-.tabBlock{
-    margin: auto;
-    cursor: pointer;
+.filterBox {
+  margin-top: 20px;
+  margin-bottom: 100px;
 }
-.modal-title{
-    color: var(--text);
+.tabBlock {
+  margin: auto;
+  cursor: pointer;
 }
-.modal-container{
-    background: var(--main-bg);
+.modal-title {
+  color: var(--text);
 }
-.popModal{
-    height: auto;
-    width: auto;
+.modal-container {
+  background: var(--main-bg);
 }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-footer{
-    background-color: var(--secondary-bg);
-    /* position: fixed; */
-    position: absolute;
-    display: block;
-    bottom: 0;
-    width: 99%;
-    justify-content: space-between;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 20px;
+.popModal {
+  height: auto;
+  width: auto;
 }
-.ageRating{
-    cursor: pointer;
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
-.carNav{
-    background-color: black !important;
+
+.ageRating {
+  cursor: pointer;
 }
-.carImg{
-    margin: auto;
-    height: auto;
-    width: auto;
+.carNav {
+  background-color: black !important;
 }
-.carTitle{
-    text-align: center;
-    background-color: transparent;
-    margin: 0;
+.carImg {
+  margin: auto;
+  height: auto;
+  width: auto;
+}
+.carTitle {
+  text-align: center;
+  background-color: transparent;
+  margin: 0;
+}
+.popLink{
+    word-wrap: break-word;
+}
+.modal-overlay{
+    background: #f7f8f9bf !important;
+}
+.popDiv{
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 @media (max-width: 768px) {
-    .navbar{
-        justify-content: center;
-    }
-    .carDiv{
-        margin: 0;
-        padding: 0;
-    }
-    .carPre{
-        width: auto;
-        margin: auto;
-    }
-    #navName{
-        /* margin-right: 80px; */
-        margin-bottom: 0;
-        width: 375px;
-        text-align: center;  
-    }
-    #navLinks{
-        justify-content: center;
-    }
+  .navbar {
+    justify-content: center;
+  }
+  .carDiv {
+    margin: 0;
+    padding: 0;
+  }
+  .carPre {
+    width: auto;
+    margin: auto;
+  }
+  .popModal{
+      max-width: 99vw !important;
+  }
+  
+  #navName {
+    /* margin-right: 80px; */
+    margin-bottom: 0;
+    width: 375px;
+    text-align: center;
+  }
+  #navLinks {
+    justify-content: center;
+  }
 }

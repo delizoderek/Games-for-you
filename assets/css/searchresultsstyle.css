@@ -1,3 +1,9 @@
+:root{
+    --main-bg: #171717;
+    --secondary-bg: #444444;
+    --buttons: #da0037;
+    --text: #ededed;
+}
 .custom-container{
     border:black ;
 }
@@ -38,11 +44,4 @@ body{
 }
 .cardTitle{
     color:black!important;
-}
-
-:root{
-    --main-bg: #171717;
-    --secondary-bg: #444444;
-    --buttons: #da0037;
-    --text: #ededed;
 }
