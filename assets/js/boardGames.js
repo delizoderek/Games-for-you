@@ -2,8 +2,8 @@ var reqURL = 'https://api.boardgameatlas.com/api'
 var searchBar = document.getElementById('name');
 
 var jsonResponse = ''
+
 function getParams(reqParams) {
-    console.log(reqParams)
     if(reqParams.type) {
         if(reqParams.type === "name") {
             return getData(`search?${reqParams.type}=`, reqParams.value)
@@ -25,7 +25,6 @@ async function getData(typeParam, typeValue) {
         .then(response => response.json())
         .then(data => {
             // genCards(data.games)
-            console.log(data)
             useData(data)
         })
 }
@@ -90,12 +89,12 @@ function generateCards(games) {
 
 // getParams({type: "categories",
 //         value: "Adventure"})
-getParams({doThis: "getCategories"})
+// getParams({doThis: "getCategories"})
 
 
-searchBtn.addEventListener('click', function() {
-    getParams({type: 'name', value: searchBar.value})
-})
+// searchBtn.addEventListener('click', function() {
+//     getParams({type: 'name', value: searchBar.value});
+// })
 
 
 
@@ -117,7 +116,6 @@ function genCards(dataArr) {
 }
 
 function generateCard(cardTitle, cardSubtitle, cardImg, cardBody) {
-    console.log(cardBody)
     var col = document.createElement('div');
     col.setAttribute('class', 'column col-6')
     var card = document.createElement('div');
