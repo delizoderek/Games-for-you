@@ -81,19 +81,19 @@ function getData(){
         useData(data)
     })
 }
-// getData()
+getData()
 
 function useData(gameData){
     console.log(gameData.games[0].image_url)
 
-    // var cardImage = document.getElementById('image')
-    // var cardTitle = document.getElementById('title')
-    // var cardDescription = document.getElementById('description')
-    // var cardLink = document.getElementById('link')
-    // console.log(cardTitle.innerText)
-    // cardTitle.textContent = gameData.games[0].name
-    // // cardDescription.textContent = gameData.games[0].description
-    // cardImage.setAttribute("src", gameData.games[0].image_url)
+    var cardImage = document.getElementById('image')
+    var cardTitle = document.getElementById('title')
+    var cardDescription = document.getElementById('description')
+    var cardLink = document.getElementById('link')
+    console.log(cardTitle.innerText)
+    cardTitle.textContent = gameData.games[0].name
+    // cardDescription.textContent = gameData.games[0].description
+    cardImage.setAttribute("src", gameData.games[0].image_url)
 
     for(var i=0;i<20;i++){
         var cardList = document.getElementById('card-list')
@@ -129,5 +129,5 @@ function useData(gameData){
     }
 
 }
-// useData()
+useData()
 parseQuery();
