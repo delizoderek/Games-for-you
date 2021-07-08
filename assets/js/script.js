@@ -22,14 +22,21 @@ searchBtn.addEventListener("click",function(event){
             searchTerm = searchTerm.replaceAll(" ","+");
         }
     }
-    location.assign(`./searchresults.html?q=${searchTerm}`);
+    location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
 });
 
 genreBtn.addEventListener("click",function(event){
     event.preventDefault();
     let genreString = buildGenreString();
-    searchByGenre(genreString);
+    location.assign(`./searchresults.html?q=${genreString}&type=genre`);
+    // searchByGenre(genreString);
 });
+
+// Set Dropdown Click Listeners
+document.querySelector("#everyone").addEventListener("click",esrbSearch);
+document.querySelector("#everyone10").addEventListener("click",esrbSearch);
+document.querySelector("#teen").addEventListener("click",esrbSearch);
+document.querySelector("#mature").addEventListener("click",esrbSearch);
 
 function buildGenreString(){
     let genreQuery = "";
@@ -65,6 +72,7 @@ function getBoardGameUrl(reqParams){
     }
 }
 
+
 /*
 * 
 */
@@ -81,12 +89,7 @@ async function searchByGenre(query) {
     for(let result of rawgResults.results){
         resultList.push({name: result.name, image: result.background_image, link: `https://rawg.io/games/${result.id}`});
     }
-    // for(let bGame of atlasResults.games){
-    //     resultList.push({name: bGame.name, image: bGame.image_url, link: bGame.url});
-    // }
-    // // Sort results by name
     resultList.sort(sortGames);
-    // console.log(resultList);
 }
 
 function sortGames(item1,item2){

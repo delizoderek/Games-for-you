@@ -7,18 +7,21 @@ function parseQuery(){
     var searchUnparsed = document.location.search;
     if(searchUnparsed.includes("&")){
         searchParamsArr = searchUnparsed.split('&');
-    } else {
-        searchQuery = searchUnparsed.split("=");
-        searchQuery.shift();
-        searchByName(searchQuery[0]);
+        let query = searchParamsArr[0].split("=");
+        let type = searchParamsArr[1].split("=");
+        if(type[1] === 'name'){
+            searchByName(query[1]);
+        } else if (type[1] === 'genre'){
+            searchByGenre(query[1]);
+        }
     }
 }
 
 function getVideoGameUrl(searchObject){
     if(searchObject.type){
-        if(searchObject.type === 'search'){
+        if(searchObject.type === 'name'){
             // type is search
-            return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&search_precise=true&page_size=50&key=${rawgApi}`;
+            return `https://api.rawg.io/api/games?search=${searchObject.value}&search_precise=true&page_size=50&key=${rawgApi}`;
         } else if(searchObject.type === 'genres'){
             // type is genres
             return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&page_size=50&key=${rawgApi}`
@@ -45,7 +48,7 @@ function getBoardGameUrl(reqParams){
 * link: Link to 'store' page - type String
 */
 async function searchByName(query) {
-    let vgUrl = getVideoGameUrl({type: 'search', value: query});
+    let vgUrl = getVideoGameUrl({type: 'name', value: query});
     let bgUrl = getBoardGameUrl({type: 'name', value: query});
     const rawgResp = await fetch(vgUrl);
     const rawgResults = await rawgResp.json();
@@ -65,13 +68,33 @@ async function searchByName(query) {
     console.log(resultList);
 }
 
+/*
+* 
+*/
+async function searchByGenre(query) {
+    let vgUrl = getVideoGameUrl({type: 'genres', value: query});
+    // let bgUrl = getBoardGameUrl({type: 'name', value: query});
+    const rawgResp = await fetch(vgUrl);
+    const rawgResults = await rawgResp.json();
+    // const atlasResponse = await fetch(bgUrl);
+    // const atlasResults = await atlasResponse.json();
+
+    // populate list
+    let resultList = [];
+    for(let result of rawgResults.results){
+        resultList.push({name: result.name, image: result.background_image, link: `https://rawg.io/games/${result.id}`});
+    }
+    resultList.sort(sortGames);
+    console.log(resultList);
+}
+
 function sortGames(item1,item2){
     if(item1.name < item2.name){
-        return 1;
+        return -1;
     }
 
     if(item1.name > item2.name){
-        return -1;
+        return 1;
     }
 
     return 0;
@@ -85,7 +108,7 @@ function getData(){
         useData(data)
     })
 }
-getData()
+// getData()
 
 function useData(gameData){
     console.log(gameData.games[0].image_url)
@@ -133,5 +156,4 @@ function useData(gameData){
     }
 
 }
-useData()
 parseQuery();
