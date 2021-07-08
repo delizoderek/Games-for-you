@@ -81,7 +81,7 @@ function getData(){
         useData(data)
     })
 }
-// getData()
+getData()
 
 function useData(gameData){
     console.log(gameData.games[0].image_url)
