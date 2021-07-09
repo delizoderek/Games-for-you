@@ -121,7 +121,7 @@ function useData(gameData){
         imageContainer.append(cardImage)
         cardHeader.setAttribute("class", "card-header")
         cardTitle.setAttribute("class", "card-title h5 cardTitle")
-        cardButton.setAttribute("class", "btn btn-primary")
+        cardButton.setAttribute("class", "btn btn-primary customButtons")
         cardButton.setAttribute("href", gameData.games[i].url)
         cardButton.setAttribute("target", "_blank")
         cardButton.textContent = "view"

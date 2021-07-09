@@ -24,15 +24,49 @@ body {
   h1 {
     padding-left: 10px;
   }
-  .card{
-    display: inline-block;
-    height:150px;
-    width:150px;
-    border: 10px solid black;
-    position:static;
-    
-    
-}
+  /* .card{
+    float: left;
+    object-fit: cover;
+    /* display: inline-block; */
+    /* margin:5px;
+    border: 10px solid var(--buttons);
+    justify-items: auto; */
+    /* position:relative; */
+    /* background: var(--secondary-bg);
+    width: 250px;
+    height: 450px; */
+    /* } */ 
+
+    .card {
+        display:inline-block;
+        border: 10px solid var(--buttons);
+        position: static;
+        background: var(--secondary-bg);
+        margin: 5px;
+        width: 300px;
+        height: 300px;
+        word-wrap: break-word;
+      }
+      .customImg {
+        height: 80%;
+        width: 80%;
+      }
+      .card-image{
+          height: 60%;
+          width: 60%;
+          margin-right: 25%;
+          margin-left: 25%;
+          margin-top: 5px;
+      }
+      
+      .cardTitle {
+        color: var(--text) !important;
+        
+      }
+      .card-header{
+          padding-top: 0 !important;
+          bottom: 0;
+      }
   
 
   .hidden {
@@ -111,22 +145,21 @@ body {
     color: black;
 }
 
-.customImg{
-    height:70%;
-    width: 70%;
-}
+/* .customImg{
+    /* float: left; */
+    /* height:80%;
+    width: 80%; */
+    /* object-fit:contain; */
+/* } */ 
 
-.game-card{
-    display: inline-block;
-    width: 250px;
-}
+
 .tabBlock {
     margin: auto;
     cursor: pointer;
   }
-.cardTitle{
+/* .cardTitle{
     color: var(--text) !important;
-}
+} */
 @media (max-width: 768px) {
     .navbar {
       justify-content: center;
