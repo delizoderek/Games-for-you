@@ -54,7 +54,7 @@ function getBoardGameUrl(reqParams) {
       return `${reqURL}/search?${reqParams.type}=${reqParams.value}&limit=${reqParams.limit}&client_id=JLBr5npPhV`;
     } else if (reqParams.type === "min_age") {
       if (reqParams.value === "1") {
-        return `${reqURL}/search?${reqParams.type}=1client_id=JLBr5npPhV`;
+        return `${reqURL}/search?${reqParams.type}=1&client_id=JLBr5npPhV`;
       } else if (reqParams.value === "2") {
         return `${reqURL}/search?${reqParams.type}=10&client_id=JLBr5npPhV`;
       } else if (reqParams.value === "3") {
@@ -62,8 +62,6 @@ function getBoardGameUrl(reqParams) {
       } else if (reqParams.value === "4") {
         return `${reqURL}/search?${reqParams.type}=17&client_id=JLBr5npPhV`;
       }
-    } else {
-      alert("could not find any games that match the description");
     }
   }
 }
@@ -206,17 +204,17 @@ function sortGames(item1, item2) {
   return 0;
 }
 
-// // For testing Purposes
-// async function getData() {
-//   fetch(
-//     `https://api.boardgameatlas.com/api/search?name=corn&client_id=JLBr5npPhV`
-//   )
-//     .then((response) => response.json())
-//     .then((data) => {
-//       // genCards(data.games)
-//       useData(data);
-//     });
-// }
+function filterByEsrb(gameList,ageRating){
+  let filteredResults = []
+  for(let result of gameList){
+      if(result.esrb_rating != null){
+          if(result.esrb_rating.id <= ageRating){
+              filteredResults.push(result);
+          }
+      }
+  }
+  return filteredResults;
+}
 
 function useData(gameData) {
   var cardList = document.getElementById("card-list");
@@ -231,7 +229,6 @@ function useData(gameData) {
 
     cardImage.setAttribute("src", gameData[i].image);
     card.setAttribute("class", "card game-card");
-    console.log(cardImage);
     imageContainer.append(cardImage);
     cardHeader.setAttribute("class", "card-header");
     cardTitle.setAttribute("class", "card-title h5 cardTitle");
