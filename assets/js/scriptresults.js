@@ -68,7 +68,7 @@ async function searchByName(query) {
     }
     // // Sort results by name
     resultList.sort(sortGames);
-    console.log(resultList);
+    // console.log(resultList);
 }
 
 function sortGames(item1,item2){
@@ -87,14 +87,14 @@ function getData(){
     fetch("https://api.boardgameatlas.com/api/search?name=Monopoly&client_id=JLBr5npPhV")
     .then(response=>response.json())
     .then(data=>{
-        console.log(data)
+        // console.log(data)
         useData(data)
     })
 }
 getData()
 
 function useData(gameData){
-    console.log(gameData.games[0].image_url)
+    // console.log(gameData.games[0].image_url)
 
     // var cardImage = document.getElementById('image')
     // var cardTitle = document.getElementById('title')
@@ -117,7 +117,7 @@ function useData(gameData){
         
         cardImage.setAttribute("src", gameData.games[i].image_url)
         card.setAttribute("class", "card game-card")
-        console.log(cardImage)
+        // console.log(cardImage)
         imageContainer.append(cardImage)
         cardHeader.setAttribute("class", "card-header")
         cardTitle.setAttribute("class", "card-title h5 cardTitle")
@@ -135,7 +135,7 @@ function useData(gameData){
 
         
         cardList.append(card)
-        console.log(cardList)
+        // console.log(cardList)
     }
 
 }
