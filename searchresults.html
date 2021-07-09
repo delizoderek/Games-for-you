@@ -35,7 +35,7 @@
     <main>
       <div class="container">
         <div class="columns">
-          <div class="column col-3 col-sm-12">
+          <div class="column col-4 col-sm-12">
             <div class="col-10 tabBlock">
               <ul class="tab tab-block">
                   <li class="tab-item customLink" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
@@ -44,7 +44,7 @@
                 </ul>
           </div>
           <div class="filterBox container">
-            <div class="col-10 col-sm-10">
+            <div class="col-10 col-sm-12">
               <div class="input-group" id="nameSearch">
                 <input class="form-input" type="text" placeholder="Search by Name" id="name" />
                 <button id="name-btn" class="btn btn-primary input-group-btn customButtons">Search</button>
@@ -102,17 +102,17 @@
                 <button id="genre-search" class="btn btn-primary input-group-btn mx-2 customButtons">Search by Genre</button>
               </div> 
                 <!-- dropdown button group -->
-                <div class="dropdown hidden filters" id="ageSearch">
-                  <div class="btn-group">
-                    <a class="btn customButtons">
+                <div class="dropdown hidden filters col-10 col-sm-12" id="ageSearch">
+                  <div class="btn-group col-sm-8">
+                    <a class="btn customButtons ageBtn">
                       Search by Age Rating
                     </a>
-                    <a class="btn dropdown-toggle customButtons" tabindex="0">
+                    <a class="btn dropdown-toggle customButtons ageBtn" tabindex="0">
                       <i class="icon icon-caret"></i>
                     </a>
                 
                     <!-- menu component -->
-                    <ul class="menu customButtons">
+                    <ul class="menu customButtons col-sm-8">
                       <li class="ageRating customButtons" id="everyone" data-esrbId="1">Everyone</li>
                       <li class="ageRating customButtons" id="everyone10" data-esrbId="2">Everyone 10+</li>
                       <li class="ageRating customButtons" id="teen" data-esrbId="3">Teen</li>
