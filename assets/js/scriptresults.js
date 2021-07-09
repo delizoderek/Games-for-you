@@ -10,6 +10,10 @@ var closePopModal = document.getElementById("closePopModal");
 var ranModal = document.getElementById("ranModal");
 var showRanModal = document.getElementById("random");
 var closeRanModal = document.getElementById("closeRanModal");
+var searchBtn = document.getElementById('name-btn')
+var searchInput = document.getElementById('name')
+var genreBtn = document.getElementById('genre-search')
+
 
 var reqURL = "https://api.boardgameatlas.com/api";
 
