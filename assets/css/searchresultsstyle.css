@@ -47,7 +47,9 @@ h1 {
   margin-left: 25%;
   margin-top: 5px;
 }
-
+.ageBtn:hover{
+    color: var(--text) !important;
+}
 .cardTitle {
   color: var(--text) !important;
 }
