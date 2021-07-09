@@ -19,16 +19,27 @@ let searchInput = document.querySelector("#name");
 let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
+let resultList = [];
+
+var selectedBoxes = false;
+
+
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  let searchTerm = searchInput.value.trim();
-  if (searchTerm !== "" || searchTerm !== null) {
-    searchTerm = searchTerm.toLowerCase();
-    if (searchTerm.includes(" ")) {
-      searchTerm = searchTerm.replaceAll(" ", "+");
-    }
+  if(!searchInput.value) {
+    createTooltip('genre-search', 'Please select the genres you would like to search for')
+  } else {
+    
+    let searchTerm = searchInput.value.trim();
+    if (searchTerm !== "" || searchTerm !== null) {
+      searchTerm = searchTerm.toLowerCase();
+      if (searchTerm.includes(" ")) {
+        searchTerm = searchTerm.replaceAll(" ", "+");
+      }
     location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
+    }
   }
+  
 });
 
 genreBtn.addEventListener("click", function (event) {
@@ -59,6 +70,7 @@ function buildGenreString() {
         if(checkboxList[i].checked){
             genreString += `${checkboxList[i].dataset.rawgId},`;
             categoryList += `${checkboxList[i].dataset.atlasId},`;
+            selectedBoxes = true;
         }
     }
   return {  genreQuery: genreString.substring(0, genreString.length - 1),
@@ -210,6 +222,15 @@ var changeTab = function (event) {
     document.getElementById("ageSearch").classList.remove("hidden");
   }
 };
+
+
+
+
+
+
+
+
+
 
 document.querySelector("#nameTab").addEventListener("click", changeTab);
 document.querySelector("#genreTab").addEventListener("click", changeTab);

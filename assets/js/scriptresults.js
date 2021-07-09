@@ -4,6 +4,10 @@ var closePopModal = document.getElementById("closePopModal");
 var ranModal = document.getElementById("ranModal");
 var showRanModal = document.getElementById("random");
 var closeRanModal = document.getElementById("closeRanModal");
+var searchBtn = document.getElementById('name-btn')
+var searchInput = document.getElementById('name')
+var genreBtn = document.getElementById('genre-search')
+
 var rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
 var bgAtlasApi = "id6TuxDAFr";
 
