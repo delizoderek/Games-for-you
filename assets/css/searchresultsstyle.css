@@ -47,8 +47,8 @@ h1 {
   margin-left: 25%;
   margin-top: 5px;
 }
-.ageBtn:hover{
-    color: var(--text) !important;
+.ageBtn:hover {
+  color: var(--text) !important;
 }
 .cardTitle {
   color: var(--text) !important;
@@ -80,6 +80,14 @@ a:hover {
   background-color: var(--buttons) !important;
   border: var(--buttons) !important;
   color: var(--text) !important;
+}
+.viewBtn {
+  background-color: var(--buttons) !important;
+  border: var(--buttons) !important;
+  color: var(--text) !important;
+}
+.viewBtn:hover{
+    color: var(--text) !important;
 }
 .customColor {
   color: var(--buttons) !important;
