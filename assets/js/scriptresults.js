@@ -152,8 +152,8 @@ function useData(gameData){
         var cardHeader = document.createElement("div")
         var cardTitle = document.createElement("div")
         var cardButton = document.createElement("a")
-        cardImage.setAttribute("class", "img-responsive")
-
+        cardImage.setAttribute("class", "customImg")
+        
         cardImage.setAttribute("src", gameData.games[i].image_url)
         card.setAttribute("class", "card game-card")
         console.log(cardImage)

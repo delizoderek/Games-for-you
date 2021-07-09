@@ -14,41 +14,55 @@
 }
 
 body {
-  background-color: var(--main-bg);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+    background-color: var(--main-bg);
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+  header {
+    background-color: var(--secondary-bg);
+  }
+  h1 {
+    padding-left: 10px;
+  }
+  .card{
+    display: inline-block;
+    height:150px;
+    width:150px;
+    border: 10px solid black;
+    position:static;
+    
+    
 }
-header {
-  background-color: var(--secondary-bg);
-}
-h1 {
-  padding-left: 10px;
-}
-.hidden {
-  display: none;
-}
-.customSize {
-  font-size: 20px;
-}
-.links {
-  padding-right: 10px;
-}
-.active {
-  color: var(--buttons) !important;
-  border-bottom-color: var(--buttons) !important;
-}
-.customLink:hover {
-  color: var(--buttons) !important;
-}
-a:hover {
-  color: var(--buttons) !important;
-}
-.customButtons {
-  background-color: var(--buttons) !important;
-  border: var(--buttons) !important;
-  color: var(--text) !important;
-}
-.ageBtn:hover{
+  
+
+  .hidden {
+    display: none;
+  }
+  .customSize {
+    font-size: 20px;
+  }
+  .links {
+    padding-right: 10px;
+  }
+  .active {
+    color: var(--buttons) !important;
+    border-bottom-color: var(--buttons) !important;
+  }
+  .customLink:hover {
+    color: var(--buttons) !important;
+  }
+  a:hover {
+    color: var(--buttons) !important;
+  }
+  .customButtons {
+    background-color: var(--buttons) !important;
+    border: var(--buttons) !important;
+    color: var(--text) !important;
+  }
+  .customColor {
+    color: var(--buttons) !important;
+  }
+  .customLink {
     color: var(--text) !important;
 }
 .customColor {
@@ -113,19 +127,22 @@ body {
 }
 
 #title {
-  color: black;
+  color: var(--text);
 }
 
-#description {
-  color: black;
+.customImg{
+    height:70%;
+    width: 70%;
 }
 
-#image {
-  width: 300px;
+.game-card{
+    display: inline-block;
+    width: 250px;
 }
 .ageRating {
     cursor: pointer;
   }
+  
 .game-card {
   width: 400px;
 }
@@ -133,9 +150,10 @@ body {
   margin: auto;
   cursor: pointer;
 }
-.cardTitle {
-  color: black !important;
+.cardTitle{
+    color: var(--text) !important;
 }
+
 @media (max-width: 768px) {
   .navbar {
     justify-content: center;
