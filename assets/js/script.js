@@ -28,10 +28,11 @@ var selectedBoxes = false;
 
 
 searchBtn.addEventListener("click", function (event) {
+  event.preventDefault();
   if(!searchInput.value) {
     createTooltip('genre-search', 'Please select the genres you would like to search for')
   } else {
-    event.preventDefault();
+    
     let searchTerm = searchInput.value.trim();
     if (searchTerm !== "" || searchTerm !== null) {
       searchTerm = searchTerm.toLowerCase();
