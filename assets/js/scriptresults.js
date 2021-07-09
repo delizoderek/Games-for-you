@@ -4,12 +4,6 @@ var closePopModal = document.getElementById("closePopModal");
 var ranModal = document.getElementById("ranModal");
 var showRanModal = document.getElementById("random");
 var closeRanModal = document.getElementById("closeRanModal");
-var searchBtn = document.getElementById('name-btn')
-var searchInput = document.getElementById('name')
-var genreBtn = document.getElementById('genre-search')
-
-var rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
-var bgAtlasApi = "id6TuxDAFr";
 
 var reqURL = "https://api.boardgameatlas.com/api";
 
@@ -130,9 +124,8 @@ async function searchByGenre(genQuery, catQuery) {
       });
       const atlasResponse = await fetch(bgUrl);
       const atlasResults = await atlasResponse.json();
-      console.log(atlasResults);
       totalResults = totalResults.concat(atlasResults.games);
-      delay(1000);
+      delay(10);
     }
   }
   // populate list
@@ -179,7 +172,7 @@ async function searchByEsrb(esrbRating) {
     const rawgResults = await rawgResp.json();
     rawgFiltered = rawgFiltered.concat(filterByEsrb(rawgResults.results,Number(esrbRating)));
     vgUrl = rawgResults.next;
-    delay(200);
+    delay(10);
     iter--;
   }
 
@@ -228,31 +221,38 @@ function filterByEsrb(gameList,ageRating){
 
 function useData(gameData) {
   var cardList = document.getElementById("card-list");
-  for (var i = 0; i < gameData.length; i++) {
-    var card = document.createElement("div");
-    var imageContainer = document.createElement("div");
-    var cardImage = document.createElement("img");
-    var cardHeader = document.createElement("div");
-    var cardTitle = document.createElement("div");
-    var cardButton = document.createElement("a");
-    cardImage.setAttribute("class", "customImg");
-
-    cardImage.setAttribute("src", gameData[i].image);
-    card.setAttribute("class", "card game-card");
-    imageContainer.append(cardImage);
-    cardHeader.setAttribute("class", "card-header");
-    cardTitle.setAttribute("class", "card-title h6 cardTitle");
-    cardButton.setAttribute("class", "btn btn-primary customButtons viewBtn");
-    cardButton.setAttribute("href", gameData[i].link);
-    cardButton.setAttribute("target", "_blank");
-    cardButton.textContent = "view";
-    cardTitle.textContent = gameData[i].name;
-    cardHeader.append(cardTitle, cardButton);
-
-    imageContainer.setAttribute("class", "card-image");
-    card.append(imageContainer, cardHeader);
-
-    cardList.append(card);
+  if(gameData.length > 0){
+    cardList.textContent = "";
+    for (var i = 0; i < gameData.length; i++) {
+      var card = document.createElement("div");
+      var imageContainer = document.createElement("div");
+      var cardImage = document.createElement("img");
+      var cardHeader = document.createElement("div");
+      var cardTitle = document.createElement("div");
+      var cardButton = document.createElement("a");
+      cardImage.setAttribute("class", "customImg");
+  
+      cardImage.setAttribute("src", gameData[i].image);
+      card.setAttribute("class", "card game-card");
+      imageContainer.append(cardImage);
+      cardHeader.setAttribute("class", "card-header");
+      cardTitle.setAttribute("class", "card-title h6 cardTitle");
+      cardButton.setAttribute("class", "btn btn-primary customButtons viewBtn");
+      cardButton.setAttribute("href", gameData[i].link);
+      cardButton.setAttribute("target", "_blank");
+      cardButton.textContent = "view";
+      cardTitle.textContent = gameData[i].name;
+      cardHeader.append(cardTitle, cardButton);
+  
+      imageContainer.setAttribute("class", "card-image");
+      card.append(imageContainer, cardHeader);
+  
+      cardList.append(card);
+    }
+  } else {
+    let dispMesg = document.createElement("h2");
+    dispMesg.textContent = "Whoops! We didn't find any results for that...";
+    cardList.append(dispMesg);
   }
 }
 
