@@ -231,8 +231,11 @@ function useData(gameData) {
       var cardTitle = document.createElement("div");
       var cardButton = document.createElement("a");
       cardImage.setAttribute("class", "customImg");
-  
-      cardImage.setAttribute("src", gameData[i].image);
+      if( gameData[i].image == null){
+        cardImage.setAttribute("src", "https://s3-us-west-1.amazonaws.com/5cc.images/games/empty+box.jpg");
+      } else {
+        cardImage.setAttribute("src", gameData[i].image);
+      }
       card.setAttribute("class", "card game-card");
       imageContainer.append(cardImage);
       cardHeader.setAttribute("class", "card-header");
@@ -251,6 +254,7 @@ function useData(gameData) {
     }
   } else {
     let dispMesg = document.createElement("h2");
+    dispMesg.setAttribute("style","color: var(--text);");
     dispMesg.textContent = "Whoops! We didn't find any results for that...";
     cardList.append(dispMesg);
   }
