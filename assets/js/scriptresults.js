@@ -1,6 +1,3 @@
-const rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
-const bgAtlasApi = "id6TuxDAFr";
-
 var favModal = document.getElementById("favModal");
 var showFavModal = document.getElementById("favorites");
 var closeFavModal = document.getElementById("closeFavModal");
@@ -159,26 +156,36 @@ async function searchByEsrb(esrbRating) {
   let vgUrl = getVideoGameUrl({ type: "esrb", value: esrbRating });
   console.log(vgUrl);
   let bgUrl = getBoardGameUrl({ type: "min_age", value: esrbRating });
-  console.log(bgUrl);
   let resultList = [];
-  const rawgResp = await fetch(vgUrl);
-  const rawgResults = await rawgResp.json();
+  let rawgFiltered = [];
   const atlasResponse = await fetch(bgUrl);
   const atlasResults = await atlasResponse.json();
 
-  // populate list
-  for (let result of rawgResults.results) {
-    resultList.push({
-      name: result.name,
-      image: result.background_image,
-      link: `https://rawg.io/games/${result.id}`,
-    });
-  }
   for (let bGame of atlasResults.games) {
     resultList.push({
       name: bGame.name,
       image: bGame.image_url,
       link: bGame.url,
+    });
+  }
+
+  let iter = 5;
+
+  while(iter > -1 && rawgFiltered.length < 30){
+    const rawgResp = await fetch(vgUrl);
+    const rawgResults = await rawgResp.json();
+    rawgFiltered = rawgFiltered.concat(filterByEsrb(rawgResults.results,Number(esrbRating)));
+    vgUrl = rawgResults.next;
+    delay(200);
+    iter--;
+  }
+
+  // populate list
+  for (let result of rawgFiltered) {
+    resultList.push({
+      name: result.name,
+      image: result.background_image,
+      link: `https://rawg.io/games/${result.id}`,
     });
   }
 
@@ -205,7 +212,7 @@ function sortGames(item1, item2) {
 }
 
 function filterByEsrb(gameList,ageRating){
-  let filteredResults = []
+  let filteredResults = [];
   for(let result of gameList){
       if(result.esrb_rating != null){
           if(result.esrb_rating.id <= ageRating){
