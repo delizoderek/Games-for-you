@@ -218,7 +218,6 @@ function sortGames(item1, item2) {
 //       useData(data);
 //     });
 // }
-
 function useData(gameData) {
   var cardList = document.getElementById("card-list");
   for (var i = 0; i < gameData.length; i++) {
