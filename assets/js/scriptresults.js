@@ -8,7 +8,7 @@ var popModal = document.getElementById("popModal");
 var showPopModal = document.getElementById("popular");
 var closePopModal = document.getElementById("closePopModal");
 var ranModal = document.getElementById("ranModal");
-var showRanModal = document.getElementById("random");
+var showRanModal = document.createElement("button");/*document.getElementById("random");*/
 var closeRanModal = document.getElementById("closeRanModal");
 
 var reqURL = 'https://api.boardgameatlas.com/api'
@@ -17,15 +17,31 @@ function parseQuery(){
     var searchUnparsed = document.location.search;
     if(searchUnparsed.includes("&")){
         searchParamsArr = searchUnparsed.split('&');
-    } else {
-        searchQuery = searchUnparsed.split("=");
-        searchQuery.shift();
-        searchByName(searchQuery[0]);
+        let query = searchParamsArr[0].split("=");
+        let type = searchParamsArr[1].split("=");
+        if(type[1] === 'name'){
+            searchByName(query[1]);
+        } else if (type[1] === 'genre'){
+            let queryArr = query[1].split("+");
+            searchByGenre(queryArr[0],queryArr[1].split(","));
+        } else if (type[i] === 'esrb'){
+            // searchByEsrb()
+        } else {
+            // Show no results availble
+        }
     }
 }
 
-function getVideoGameUrl(searchTerm){
-    return `https://api.rawg.io/api/games?search=${searchTerm}&search_precise=true&page_size=50&key=${rawgApi}`;
+function getVideoGameUrl(searchObject){
+    if(searchObject.type){
+        if(searchObject.type === 'name'){
+            // type is search
+            return `https://api.rawg.io/api/games?search=${searchObject.value}&search_precise=true&page_size=50&key=${rawgApi}`;
+        } else if(searchObject.type === 'genres'){
+            // type is genres
+            return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&page_size=50&key=${rawgApi}`
+        }
+    }
 }
 
 function getBoardGameUrl(reqParams){
@@ -33,13 +49,10 @@ function getBoardGameUrl(reqParams){
         if(reqParams.type === "name") {
             return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
         } else if(reqParams.type === "categories") {
-            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
-        } else {
-            alert("could not find any games that match the description")
+            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&limit=${reqParams.limit}&client_id=JLBr5npPhV`;
         }
-    } else if(reqParams.doThis) {
-        if(reqParams.doThis === "getCategories") {
-            getData("game","/categories?pretty=true")
+        else{
+            alert("could not find any games that match the description")
         }
     }
 }
@@ -51,9 +64,9 @@ function getBoardGameUrl(reqParams){
 * link: Link to 'store' page - type String
 */
 async function searchByName(query) {
-    let tagsUrl = getVideoGameUrl(query);
+    let vgUrl = getVideoGameUrl({type: 'name', value: query});
     let bgUrl = getBoardGameUrl({type: 'name', value: query});
-    const rawgResp = await fetch(tagsUrl);
+    const rawgResp = await fetch(vgUrl);
     const rawgResults = await rawgResp.json();
     const atlasResponse = await fetch(bgUrl);
     const atlasResults = await atlasResponse.json();
@@ -71,40 +84,66 @@ async function searchByName(query) {
     console.log(resultList);
 }
 
+/*
+*
+*/
+async function searchByGenre(genQuery,catQuery) {
+    let vgUrl = getVideoGameUrl({type: 'genres', value: genQuery});
+    let pageLimit = 2;
+    let totalResults = [];
+    let resultList = [];
+    const rawgResp = await fetch(vgUrl);
+    const rawgResults = await rawgResp.json();
+
+    if(catQuery.length > 0){
+        let limitRatio = Math.floor(16 / catQuery.length);
+        if(limitRatio >= 8){
+            pageLimit = 20;
+        } else if (limitRatio >= 4){
+            pageLimit = 10;
+        } else if (limitRatio >= 2){
+            pageLimit = 5;
+        }
+
+        for(let i = 0; i < catQuery.length; i++){
+            const bgUrl = getBoardGameUrl({type: 'categories', value: catQuery[i], limit: pageLimit});
+            const atlasResponse = await fetch(bgUrl);
+            const atlasResults = await atlasResponse.json();
+            console.log(atlasResults);
+            totalResults = totalResults.concat(atlasResults.games);
+            delay(10000);
+        }
+
+    }
+    // populate list
+    for(let vGame of rawgResults.results){
+        resultList.push({name: vGame.name, image: vGame.background_image, link: `https://rawg.io/games/${vGame.id}`});
+    }
+    for(let bGame of totalResults){
+        resultList.push({name: bGame.name, image: bGame.image_url, link: bGame.url});
+    }
+    resultList.sort(sortGames);
+}
+
+function delay(msDelay){
+    return new Promise(function(resolve){
+        setInterval(resolve,msDelay);
+    });
+}
+
 function sortGames(item1,item2){
     if(item1.name < item2.name){
-        return 1;
+        return -1;
     }
 
     if(item1.name > item2.name){
-        return -1;
+        return 1;
     }
 
     return 0;
 }
 
-function getData(){
-    fetch("https://api.boardgameatlas.com/api/search?name=Monopoly&client_id=JLBr5npPhV")
-    .then(response=>response.json())
-    .then(data=>{
-        console.log(data)
-        useData(data)
-    })
-}
-getData()
-
 function useData(gameData){
-    console.log(gameData.games[0].image_url)
-
-    // var cardImage = document.getElementById('image')
-    // var cardTitle = document.getElementById('title')
-    // var cardDescription = document.getElementById('description')
-    // var cardLink = document.getElementById('link')
-    // console.log(cardTitle.innerText)
-    // cardTitle.textContent = gameData.games[0].name
-    // // cardDescription.textContent = gameData.games[0].description
-    // cardImage.setAttribute("src", gameData.games[0].image_url)
-
     for(var i=0;i<20;i++){
         var cardList = document.getElementById('card-list')
         var card = document.createElement("div")
@@ -114,7 +153,7 @@ function useData(gameData){
         var cardTitle = document.createElement("div")
         var cardButton = document.createElement("a")
         cardImage.setAttribute("class", "img-responsive")
-        
+
         cardImage.setAttribute("src", gameData.games[i].image_url)
         card.setAttribute("class", "card game-card")
         console.log(cardImage)
@@ -133,14 +172,11 @@ function useData(gameData){
         imageContainer.setAttribute("class", "card-image")
         card.append(imageContainer,cardHeader)
 
-        
+
         cardList.append(card)
-        console.log(cardList)
     }
 
 }
-// useData()
-parseQuery();
 
 showFavModal.addEventListener("click", function () {
     favModal.classList.add("active");
@@ -250,3 +286,5 @@ showFavModal.addEventListener("click", function () {
   document.querySelector("#nameTab").addEventListener("click", changeTab);
   document.querySelector("#genreTab").addEventListener("click", changeTab);
   document.querySelector("#ageTab").addEventListener("click", changeTab);
+
+  parseQuery();

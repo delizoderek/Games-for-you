@@ -22,24 +22,20 @@ function getParams(reqParams) {
             getData(rawgURL, rawgKey, "genres", '?key=', 'rawgGenres')
         }
     } else if(reqParams.genreArray) {
-        console.log(reqParams.genreArray)
+        (reqParams.genreArray)
         for(var i = 0; i < reqParams.genreArray.length; i++) {
-            console.log(newArr[i].name)
             if(newArr[i].name = reqParams.genreArray[i]) {
                 getData(reqURL, reqCID, "search?", `categories=${newArr[i].id}`, 'genreResults')
-            }  
+            }
         }
-        
+
     }
-    
 }
 async function getData(url, key, typeParam, typeValue, type) {
-    console.log((`${url}/${typeParam}${typeValue}${key}`))
     fetch(`${url}/${typeParam}${typeValue}${key}`)
         .then(response => response.json())
         .then(data => {
             // genCards(data.games)
-            console.log(data)
             useData({results: data, purpose: type})
         })
 }
@@ -48,7 +44,6 @@ async function getData(url, key, typeParam, typeValue, type) {
 function useData(data) {
     if(data.purpose === 'nameResults') {
         //this code executes if the data object received is a list of games from searching
-        console.log(data)
         generateCards(data.results.games)
     }
     else if(data.purpose === 'categoriesResults') {
@@ -61,17 +56,15 @@ function useData(data) {
             }
         }
         getParams({catObject: newArr})
-        
+
     } else if(data.purpose === 'rawgGenres') {
         //this code executes if data passed from getData() is the genres array from rawg api
         for(var i = 0; i < data.results.results.length; i++) {
             categenre.push(data.results.results[i].name)
         }
-        console.log(categenre)
         getParams({doThis: "getCategories"})
     } else if(data.purpose === 'genreResults') {
-        filteredGenreResults = filteredGenreResults.concat(data.results.games.slice(0, 10))  
-        console.log(filteredGenreResults)
+        filteredGenreResults = filteredGenreResults.concat(data.results.games.slice(0, 10))
     }
 }
 
