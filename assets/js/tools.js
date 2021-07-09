@@ -20,6 +20,13 @@ searchBtn.addEventListener("click", function (event) {
   }
 });
 
+searchInput.addEventListener("keypress", function(event){
+  if(event.keyCode === 13){
+    event.preventDefault();
+    searchBtn.click();
+  }
+});
+
 genreBtn.addEventListener("click", function (event) {
   event.preventDefault();
   let genreString = buildGenreString();
