@@ -104,7 +104,6 @@ function carouselImg() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       let index = Math.floor(Math.random() * 4);
       let index2 = Math.floor(Math.random() * 4);
       while (index === index2) {

@@ -254,6 +254,7 @@ function useData(gameData) {
     }
   } else {
     let dispMesg = document.createElement("h2");
+    dispMesg.setAttribute("style","color: var(--text);");
     dispMesg.textContent = "Whoops! We didn't find any results for that...";
     cardList.append(dispMesg);
   }

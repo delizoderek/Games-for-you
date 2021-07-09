@@ -10,19 +10,18 @@ var selectedBoxes = false;
 
 for(var i = 0; i < checkboxList.length; i++) {
   checkboxList[i].addEventListener('click', function() {
-      selectedBoxes = !selectedBoxes
+      selectedBoxes = !selectedBoxes;
   })
-  console.log(checkboxList[i].checked);
 }
 
 function createTooltip(selector, message) {
-    var btn = document.getElementById(`${selector}`)
+    var btn = document.getElementById(`${selector}`);
     btn.classList.add('tooltip');
-    btn.setAttribute('data-tooltip', `${message}`)
+    btn.setAttribute('data-tooltip', `${message}`);
   }
   function removeTooltip(selector) {
-    var btn = document.getElementById(`${selector}`)
-    btn.classList.remove('tooltip')
+    var btn = document.getElementById(`${selector}`);
+    btn.classList.remove('tooltip');
     btn.removeAttribute('data-tooltip');
   }
 
@@ -30,7 +29,6 @@ function createTooltip(selector, message) {
 var selectedBoxes = false;
 
 searchBtn.addEventListener("click", function (event) {
-  console.log('clicked')
   event.preventDefault();
   let searchTerm = searchInput.value.trim();
   if (searchTerm !== "" || searchTerm !== null) {
@@ -38,6 +36,7 @@ searchBtn.addEventListener("click", function (event) {
     if (searchTerm.includes(" ")) {
       searchTerm = searchTerm.replaceAll(" ", "+");
     }
+    searchInput.textContent = '';
     location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
   }
 });
