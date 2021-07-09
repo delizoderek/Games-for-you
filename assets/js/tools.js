@@ -8,6 +8,26 @@ let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
 var selectedBoxes = false;
 
+for(var i = 0; i < checkboxList.length; i++) {
+  checkboxList[i].addEventListener('click', function() {
+      selectedBoxes = !selectedBoxes;
+  })
+}
+
+function createTooltip(selector, message) {
+    var btn = document.getElementById(`${selector}`);
+    btn.classList.add('tooltip');
+    btn.setAttribute('data-tooltip', `${message}`);
+  }
+  function removeTooltip(selector) {
+    var btn = document.getElementById(`${selector}`);
+    btn.classList.remove('tooltip');
+    btn.removeAttribute('data-tooltip');
+  }
+
+
+var selectedBoxes = false;
+
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   let searchTerm = searchInput.value.trim();
@@ -16,7 +36,15 @@ searchBtn.addEventListener("click", function (event) {
     if (searchTerm.includes(" ")) {
       searchTerm = searchTerm.replaceAll(" ", "+");
     }
+    searchInput.textContent = '';
     location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
+  }
+});
+
+searchInput.addEventListener("keypress", function(event){
+  if(event.keyCode === 13){
+    event.preventDefault();
+    searchBtn.click();
   }
 });
 
