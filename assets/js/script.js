@@ -45,7 +45,7 @@ genreBtn.addEventListener("click", function (event) {
 function esrbSearch(event){
     // TODO: Search for games by age
     event.preventDefault();
-    location.assign(`./searchresults.html?q=${Number(event.target.dataset.esrbid)}&type=esrb`)
+    location.assign(`./searchresults.html?q=${event.target.dataset.esrbid}&type=esrb`)
     // getEsrbResults();
 }
 
@@ -66,65 +66,6 @@ function buildGenreString() {
     }
   return {  genreQuery: genreString.substring(0, genreString.length - 1),
             categoryQuery: categoryList.substring(0, categoryList.length - 1)};
-}
-
-function getVideoGameUrl(searchObject) {
-  if (searchObject.type) {
-    if (searchObject.type === "search") {
-      // type is search
-      return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&search_precise=true&page_size=50&key=${rawgApi}`;
-    } else if (searchObject.type === "genres") {
-      // type is genres
-      return `https://api.rawg.io/api/games?${searchObject.type}=${searchObject.value}&page_size=50&key=${rawgApi}`;
-    }
-  }
-}
-
-function getBoardGameUrl(reqParams) {
-  if (reqParams.type) {
-    if (reqParams.type === "name") {
-      return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
-    } else if (reqParams.type === "categories") {
-      return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
-    } else {
-      alert("could not find any games that match the description");
-    }
-  }
-}
-
-/*
- *
- */
-async function searchByGenre(query) {
-  let vgUrl = getVideoGameUrl({ type: "genres", value: query });
-  // let bgUrl = getBoardGameUrl({type: 'name', value: query});
-  const rawgResp = await fetch(vgUrl);
-  const rawgResults = await rawgResp.json();
-  // const atlasResponse = await fetch(bgUrl);
-  // const atlasResults = await atlasResponse.json();
-
-  // populate list
-  let resultList = [];
-  for (let result of rawgResults.results) {
-    resultList.push({
-      name: result.name,
-      image: result.background_image,
-      link: `https://rawg.io/games/${result.id}`,
-    });
-  }
-  resultList.sort(sortGames);
-}
-
-function sortGames(item1, item2) {
-  if (item1.name < item2.name) {
-    return 1;
-  }
-
-  if (item1.name > item2.name) {
-    return -1;
-  }
-
-  return 0;
 }
 
 showFavModal.addEventListener("click", function () {
