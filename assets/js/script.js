@@ -1,6 +1,8 @@
 var rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
+let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 var bgAtlasApi = "id6TuxDAFr";
-
+var erikTesting = [];
+var filteredGenreResults = [];
 var car1 = document.getElementById("car1");
 var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
@@ -19,6 +21,52 @@ let searchBtn = document.querySelector("#name-btn");
 let searchInput = document.querySelector("#name");
 let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
+
+searchBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  let searchTerm = searchInput.value.trim();
+  if (searchTerm !== "" || searchTerm !== null) {
+    searchTerm = searchTerm.toLowerCase();
+    if (searchTerm.includes(" ")) {
+      searchTerm = searchTerm.replaceAll(" ", "+");
+    }
+    location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
+  }
+});
+
+genreBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  let genreString = buildGenreString();
+  location.assign(
+    `./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`
+  );
+});
+
+function esrbSearch(event) {
+  event.preventDefault();
+  location.assign(
+    `./searchresults.html?q=${event.target.dataset.esrbid}&type=esrb`
+  );
+}
+
+// Set Dropdown Click Listeners
+document.querySelector("#everyone").addEventListener("click", esrbSearch);
+document.querySelector("#everyone10").addEventListener("click", esrbSearch);
+document.querySelector("#teen").addEventListener("click", esrbSearch);
+document.querySelector("#mature").addEventListener("click", esrbSearch);
+
+function buildGenreString() {
+    let genreString = "";
+    let categoryList = "";
+    for(let i = 0; i < checkboxList.length; i++){
+        if(checkboxList[i].checked){
+            genreString += `${checkboxList[i].dataset.rawgId},`;
+            categoryList += `${checkboxList[i].dataset.atlasId},`;
+        }
+    }
+  return {  genreQuery: genreString.substring(0, genreString.length - 1),
+            categoryQuery: categoryList.substring(0, categoryList.length - 1)};
+}
 
 showFavModal.addEventListener("click", function () {
   favModal.classList.add("active");
@@ -51,10 +99,14 @@ function randomModal() {
     })
     .then(function (data) {
       document.getElementById("ranName").textContent = data.games[0].name;
-      document.getElementById("ranImg").setAttribute("src", `${data.games[0].image_url}`);
+      document
+        .getElementById("ranImg")
+        .setAttribute("src", `${data.games[0].image_url}`);
       document.getElementById(`ranImg`).style.width = `70%`;
       document.getElementById(`ranImg`).style.height = `70%`;
-      document.getElementById(`ranLink`).setAttribute("href", `${data.games[0].url}`);
+      document
+        .getElementById(`ranLink`)
+        .setAttribute("href", `${data.games[0].url}`);
       document.getElementById(`ranLink`).textContent = `${data.games[0].url}`;
     });
 }
@@ -105,64 +157,7 @@ function popularModal() {
       }
     });
 }
-let resultList = [];
 
-searchBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  let searchTerm = searchInput.value.trim();
-  if (searchTerm !== "" || searchTerm !== null) {
-    searchTerm = searchTerm.toLowerCase();
-    if (searchTerm.includes(" ")) {
-      searchTerm = searchTerm.replaceAll(" ", "+");
-    }
-  }
-  location.assign(`./searchresults.html?q=${searchTerm}`);
-  // searchByName(searchTerm);
-});
-
-/*
- *
- */
-async function searchByName(query) {
-  let tagsUrl = getVideoGameUrl(query);
-  let bgUrl = getBoardGameUrl({ type: "name", value: query });
-  const rawgResp = await fetch(tagsUrl);
-  const rawgResults = await rawgResp.json();
-  const atlasResponse = await fetch(bgUrl);
-  const atlasResults = await atlasResponse.json();
-
-  // populate list
-  let tempList = [];
-  for (let result of rawgResults.results) {
-    tempList.push({
-      name: result.name,
-      image: result.background_image,
-      link: `https://rawg.io/games/${result.id}`,
-    });
-  }
-  for (let bGame of atlasResults.games) {
-    tempList.push({
-      name: bGame.name,
-      image: bGame.image_url,
-      link: bGame.url,
-    });
-  }
-  // // Sort results by name
-  tempList.sort(sortGames);
-  console.log(tempList);
-}
-
-function sortGames(item1, item2) {
-  if (item1.name < item2.name) {
-    return 1;
-  }
-
-  if (item1.name > item2.name) {
-    return -1;
-  }
-
-  return 0;
-}
 
 function carouselImg() {
   fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)
