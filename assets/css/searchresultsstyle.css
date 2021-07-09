@@ -1,78 +1,81 @@
-:root{
-    --main-bg: #171717;
-    --secondary-bg: #444444;
-    --buttons: #da0037;
-    --text: #ededed;
+:root {
+  --main-bg: #171717;
+  --secondary-bg: #444444;
+  --buttons: #da0037;
+  --text: #ededed;
 }
-.custom-container{
-    border:black ;
+.custom-container {
+  border: black;
 }
 
-.custom-column{
-    border:black;
-    height: 100%;
+.custom-column {
+  border: black;
+  height: 100%;
 }
 
 body {
-    background-color: var(--main-bg);
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-  }
-  header {
-    background-color: var(--secondary-bg);
-  }
-  h1 {
-    padding-left: 10px;
-  }
-  .hidden {
-    display: none;
-  }
-  .customSize {
-    font-size: 20px;
-  }
-  .links {
-    padding-right: 10px;
-  }
-  .active {
-    color: var(--buttons) !important;
-    border-bottom-color: var(--buttons) !important;
-  }
-  .customLink:hover {
-    color: var(--buttons) !important;
-  }
-  a:hover {
-    color: var(--buttons) !important;
-  }
-  .customButtons {
-    background-color: var(--buttons) !important;
-    border: var(--buttons) !important;
-    color: var(--text) !important;
-  }
-  .customColor {
-    color: var(--buttons) !important;
-  }
-  .customLink {
-    color: var(--text) !important;
-  }
-  .modal-title {
-    color: var(--text);
-  }
-  .modal-container {
-    background: var(--main-bg);
-  }
-  .popModal {
-    height: auto;
-    width: auto;
-  }
-  .popLink{
-    word-wrap: break-word;
+  background-color: var(--main-bg);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
-.modal-overlay{
-    background: #f7f8f9bf !important;
+header {
+  background-color: var(--secondary-bg);
 }
-.popDiv{
-    margin-bottom: 30px;
-    margin-top: 30px;
+h1 {
+  padding-left: 10px;
+}
+.hidden {
+  display: none;
+}
+.customSize {
+  font-size: 20px;
+}
+.links {
+  padding-right: 10px;
+}
+.active {
+  color: var(--buttons) !important;
+  border-bottom-color: var(--buttons) !important;
+}
+.customLink:hover {
+  color: var(--buttons) !important;
+}
+a:hover {
+  color: var(--buttons) !important;
+}
+.customButtons {
+  background-color: var(--buttons) !important;
+  border: var(--buttons) !important;
+  color: var(--text) !important;
+}
+.ageBtn:hover{
+    color: var(--text) !important;
+}
+.customColor {
+  color: var(--buttons) !important;
+}
+.customLink {
+  color: var(--text) !important;
+}
+.modal-title {
+  color: var(--text);
+}
+.modal-container {
+  background: var(--main-bg);
+}
+.popModal {
+  height: auto;
+  width: auto;
+}
+.popLink {
+  word-wrap: break-word;
+}
+.modal-overlay {
+  background: #f7f8f9bf !important;
+}
+.popDiv {
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 .close:hover,
 .close:focus {
@@ -80,63 +83,85 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-  
-
-#searchby{
-    padding: 2rem;
-
+.filterBox{
+    justify-content: center;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
-#searchresults{
-    padding: 2rem;
+/* Hide scrollbar for IE, Edge and Firefox */
+.modal-body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-#title{
-    color: black;
-
+#searchby {
+  padding: 2rem;
 }
 
-#description{
-    color: black;
+#searchresults {
+  padding: 2rem;
 }
 
-#image{
-    width: 300px;
+#title {
+  color: black;
 }
 
-.game-card{
-    width: 400px;
+#description {
+  color: black;
 }
-.tabBlock {
-    margin: auto;
+
+#image {
+  width: 300px;
+}
+.ageRating {
     cursor: pointer;
   }
-.cardTitle{
-    color:black!important;
+.game-card {
+  width: 400px;
+}
+.tabBlock {
+  margin: auto;
+  cursor: pointer;
+}
+.cardTitle {
+  color: black !important;
 }
 @media (max-width: 768px) {
-    .navbar {
-      justify-content: center;
-    }
-    .carDiv {
-      margin: 0;
-      padding: 0;
-    }
-    .carPre {
-      width: auto;
-      margin: auto;
-    }
-    .popModal{
-        max-width: 99vw !important;
-    }
-    
-    #navName {
-      /* margin-right: 80px; */
-      margin-bottom: 0;
-      width: 375px;
-      text-align: center;
-    }
-    #navLinks {
-      justify-content: center;
-    }
+  .navbar {
+    justify-content: center;
   }
+  .carDiv {
+    margin: 0;
+    padding: 0;
+  }
+  .carPre {
+    width: auto;
+    margin: auto;
+  }
+  .popModal {
+    max-width: 99vw !important;
+  }
+  .customLink{
+      text-align: center;
+  }
+  #navName {
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 375px;
+    text-align: center;
+  }
+  #navLinks {
+    justify-content: center;
+  }
+}

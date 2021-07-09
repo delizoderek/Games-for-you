@@ -82,6 +82,16 @@ html {
 .modal-container {
   background: var(--main-bg);
 }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.modal-body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .popModal {
   height: auto;
   width: auto;
@@ -92,6 +102,9 @@ html {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+.ageBtn:hover{
+    color: var(--text) !important;
 }
 
 .ageRating {
@@ -110,15 +123,15 @@ html {
   background-color: transparent;
   margin: 0;
 }
-.popLink{
-    word-wrap: break-word;
+.popLink {
+  word-wrap: break-word;
 }
-.modal-overlay{
-    background: #f7f8f9bf !important;
+.modal-overlay {
+  background: #f7f8f9bf !important;
 }
-.popDiv{
-    margin-bottom: 30px;
-    margin-top: 30px;
+.popDiv {
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 @media (max-width: 768px) {
@@ -133,13 +146,14 @@ html {
     width: auto;
     margin: auto;
   }
-  .popModal{
-      max-width: 99vw !important;
+  .popModal {
+    max-width: 99vw !important;
   }
-  
+
   #navName {
-    /* margin-right: 80px; */
     margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 375px;
     text-align: center;
   }

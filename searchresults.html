@@ -20,35 +20,25 @@
   </head>
   <body>
     <header class="navbar">
-        <section class="navbar-section">
-          <h1>Games for You!</h1>
-        </section>
-        <section class="navbar-center">
-          <div class="input-group input-inline">
-            <input class="form-input" type="text" placeholder="search" />
-            <button class="btn btn-primary input-group-btn">Search</button>
-          </div>
-        </section>
-        <section class="navbar-section">
-          <a href="./index.html" class="btn btn-link">Home</a>
-          <a href="#" id="popular" class="btn btn-link">Popular</a>
-          <a href="#" id="favorites" class="btn btn-link">Favorites</a>
-        </section>
-        <section class="col-6"></section>
+      <section class="navbar-section" >
+        <h1 id="navName" class="customColor">Games for You!</h1>
+      </section>
+      <section class="navbar-section links" id="navLinks">
+        <a href="./index.html" class="btn btn-link customLink customSize" id="home">Home</a>
+        <button class="btn btn-link customLink customSize" id="popular">Popular</button>
+        <button class="btn btn-link customLink customSize" id="random">Random</button>
+        <button class="btn btn-link customLink customSize" id="favorites">Favorites</button>
+        <!-- <a href="" class="btn btn-link customLink customSize" id="favorites">Favorites</a> -->
+      </section>
       </header>
 
       <main>
         <div class="container">
-          <div class="columns col-gapless">
-            <div class="column col-3">Search Bar</div>
-            <div class="column col-3"></div>
-            <div class="column col-3"></div>
-            <div class="column col-3"></div>
 
     <main>
       <div class="container">
         <div class="columns">
-          <div class="column col-3 col-sm-12">
+          <div class="column col-4 col-sm-12">
             <div class="col-10 tabBlock">
               <ul class="tab tab-block">
                   <li class="tab-item customLink" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
@@ -57,7 +47,7 @@
                 </ul>
           </div>
           <div class="filterBox container">
-            <div class="col-10 col-sm-10">
+            <div class="col-10 col-sm-12">
               <div class="input-group" id="nameSearch">
                 <input class="form-input" type="text" placeholder="Search by Name" id="name" />
                 <button id="name-btn" class="btn btn-primary input-group-btn customButtons">Search</button>
@@ -115,17 +105,17 @@
                 <button id="genre-search" class="btn btn-primary input-group-btn mx-2 customButtons">Search by Genre</button>
               </div> 
                 <!-- dropdown button group -->
-                <div class="dropdown hidden filters" id="ageSearch">
-                  <div class="btn-group">
-                    <a class="btn customButtons">
+                <div class="dropdown hidden filters col-10 col-sm-12" id="ageSearch">
+                  <div class="btn-group col-sm-8">
+                    <a class="btn customButtons ageBtn">
                       Search by Age Rating
                     </a>
-                    <a class="btn dropdown-toggle customButtons" tabindex="0">
+                    <a class="btn dropdown-toggle customButtons ageBtn" tabindex="0">
                       <i class="icon icon-caret"></i>
                     </a>
                 
                     <!-- menu component -->
-                    <ul class="menu customButtons">
+                    <ul class="menu customButtons col-sm-8">
                       <li class="ageRating customButtons" id="everyone" data-esrbId="1">Everyone</li>
                       <li class="ageRating customButtons" id="everyone10" data-esrbId="2">Everyone 10+</li>
                       <li class="ageRating customButtons" id="teen" data-esrbId="3">Teen</li>
