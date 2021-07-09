@@ -8,9 +8,18 @@ let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
 var selectedBoxes = false;
 
+for(var i = 0; i < checkboxList.length; i++) {
+  checkboxList[i].addEventListener('click', function() {
+    selectedBoxes = !selectedBoxes
+  })
+}
+
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  let searchTerm = searchInput.value.trim();
+  if(!searchInput.value) {
+    return
+  } else {
+    let searchTerm = searchInput.value.trim();
   if (searchTerm !== "" || searchTerm !== null) {
     searchTerm = searchTerm.toLowerCase();
     if (searchTerm.includes(" ")) {
@@ -18,14 +27,19 @@ searchBtn.addEventListener("click", function (event) {
     }
     location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
   }
+  }
 });
 
 genreBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  let genreString = buildGenreString();
+  if(!selectedBoxes) {
+    return
+  } else {
+    let genreString = buildGenreString();
   location.assign(
     `./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`
   );
+  }
 });
 
 function esrbSearch(event) {
