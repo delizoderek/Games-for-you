@@ -242,7 +242,7 @@ function useData(gameData) {
     imageContainer.append(cardImage);
     cardHeader.setAttribute("class", "card-header");
     cardTitle.setAttribute("class", "card-title h6 cardTitle");
-    cardButton.setAttribute("class", "btn btn-primary customButtons viewBtn");
+    cardButton.setAttribute("class", "btn btn-primary viewBtn");
     cardButton.setAttribute("href", gameData[i].link);
     cardButton.setAttribute("target", "_blank");
     cardButton.textContent = "view";
