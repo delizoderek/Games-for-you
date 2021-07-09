@@ -26,6 +26,7 @@ h1 {
 }
 .card {
   display: inline-block;
+<<<<<<< HEAD
   border: 10px solid var(--buttons);
   position: static;
   background: var(--secondary-bg);
@@ -49,6 +50,12 @@ h1 {
 }
 .card-header{
     padding-top: 0 !important;
+=======
+  height: 150px;
+  width: 150px;
+  border: 10px solid black;
+  position: static;
+>>>>>>> develop
 }
 
 .hidden {
@@ -154,6 +161,33 @@ body {
   color: var(--text);
 }
 
+<<<<<<< HEAD
+=======
+.customImg {
+  height: 70%;
+  width: 70%;
+}
+
+.game-card {
+  display: inline-block;
+  width: 250px;
+}
+.ageRating {
+  cursor: pointer;
+}
+
+.game-card {
+  width: 400px;
+}
+.tabBlock {
+  margin: auto;
+  cursor: pointer;
+}
+.cardTitle {
+  color: var(--text) !important;
+}
+
+>>>>>>> develop
 @media (max-width: 768px) {
   .navbar {
     justify-content: center;
