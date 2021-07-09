@@ -1,6 +1,3 @@
-var favModal = document.getElementById("favModal");
-var showFavModal = document.getElementById("favorites");
-var closeFavModal = document.getElementById("closeFavModal");
 var popModal = document.getElementById("popModal");
 var showPopModal = document.getElementById("popular");
 var closePopModal = document.getElementById("closePopModal");
@@ -9,6 +6,12 @@ var bgAtlasApi = "id6TuxDAFr";
 var ranModal = document.getElementById("ranModal");
 var showRanModal = document.getElementById("random");
 var closeRanModal = document.getElementById("closeRanModal");
+var searchBtn = document.getElementById('name-btn')
+var searchInput = document.getElementById('name')
+var genreBtn = document.getElementById('genre-search')
+
+var rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
+var bgAtlasApi = "id6TuxDAFr";
 
 var reqURL = "https://api.boardgameatlas.com/api";
 
@@ -240,8 +243,8 @@ function useData(gameData) {
     card.setAttribute("class", "card game-card");
     imageContainer.append(cardImage);
     cardHeader.setAttribute("class", "card-header");
-    cardTitle.setAttribute("class", "card-title h5 cardTitle");
-    cardButton.setAttribute("class", "btn btn-primary customButtons");
+    cardTitle.setAttribute("class", "card-title h6 cardTitle");
+    cardButton.setAttribute("class", "btn btn-primary customButtons viewBtn");
     cardButton.setAttribute("href", gameData[i].link);
     cardButton.setAttribute("target", "_blank");
     cardButton.textContent = "view";
@@ -254,13 +257,6 @@ function useData(gameData) {
     cardList.append(card);
   }
 }
-
-showFavModal.addEventListener("click", function () {
-  favModal.classList.add("active");
-});
-closeFavModal.addEventListener("click", function () {
-  favModal.classList.remove("active");
-});
 
 showPopModal.addEventListener("click", function () {
   popModal.classList.add("active");

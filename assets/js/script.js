@@ -7,9 +7,6 @@ var car1 = document.getElementById("car1");
 var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
 var car4 = document.getElementById("car4");
-var favModal = document.getElementById("favModal");
-var showFavModal = document.getElementById("favorites");
-var closeFavModal = document.getElementById("closeFavModal");
 var popModal = document.getElementById("popModal");
 var showPopModal = document.getElementById("popular");
 var closePopModal = document.getElementById("closePopModal");
@@ -22,16 +19,27 @@ let searchInput = document.querySelector("#name");
 let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
+let resultList = [];
+
+var selectedBoxes = false;
+
+
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  let searchTerm = searchInput.value.trim();
-  if (searchTerm !== "" || searchTerm !== null) {
-    searchTerm = searchTerm.toLowerCase();
-    if (searchTerm.includes(" ")) {
-      searchTerm = searchTerm.replaceAll(" ", "+");
-    }
+  if(!searchInput.value) {
+    createTooltip('genre-search', 'Please select the genres you would like to search for')
+  } else {
+    
+    let searchTerm = searchInput.value.trim();
+    if (searchTerm !== "" || searchTerm !== null) {
+      searchTerm = searchTerm.toLowerCase();
+      if (searchTerm.includes(" ")) {
+        searchTerm = searchTerm.replaceAll(" ", "+");
+      }
     location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
+    }
   }
+  
 });
 
 genreBtn.addEventListener("click", function (event) {
@@ -62,18 +70,12 @@ function buildGenreString() {
         if(checkboxList[i].checked){
             genreString += `${checkboxList[i].dataset.rawgId},`;
             categoryList += `${checkboxList[i].dataset.atlasId},`;
+            selectedBoxes = true;
         }
     }
   return {  genreQuery: genreString.substring(0, genreString.length - 1),
             categoryQuery: categoryList.substring(0, categoryList.length - 1)};
 }
-
-showFavModal.addEventListener("click", function () {
-  favModal.classList.add("active");
-});
-closeFavModal.addEventListener("click", function () {
-  favModal.classList.remove("active");
-});
 
 showPopModal.addEventListener("click", function () {
   popModal.classList.add("active");
@@ -220,6 +222,15 @@ var changeTab = function (event) {
     document.getElementById("ageSearch").classList.remove("hidden");
   }
 };
+
+
+
+
+
+
+
+
+
 
 document.querySelector("#nameTab").addEventListener("click", changeTab);
 document.querySelector("#genreTab").addEventListener("click", changeTab);
