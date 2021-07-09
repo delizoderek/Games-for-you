@@ -31,7 +31,7 @@ var selectedBoxes = false;
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   let searchTerm = searchInput.value.trim();
-  if (searchTerm !== "" || searchTerm !== null) {
+  if (searchTerm !== "" && searchTerm !== null) {
     searchTerm = searchTerm.toLowerCase();
     if (searchTerm.includes(" ")) {
       searchTerm = searchTerm.replaceAll(" ", "+");
@@ -97,7 +97,7 @@ searchBtn.addEventListener("mouseover", function () {
   if (!searchInput.value) {
     createTooltip(
       "name-btn",
-      "Please enter the name of the game you would like to search"
+      "Please enter a name"
     );
   }
 });
@@ -109,7 +109,7 @@ genreBtn.addEventListener("mouseover", function () {
   if (!selectedBoxes) {
     createTooltip(
       "genre-search",
-      "Please select the genres you would like to search for"
+      "Please select a genre"
     );
   }
 });
