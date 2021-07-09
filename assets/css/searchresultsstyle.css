@@ -25,7 +25,9 @@ h1 {
   padding-left: 10px;
 }
 .card {
-  display: inline-block;
+  float: left;
+  object-fit: cover;
+  /* display: inline-block; */
   border: 10px solid var(--buttons);
   position: static;
   background: var(--secondary-bg);
@@ -38,21 +40,20 @@ h1 {
   height: 80%;
   width: 80%;
 }
-.card-image{
-    height: 60%;
-    width: 60%;
-    margin-right: 25%;
-    margin-left: 25%;
-    margin-top: 5px;
+.card-image {
+  height: 60%;
+  width: 60%;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-top: 5px;
 }
 
 .cardTitle {
   color: var(--text) !important;
-  
 }
-.card-header{
-    padding-top: 0 !important;
-    bottom: 0;
+.card-header {
+  padding-top: 0 !important;
+  bottom: 0;
 }
 
 .hidden {
@@ -185,5 +186,9 @@ body {
   }
   #navLinks {
     justify-content: center;
+  }
+  .game-card {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
