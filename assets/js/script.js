@@ -7,9 +7,6 @@ var car1 = document.getElementById("car1");
 var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
 var car4 = document.getElementById("car4");
-var favModal = document.getElementById("favModal");
-var showFavModal = document.getElementById("favorites");
-var closeFavModal = document.getElementById("closeFavModal");
 var popModal = document.getElementById("popModal");
 var showPopModal = document.getElementById("popular");
 var closePopModal = document.getElementById("closePopModal");
@@ -79,13 +76,6 @@ function buildGenreString() {
   return {  genreQuery: genreString.substring(0, genreString.length - 1),
             categoryQuery: categoryList.substring(0, categoryList.length - 1)};
 }
-
-showFavModal.addEventListener("click", function () {
-  favModal.classList.add("active");
-});
-closeFavModal.addEventListener("click", function () {
-  favModal.classList.remove("active");
-});
 
 showPopModal.addEventListener("click", function () {
   popModal.classList.add("active");

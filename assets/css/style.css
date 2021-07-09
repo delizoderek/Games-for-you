@@ -106,6 +106,9 @@ html {
 .ageBtn:hover{
     color: var(--text) !important;
 }
+.viewBtn:hover{
+    color: var(--text) !important;
+}
 
 .ageRating {
   cursor: pointer;
