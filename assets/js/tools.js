@@ -7,7 +7,6 @@ let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
 var selectedBoxes = false;
-let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
 for(var i = 0; i < checkboxList.length; i++) {
   checkboxList[i].addEventListener('click', function() {
@@ -31,6 +30,7 @@ function createTooltip(selector, message) {
 var selectedBoxes = false;
 
 searchBtn.addEventListener("click", function (event) {
+  console.log('clicked')
   event.preventDefault();
   let searchTerm = searchInput.value.trim();
   if (searchTerm !== "" || searchTerm !== null) {
