@@ -24,6 +24,17 @@ body {
   h1 {
     padding-left: 10px;
   }
+  .card{
+    display: inline-block;
+    height:150px;
+    width:150px;
+    border: 10px solid black;
+    position:static;
+    
+    
+}
+  
+
   .hidden {
     display: none;
   }
@@ -92,7 +103,7 @@ body {
 }
 
 #title{
-    color: black;
+    color: var(--text);
 
 }
 
@@ -100,19 +111,21 @@ body {
     color: black;
 }
 
-#image{
-    width: 300px;
+.customImg{
+    height:70%;
+    width: 70%;
 }
 
 .game-card{
-    width: 400px;
+    display: inline-block;
+    width: 250px;
 }
 .tabBlock {
     margin: auto;
     cursor: pointer;
   }
 .cardTitle{
-    color:black!important;
+    color: var(--text) !important;
 }
 @media (max-width: 768px) {
     .navbar {
