@@ -206,42 +206,18 @@ function sortGames(item1, item2) {
   return 0;
 }
 
-<<<<<<< HEAD
-// function useData(gameData){
-//     for(var i=0;i<20;i++){
-//         var cardList = document.getElementById('card-list')
-//         var card = document.createElement("div")
-//         var imageContainer = document.createElement("div")
-//         var cardImage = document.createElement("img")
-//         var cardHeader = document.createElement("div")
-//         var cardTitle = document.createElement("div")
-//         var cardButton = document.createElement("a")
-//         cardImage.setAttribute("class", "img-responsive")
-
-//         cardImage.setAttribute("src", gameData.games[i].image_url)
-//         card.setAttribute("class", "card game-card")
-//         console.log(cardImage)
-//         imageContainer.append(cardImage)
-//         cardHeader.setAttribute("class", "card-header")
-//         cardTitle.setAttribute("class", "card-title h5 cardTitle")
-//         cardButton.setAttribute("class", "btn btn-primary customButtons")
-//         cardButton.setAttribute("href", gameData.games[i].url)
-//         cardButton.setAttribute("target", "_blank")
-//         cardButton.textContent = "view"
-//         cardTitle.textContent = gameData.games[i].name
-//         cardHeader.append(cardTitle,cardButton)
-=======
 // // For testing Purposes
-// async function getData() {
-//   fetch(
-//     `https://api.boardgameatlas.com/api/search?name=corn&client_id=JLBr5npPhV`
-//   )
-//     .then((response) => response.json())
-//     .then((data) => {
-//       // genCards(data.games)
-//       useData(data);
-//     });
-// }
+getData()
+async function getData() {
+  fetch(
+    `https://api.boardgameatlas.com/api/search?name=monopoly&client_id=JLBr5npPhV`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      // genCards(data.games)
+      useData(data);
+    });
+}
 
 function useData(gameData) {
   var cardList = document.getElementById("card-list");
@@ -253,7 +229,6 @@ function useData(gameData) {
     var cardTitle = document.createElement("div");
     var cardButton = document.createElement("a");
     cardImage.setAttribute("class", "customImg");
->>>>>>> develop
 
     cardImage.setAttribute("src", gameData[i].image);
     card.setAttribute("class", "card game-card");
@@ -268,17 +243,6 @@ function useData(gameData) {
     cardTitle.textContent = gameData[i].name;
     cardHeader.append(cardTitle, cardButton);
 
-<<<<<<< HEAD
-
-//         imageContainer.setAttribute("class", "card-image")
-//         card.append(imageContainer,cardHeader)
-
-
-//         cardList.append(card)
-//     }
-
-// }
-=======
     imageContainer.setAttribute("class", "card-image");
     card.append(imageContainer, cardHeader);
 
@@ -378,7 +342,6 @@ var changeTab = function (event) {
   document.getElementById("nameTab").classList.remove("active");
   document.getElementById("ageTab").classList.remove("active");
   document.getElementById("genreTab").classList.remove("active");
->>>>>>> develop
 
   event.target.classList.add("active");
 
@@ -400,47 +363,4 @@ document.querySelector("#nameTab").addEventListener("click", changeTab);
 document.querySelector("#genreTab").addEventListener("click", changeTab);
 document.querySelector("#ageTab").addEventListener("click", changeTab);
 
-<<<<<<< HEAD
-  parseQuery();
-
-  // For testing Purposes
-async function getData() {
-    fetch(`https://api.boardgameatlas.com/api/search?name=monopoly&client_id=JLBr5npPhV`)
-        .then(response => response.json())
-        .then(data => {
-            // genCards(data.games)
-            useData(data);
-        })
-  }
-  function useData(gameData){
-      for(var i=0;i<gameData.games.length;i++){
-          var cardList = document.getElementById('card-list')
-          var card = document.createElement("div")
-          var imageContainer = document.createElement("div")
-          var cardImage = document.createElement("img")
-          var cardHeader = document.createElement("div")
-          var cardTitle = document.createElement("div")
-          var cardButton = document.createElement("a")
-          cardImage.setAttribute("class", "customImg")
-          cardImage.setAttribute("src", gameData.games[i].image_url)
-          card.setAttribute("class", "card game-card col-3")
-          console.log(cardImage)
-          imageContainer.append(cardImage)
-          cardHeader.setAttribute("class", "card-header")
-          cardTitle.setAttribute("class", "card-title h6 cardTitle")
-          cardButton.setAttribute("class", "btn btn-primary customButtons")
-          cardButton.setAttribute("href", gameData.games[i].url)
-          cardButton.setAttribute("target", "_blank")
-          cardButton.textContent = "view"
-          cardTitle.textContent = gameData.games[i].name
-          cardHeader.append(cardTitle,cardButton)
-          imageContainer.setAttribute("class", "card-image")
-          card.append(imageContainer,cardHeader)
-          cardList.append(card)
-      }
-  }
-
-  getData()
-=======
 parseQuery();
->>>>>>> develop

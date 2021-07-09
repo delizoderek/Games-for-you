@@ -32,7 +32,7 @@ searchBtn.addEventListener("click", function (event) {
     if (searchTerm.includes(" ")) {
       searchTerm = searchTerm.replaceAll(" ", "+");
     }
-    location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
+    // location.assign(`./searchresults.html?q=${searchTerm}&type=name`);
   }
 });
 
