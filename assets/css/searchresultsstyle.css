@@ -25,11 +25,35 @@ h1 {
   padding-left: 10px;
 }
 .card {
-  display: inline-block;
-  height: 150px;
-  width: 150px;
-  border: 10px solid black;
+  float: left;
+  object-fit: cover;
+  /* display: inline-block; */
+  border: 10px solid var(--buttons);
   position: static;
+  background: var(--secondary-bg);
+  margin: 5px;
+  width: 300px;
+  height: 300px;
+  word-wrap: break-word;
+}
+.customImg {
+  height: 80%;
+  width: 80%;
+}
+.card-image {
+  height: 60%;
+  width: 60%;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-top: 5px;
+}
+
+.cardTitle {
+  color: var(--text) !important;
+}
+.card-header {
+  padding-top: 0 !important;
+  bottom: 0;
 }
 
 .hidden {
@@ -114,6 +138,14 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.ageRating {
+  cursor: pointer;
+}
+
+.tabBlock {
+  margin: auto;
+  cursor: pointer;
+}
 
 #searchby {
   padding: 2rem;
@@ -125,30 +157,6 @@ body {
 
 #title {
   color: var(--text);
-}
-
-.customImg {
-  height: 70%;
-  width: 70%;
-}
-
-.game-card {
-  display: inline-block;
-  width: 250px;
-}
-.ageRating {
-  cursor: pointer;
-}
-
-.game-card {
-  width: 400px;
-}
-.tabBlock {
-  margin: auto;
-  cursor: pointer;
-}
-.cardTitle {
-  color: var(--text) !important;
 }
 
 @media (max-width: 768px) {
@@ -178,5 +186,9 @@ body {
   }
   #navLinks {
     justify-content: center;
+  }
+  .game-card {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }

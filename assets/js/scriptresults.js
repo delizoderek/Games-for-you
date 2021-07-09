@@ -207,16 +207,17 @@ function sortGames(item1, item2) {
 }
 
 // // For testing Purposes
-// async function getData() {
-//   fetch(
-//     `https://api.boardgameatlas.com/api/search?name=corn&client_id=JLBr5npPhV`
-//   )
-//     .then((response) => response.json())
-//     .then((data) => {
-//       // genCards(data.games)
-//       useData(data);
-//     });
-// }
+getData()
+async function getData() {
+  fetch(
+    `https://api.boardgameatlas.com/api/search?name=monopoly&client_id=JLBr5npPhV`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      // genCards(data.games)
+      useData(data);
+    });
+}
 
 function useData(gameData) {
   var cardList = document.getElementById("card-list");
