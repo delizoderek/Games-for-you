@@ -291,7 +291,7 @@ showFavModal.addEventListener("click", function () {
 
   // For testing Purposes
 async function getData() {
-    fetch(`https://api.boardgameatlas.com/api/search?name=corn&client_id=JLBr5npPhV`)
+    fetch(`https://api.boardgameatlas.com/api/search?name=monopoly&client_id=JLBr5npPhV`)
         .then(response => response.json())
         .then(data => {
             // genCards(data.games)
@@ -307,13 +307,13 @@ async function getData() {
           var cardHeader = document.createElement("div")
           var cardTitle = document.createElement("div")
           var cardButton = document.createElement("a")
-          cardImage.setAttribute("class", "img-responsive")
+          cardImage.setAttribute("class", "customImg")
           cardImage.setAttribute("src", gameData.games[i].image_url)
-          card.setAttribute("class", "card game-card")
+          card.setAttribute("class", "card game-card col-3")
           console.log(cardImage)
           imageContainer.append(cardImage)
           cardHeader.setAttribute("class", "card-header")
-          cardTitle.setAttribute("class", "card-title h5 cardTitle")
+          cardTitle.setAttribute("class", "card-title h6 cardTitle")
           cardButton.setAttribute("class", "btn btn-primary customButtons")
           cardButton.setAttribute("href", gameData.games[i].url)
           cardButton.setAttribute("target", "_blank")
