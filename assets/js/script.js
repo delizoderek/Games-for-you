@@ -22,8 +22,6 @@ let searchInput = document.querySelector("#name");
 let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
 
-let resultList = [];
-
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   let searchTerm = searchInput.value.trim();
@@ -39,14 +37,16 @@ searchBtn.addEventListener("click", function (event) {
 genreBtn.addEventListener("click", function (event) {
   event.preventDefault();
   let genreString = buildGenreString();
-  location.assign(`./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`);
+  location.assign(
+    `./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`
+  );
 });
 
-function esrbSearch(event){
-    // TODO: Search for games by age
-    event.preventDefault();
-    location.assign(`./searchresults.html?q=${event.target.dataset.esrbid}&type=esrb`)
-    // getEsrbResults();
+function esrbSearch(event) {
+  event.preventDefault();
+  location.assign(
+    `./searchresults.html?q=${event.target.dataset.esrbid}&type=esrb`
+  );
 }
 
 // Set Dropdown Click Listeners
