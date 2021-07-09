@@ -1,6 +1,8 @@
 var rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
+let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 var bgAtlasApi = "id6TuxDAFr";
-
+var erikTesting = []
+var filteredGenreResults = []
 var car1 = document.getElementById("car1");
 var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");

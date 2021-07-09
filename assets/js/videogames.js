@@ -1,6 +1,7 @@
 let key = "bBS0ShoGPv";
-let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
+// let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
 let baseUrl = "https://www.giantbomb.com/api";
+
 
 // Set Dropdown Click Listeners
 document.querySelector("#everyone").addEventListener("click",esrbSearch);
@@ -9,6 +10,7 @@ document.querySelector("#teen").addEventListener("click",esrbSearch);
 document.querySelector("#mature").addEventListener("click",esrbSearch);
 
 genreBtn.addEventListener("click",function(event){
+    filteredGenreResults = []
     event.preventDefault();
     genreSearch();
 });
@@ -52,8 +54,10 @@ function buildGenreString(){
     for(let i = 0; i < checkboxList.length; i++){
         if(checkboxList[i].checked){
             genreQuery += `${checkboxList[i].dataset.gid},`;
+            erikTesting.push(checkboxList[i].value)
         }
     }
+    getParams({genreArray: erikTesting})
     return genreQuery.substring(0,genreQuery.length-1);
 }
 
