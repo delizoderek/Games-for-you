@@ -1,6 +1,3 @@
-const rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
-const bgAtlasApi = "id6TuxDAFr";
-
 var favModal = document.getElementById("favModal");
 var showFavModal = document.getElementById("favorites");
 var closeFavModal = document.getElementById("closeFavModal");
@@ -54,7 +51,7 @@ function getBoardGameUrl(reqParams) {
       return `${reqURL}/search?${reqParams.type}=${reqParams.value}&limit=${reqParams.limit}&client_id=JLBr5npPhV`;
     } else if (reqParams.type === "min_age") {
       if (reqParams.value === "1") {
-        return `${reqURL}/search?${reqParams.type}=1client_id=JLBr5npPhV`;
+        return `${reqURL}/search?${reqParams.type}=1&client_id=JLBr5npPhV`;
       } else if (reqParams.value === "2") {
         return `${reqURL}/search?${reqParams.type}=10&client_id=JLBr5npPhV`;
       } else if (reqParams.value === "3") {
@@ -62,8 +59,6 @@ function getBoardGameUrl(reqParams) {
       } else if (reqParams.value === "4") {
         return `${reqURL}/search?${reqParams.type}=17&client_id=JLBr5npPhV`;
       }
-    } else {
-      alert("could not find any games that match the description");
     }
   }
 }
@@ -161,26 +156,36 @@ async function searchByEsrb(esrbRating) {
   let vgUrl = getVideoGameUrl({ type: "esrb", value: esrbRating });
   console.log(vgUrl);
   let bgUrl = getBoardGameUrl({ type: "min_age", value: esrbRating });
-  console.log(bgUrl);
   let resultList = [];
-  const rawgResp = await fetch(vgUrl);
-  const rawgResults = await rawgResp.json();
+  let rawgFiltered = [];
   const atlasResponse = await fetch(bgUrl);
   const atlasResults = await atlasResponse.json();
 
-  // populate list
-  for (let result of rawgResults.results) {
-    resultList.push({
-      name: result.name,
-      image: result.background_image,
-      link: `https://rawg.io/games/${result.id}`,
-    });
-  }
   for (let bGame of atlasResults.games) {
     resultList.push({
       name: bGame.name,
       image: bGame.image_url,
       link: bGame.url,
+    });
+  }
+
+  let iter = 5;
+
+  while(iter > -1 && rawgFiltered.length < 30){
+    const rawgResp = await fetch(vgUrl);
+    const rawgResults = await rawgResp.json();
+    rawgFiltered = rawgFiltered.concat(filterByEsrb(rawgResults.results,Number(esrbRating)));
+    vgUrl = rawgResults.next;
+    delay(200);
+    iter--;
+  }
+
+  // populate list
+  for (let result of rawgFiltered) {
+    resultList.push({
+      name: result.name,
+      image: result.background_image,
+      link: `https://rawg.io/games/${result.id}`,
     });
   }
 
@@ -206,17 +211,16 @@ function sortGames(item1, item2) {
   return 0;
 }
 
-// // For testing Purposes
-getData()
-async function getData() {
-  fetch(
-    `https://api.boardgameatlas.com/api/search?name=monopoly&client_id=JLBr5npPhV`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      // genCards(data.games)
-      useData(data);
-    });
+function filterByEsrb(gameList,ageRating){
+  let filteredResults = [];
+  for(let result of gameList){
+      if(result.esrb_rating != null){
+          if(result.esrb_rating.id <= ageRating){
+              filteredResults.push(result);
+          }
+      }
+  }
+  return filteredResults;
 }
 
 function useData(gameData) {
@@ -232,7 +236,6 @@ function useData(gameData) {
 
     cardImage.setAttribute("src", gameData[i].image);
     card.setAttribute("class", "card game-card");
-    console.log(cardImage);
     imageContainer.append(cardImage);
     cardHeader.setAttribute("class", "card-header");
     cardTitle.setAttribute("class", "card-title h5 cardTitle");
