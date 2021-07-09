@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games for You!</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/searchresultsstyle.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <section class="navbar-section" >
+        <h1 id="navName" class="customColor">Games for You!</h1>
+      </section>
+      <section class="navbar-section links" id="navLinks">
+        <a href="./index.html" class="btn btn-link customLink customSize" id="home">Home</a>
+        <button class="btn btn-link customLink customSize" id="popular">Popular</button>
+        <button class="btn btn-link customLink customSize" id="random">Random</button>
+      </section>
+      </header>
+
+      <main>
+        <div class="container">
+
+    <main>
+      <div class="container">
+        <div class="columns">
+          <div class="column col-4 col-md-12 col-sm-12">
+            <div class="col-10 tabBlock">
+              <ul class="tab tab-block">
+                  <li class="tab-item customLink" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
+                  <li class="tab-item customLink"><a class="" id="genreTab" data-name="Genre">Genre</a></li>
+                  <li class="tab-item customLink" > <a class="" id="ageTab" data-name="Age">Age</a></li>
+                </ul>
+          </div>
+          <div class="filterBox container">
+            <div class="col-10 col-sm-12">
+              <div class="input-group" id="nameSearch">
+                <input class="form-input" type="text" placeholder="Search by Name" id="name" />
+                <button id="name-btn" class="btn btn-primary input-group-btn customButtons">Search</button>
+              </div>
+              <div class="input-group columns hidden filters" id="genreSearch">
+                  <label class="form-checkbox column col-6 form-inline text-right customLink">
+                    <input type="checkbox" data-rawg-id="4" data-atlas-id="PzWI2uaif0"><i class="form-icon mx-2 customButtons"></i> Action
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="3" data-atlas-id="KUBCKBkGxV"><i class="form-icon mx-2 customButtons"></i> Adventure
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="11" data-atlas-id="eX8uuNlQkQ"><i class="form-icon mx-2 customButtons"></i> Arcade
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="40" data-atlas-id="X8J7RM6dxX"><i class="form-icon mx-2 customButtons"></i> Casual
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="34" data-atlas-id="B3NRLMK4xD"><i class="form-icon mx-2 customButtons"></i> Educational
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="19" data-atlas-id="7rV11PKqME"><i class="form-icon mx-2 customButtons"></i> Family
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="6" data-atlas-id="upXZ8vNfNO"><i class="form-icon mx-2 customButtons"></i> Fighting
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="51" data-atlas-id="rrvd68LjOR"><i class="form-icon mx-2 customButtons"></i> Indie
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="83" data-atlas-id="rtslXnT90O"><i class="form-icon mx-2 customButtons"></i> Platformer
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="7" data-atlas-id="WVMOS3s2pb"><i class="form-icon mx-2 customButtons"></i> Puzzle
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="1" data-atlas-id="tQGLgwdbYH"><i class="form-icon mx-2 customButtons"></i> Racing
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="5" data-atlas-id="2Gu62aKdma"><i class="form-icon mx-2 customButtons"></i> RPG
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="14" data-atlas-id="CWYOF9xu7O"><i class="form-icon mx-2 customButtons"></i> Simulation
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="2" data-atlas-id="L6NUwNdblq"><i class="form-icon mx-2 customButtons"></i> Shooter
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="15" data-atlas-id="hShsL2DktG"><i class="form-icon mx-2 customButtons"></i> Sports
+                    </label>
+                    <label class="form-checkbox column col-6 form-inline text-right customLink">
+                      <input type="checkbox" data-rawg-id="10" data-atlas-id="alkjFhA58S"><i class="form-icon mx-2 customButtons"></i> Strategy
+                    </label>
+
+                <button id="genre-search" class="btn btn-primary input-group-btn mx-2 customButtons">Search by Genre</button>
+              </div>
+                <!-- dropdown button group -->
+                <div class="dropdown hidden filters col-10 col-sm-12" id="ageSearch">
+                  <div class="btn-group col-sm-8">
+                    <a class="btn customButtons ageBtn">
+                      Search by Age Rating
+                    </a>
+                    <a class="btn dropdown-toggle customButtons ageBtn" tabindex="0">
+                      <i class="icon icon-caret"></i>
+                    </a>
+                
+                    <!-- menu component -->
+                    <ul class="menu customButtons col-sm-8">
+                      <li class="ageRating customButtons" id="everyone" data-esrbId="1">Everyone</li>
+                      <li class="ageRating customButtons" id="everyone10" data-esrbId="2">Everyone 10+</li>
+                      <li class="ageRating customButtons" id="teen" data-esrbId="3">Teen</li>
+                      <li class="ageRating customButtons" id="mature" data-esrbId="4">Mature</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-8 col-sm-12" id="card-list">
+        </div>
+      </div>
+      <!-- Random Modal -->
+    <div class="modal modal-sm" id="ranModal">
+      <div class="modal-overlay"></div>
+      <div class="modal-container">
+          <div class="modal-header">
+              <div class="modal-title">Random Game</div>
+          </div>
+          <div class="modal-body">
+              <div id="ran">
+                  <h5 id="ranName"></h5>
+                  <img src="" alt="ranImg" id="ranImg">
+                  <a href="" target="_blank" class="popLink" id="ranLink"></a>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-primary customButtons" id="closeRanModal">Close</button>
+          </div>
+      </div>
+  </div>
+ <!-- Popular Modal -->
+ <div class="modal modal-lg" id="popModal">
+  <div class="modal-overlay"></div>
+  <div class="modal-container container popModal">
+      <div class="modal-header">
+          <div class="modal-title">Popular Games</div>
+      </div>
+      <div class="modal-body">
+          <div class="content columns">
+            <div id="vg1" class="column col-4 col-sm-11 popDiv">
+                <h5 id="vg1Name"></h5>
+                <img src="" alt="vg1Img" id="vg1Img">
+                <a href="" target="_blank" class="popLink" id="vg1Link"></a>
+            </div>
+            <div id="vg2" class="column col-4 col-sm-11 popDiv">
+              <h5 id="vg2Name"></h5>
+              <img src="" alt="vg1Img" id="vg2Img">
+              <a href="" target="_blank" class="popLink" id="vg2Link"></a>
+          </div>
+          <div id="vg3" class="column col-4 col-sm-11 popDiv">
+              <h5 id="vg3Name"></h5>
+              <img src="" alt="vg3Img" id="vg3Img">
+              <a href="" target="_blank" class="popLink" id="vg3Link"></a>
+          </div>
+          <div id="vg4" class=" column col-4 col-sm-11 popDiv">
+              <h5 id="vg4Name"></h5>
+              <img src="" alt="vg4Img" id="vg4Img">
+              <a href="" target="_blank" class="popLink" id="vg4Link"></a>
+          </div>
+          <div id="b1" class=" column col-4 col-sm-11 popDiv">
+              <h5 id="bg1Name"></h5>
+              <img src="" alt="bg1Img" id="bg1Img">
+              <a href="" target="_blank" class="popLink" id="bg1Link"></a>
+          </div>
+          <div id="b2" class=" column col-4 col-sm-11 popDiv">
+              <h5 id="bg2Name"></h5>
+              <img src="" alt="bg2Img" id="bg2Img">
+              <a href="" target="_blank" class="popLink" id="bg2Link"></a>
+          </div>
+          <div id="b3" class=" column col-4 col-sm-11 popDiv">
+              <h5 id="bg3Name"></h5>
+              <img src="" alt="bg3Img" id="bg3Img">
+              <a href="" target="_blank" class="popLink" id="bg3Link"></a>
+          </div>
+          <div id="b4" class=" column col-4 col-sm-11 popDiv">
+              <h5 id="bg4Name"></h5>
+              <img src="" alt="bg4Img" id="bg4Img">
+              <a href="" target="_blank" class="popLink" id="bg4Link"></a>
+          </div>
+      </div>
+  </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary customButtons" id="closePopModal">Close</button>
+      </div>
+  </div>
+</div>
+    </main>
+    <script src="./assets/js/tools.js"></script>
+    <script src="./assets/js/scriptresults.js"></script>
+  </body>
+</html>
