@@ -1,3 +1,13 @@
+var selectedBoxes = false;
+let checkboxList = document.querySelectorAll("input[type='checkbox']");
+
+for(var i = 0; i < checkboxList.length; i++) {
+  checkboxList[i].addEventListener('click', function() {
+      selectedBoxes = !selectedBoxes
+  })
+  console.log(checkboxList[i].checked);
+}
+
 function createTooltip(selector, message) {
     var btn = document.getElementById(`${selector}`)
     btn.classList.add('tooltip');

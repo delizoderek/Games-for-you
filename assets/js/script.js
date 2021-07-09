@@ -18,10 +18,14 @@ let searchBtn = document.querySelector("#name-btn");
 let searchInput = document.querySelector("#name");
 let genreBtn = document.querySelector("#genre-search");
 let checkboxList = document.querySelectorAll("input[type='checkbox']");
+let checkboxes = document.getElementsByClassName('')
+
+
+
 
 let resultList = [];
 
-var selectedBoxes = false;
+
 
 
 searchBtn.addEventListener("click", function (event) {
@@ -44,10 +48,15 @@ searchBtn.addEventListener("click", function (event) {
 
 genreBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  let genreString = buildGenreString();
-  location.assign(
-    `./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`
-  );
+  
+  if(!selectedBoxes) {
+    return
+  } else {
+    let genreString = buildGenreString();
+    location.assign(
+      `./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`
+    );
+  }
 });
 
 function esrbSearch(event) {
@@ -70,7 +79,6 @@ function buildGenreString() {
         if(checkboxList[i].checked){
             genreString += `${checkboxList[i].dataset.rawgId},`;
             categoryList += `${checkboxList[i].dataset.atlasId},`;
-            selectedBoxes = true;
         }
     }
   return {  genreQuery: genreString.substring(0, genreString.length - 1),
