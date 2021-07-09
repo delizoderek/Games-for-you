@@ -8,7 +8,7 @@ var popModal = document.getElementById("popModal");
 var showPopModal = document.getElementById("popular");
 var closePopModal = document.getElementById("closePopModal");
 var ranModal = document.getElementById("ranModal");
-var showRanModal = document.getElementById("random");
+var showRanModal = document.createElement("button");/*document.getElementById("random");*/
 var closeRanModal = document.getElementById("closeRanModal");
 
 var reqURL = 'https://api.boardgameatlas.com/api'
@@ -22,7 +22,12 @@ function parseQuery(){
         if(type[1] === 'name'){
             searchByName(query[1]);
         } else if (type[1] === 'genre'){
-            searchByGenre(query[1]);
+            let queryArr = query[1].split("+");
+            searchByGenre(queryArr[0],queryArr[1].split(","));
+        } else if (type[i] === 'esrb'){
+            // searchByEsrb()
+        } else {
+            // Show no results availble
         }
     }
 }
@@ -44,8 +49,9 @@ function getBoardGameUrl(reqParams){
         if(reqParams.type === "name") {
             return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
         } else if(reqParams.type === "categories") {
-            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&client_id=JLBr5npPhV`;
-        } else {
+            return `${reqURL}/search?${reqParams.type}=${reqParams.value}&limit=${reqParams.limit}&client_id=JLBr5npPhV`;
+        }
+        else{
             alert("could not find any games that match the description")
         }
     }
@@ -79,23 +85,50 @@ async function searchByName(query) {
 }
 
 /*
-* 
+*
 */
-async function searchByGenre(query) {
-    let vgUrl = getVideoGameUrl({type: 'genres', value: query});
-    // let bgUrl = getBoardGameUrl({type: 'name', value: query});
+async function searchByGenre(genQuery,catQuery) {
+    let vgUrl = getVideoGameUrl({type: 'genres', value: genQuery});
+    let pageLimit = 2;
+    let totalResults = [];
+    let resultList = [];
     const rawgResp = await fetch(vgUrl);
     const rawgResults = await rawgResp.json();
-    // const atlasResponse = await fetch(bgUrl);
-    // const atlasResults = await atlasResponse.json();
 
+    if(catQuery.length > 0){
+        let limitRatio = Math.floor(16 / catQuery.length);
+        if(limitRatio >= 8){
+            pageLimit = 20;
+        } else if (limitRatio >= 4){
+            pageLimit = 10;
+        } else if (limitRatio >= 2){
+            pageLimit = 5;
+        }
+
+        for(let i = 0; i < catQuery.length; i++){
+            const bgUrl = getBoardGameUrl({type: 'categories', value: catQuery[i], limit: pageLimit});
+            const atlasResponse = await fetch(bgUrl);
+            const atlasResults = await atlasResponse.json();
+            console.log(atlasResults);
+            totalResults = totalResults.concat(atlasResults.games);
+            delay(10000);
+        }
+
+    }
     // populate list
-    let resultList = [];
-    for(let result of rawgResults.results){
-        resultList.push({name: result.name, image: result.background_image, link: `https://rawg.io/games/${result.id}`});
+    for(let vGame of rawgResults.results){
+        resultList.push({name: vGame.name, image: vGame.background_image, link: `https://rawg.io/games/${vGame.id}`});
+    }
+    for(let bGame of totalResults){
+        resultList.push({name: bGame.name, image: bGame.image_url, link: bGame.url});
     }
     resultList.sort(sortGames);
-    console.log(resultList);
+}
+
+function delay(msDelay){
+    return new Promise(function(resolve){
+        setInterval(resolve,msDelay);
+    });
 }
 
 function sortGames(item1,item2){
@@ -110,28 +143,7 @@ function sortGames(item1,item2){
     return 0;
 }
 
-function getData(){
-    fetch("https://api.boardgameatlas.com/api/search?name=Monopoly&client_id=JLBr5npPhV")
-    .then(response=>response.json())
-    .then(data=>{
-        console.log(data)
-        useData(data)
-    })
-}
-// getData()
-
 function useData(gameData){
-    console.log(gameData.games[0].image_url)
-
-    // var cardImage = document.getElementById('image')
-    // var cardTitle = document.getElementById('title')
-    // var cardDescription = document.getElementById('description')
-    // var cardLink = document.getElementById('link')
-    // console.log(cardTitle.innerText)
-    // cardTitle.textContent = gameData.games[0].name
-    // // cardDescription.textContent = gameData.games[0].description
-    // cardImage.setAttribute("src", gameData.games[0].image_url)
-
     for(var i=0;i<20;i++){
         var cardList = document.getElementById('card-list')
         var card = document.createElement("div")
@@ -141,7 +153,7 @@ function useData(gameData){
         var cardTitle = document.createElement("div")
         var cardButton = document.createElement("a")
         cardImage.setAttribute("class", "img-responsive")
-        
+
         cardImage.setAttribute("src", gameData.games[i].image_url)
         card.setAttribute("class", "card game-card")
         console.log(cardImage)
@@ -160,13 +172,11 @@ function useData(gameData){
         imageContainer.setAttribute("class", "card-image")
         card.append(imageContainer,cardHeader)
 
-        
+
         cardList.append(card)
-        console.log(cardList)
     }
 
 }
-parseQuery();
 
 showFavModal.addEventListener("click", function () {
     favModal.classList.add("active");
@@ -276,3 +286,5 @@ showFavModal.addEventListener("click", function () {
   document.querySelector("#nameTab").addEventListener("click", changeTab);
   document.querySelector("#genreTab").addEventListener("click", changeTab);
   document.querySelector("#ageTab").addEventListener("click", changeTab);
+
+  parseQuery();
