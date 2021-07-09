@@ -24,10 +24,12 @@
       <section class="navbar-section" >
         <h1 id="navName" class="customColor">Games for You!</h1>
       </section>
-      <section class="navbar-section" id="navLinks">
-        <a href="./index.html" class="btn btn-link customColor" id="home">Home</a>
-        <a href="#" class="btn btn-link customColor" id="popular">Popular</a>
-        <a href="#" class="btn btn-link customColor" id="favorites">Favorites</a>
+      <section class="navbar-section links" id="navLinks">
+        <a href="./index.html" class="btn btn-link customLink customSize" id="home">Home</a>
+        <button class="btn btn-link customLink customSize" id="popular">Popular</button>
+        <button class="btn btn-link customLink customSize" id="random">Random</button>
+        <button class="btn btn-link customLink customSize" id="favorites">Favorites</button>
+        <!-- <a href="" class="btn btn-link customLink customSize" id="favorites">Favorites</a> -->
       </section>
     </header>
     <div class="container flex-centered col-12 carDiv">
@@ -165,32 +167,32 @@
                 <input type="checkbox" data-rawg-id="51"><i class="form-icon mx-2 customButtons"></i> Indie
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="83"><i class="form-icon mx-2 customButtons"></i> Platformer
+                <input type="checkbox" data-gid="83" value="Platformer"><i class="form-icon mx-2 customButtons"></i> Platformer
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="7"><i class="form-icon mx-2 customButtons"></i> Puzzle
+                <input type="checkbox" data-gid="7" value="Puzzle"><i class="form-icon mx-2 customButtons"></i> Puzzle
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="1"><i class="form-icon mx-2 customButtons"></i> Racing
+                <input type="checkbox" data-gid="1" value="Racing"><i class="form-icon mx-2 customButtons"></i> Racing
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="5"><i class="form-icon mx-2 customButtons"></i> RPG
+                <input type="checkbox" data-gid="5" value="RPG"><i class="form-icon mx-2 customButtons"></i> RPG
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="14"><i class="form-icon mx-2 customButtons"></i> Simulation
+                <input type="checkbox" data-gid="14" value="Simulation"><i class="form-icon mx-2 customButtons"></i> Simulation
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="2"><i class="form-icon mx-2 customButtons"></i> Shooter
+                <input type="checkbox" data-gid="2" value="Shooter"><i class="form-icon mx-2 customButtons"></i> Shooter
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="15"><i class="form-icon mx-2 customButtons"></i> Sports
+                <input type="checkbox" data-gid="15" value="Sports"><i class="form-icon mx-2 customButtons"></i> Sports
               </label>
               <label class="form-checkbox column col-3 col-md-4 col-sm-6 form-inline text-center customLink">
-                <input type="checkbox" data-rawg-id="10"><i class="form-icon mx-2 customButtons"></i> Strategy
+                <input type="checkbox" data-gid="10" value="Strategy"><i class="form-icon mx-2 customButtons"></i> Strategy
               </label>
-              
+
           <button id="genre-search" class="btn btn-primary input-group-btn mx-2 customButtons">Search by Genre</button>
-        </div> 
+        </div>
           <!-- dropdown button group -->
           <div class="dropdown hidden" id="ageSearch">
             <div class="btn-group">
@@ -200,7 +202,7 @@
               <a class="btn dropdown-toggle customButtons" tabindex="0">
                 <i class="icon icon-caret"></i>
               </a>
-          
+
               <!-- menu component -->
               <ul class="menu customButtons">
                 <li class="ageRating customButtons" id="everyone" data-esrbId="1">Everyone</li>
@@ -213,6 +215,101 @@
         </div>
       </div>
       
+    </div>
+    <!-- Random Modal -->
+    <div class="modal modal-sm" id="ranModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title">Random Game</div>
+            </div>
+            <div class="modal-body">
+                <div id="ran">
+                    <h5 id="ranName"></h5>
+                    <img src="" alt="ranImg" id="ranImg">
+                    <a href="" target="_blank" class="popLink" id="ranLink"></a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary customButtons" id="closeRanModal">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- Favorites Modal -->
+    <div class="modal modal-sm" id="favModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title">Reccomendations</div>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                  <p>This is some text inside the Modal.</p>
+                  <h5>Lorem ipsum</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary customButtons" id="closeFavModal">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- Popular Modal -->
+    <div class="modal modal-lg" id="popModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container container popModal">
+            <div class="modal-header">
+                <div class="modal-title">Popular Games</div>
+            </div>
+            <div class="modal-body">
+                <div class="content columns">
+                  <div id="vg1" class="column col-4 col-sm-11 popDiv">
+                      <h5 id="vg1Name"></h5>
+                      <img src="" alt="vg1Img" id="vg1Img">
+                      <a href="" target="_blank" class="popLink" id="vg1Link"></a>
+                  </div>
+                  <div id="vg2" class="column col-4 col-sm-11 popDiv">
+                    <h5 id="vg2Name"></h5>
+                    <img src="" alt="vg1Img" id="vg2Img">
+                    <a href="" target="_blank" class="popLink" id="vg2Link"></a>
+                </div>
+                <div id="vg3" class="column col-4 col-sm-11 popDiv">
+                    <h5 id="vg3Name"></h5>
+                    <img src="" alt="vg3Img" id="vg3Img">
+                    <a href="" target="_blank" class="popLink" id="vg3Link"></a>
+                </div>
+                <div id="vg4" class=" column col-4 col-sm-11 popDiv">
+                    <h5 id="vg4Name"></h5>
+                    <img src="" alt="vg4Img" id="vg4Img">
+                    <a href="" target="_blank" class="popLink" id="vg4Link"></a>
+                </div>
+                <div id="b1" class=" column col-4 col-sm-11 popDiv">
+                    <h5 id="bg1Name"></h5>
+                    <img src="" alt="bg1Img" id="bg1Img">
+                    <a href="" target="_blank" class="popLink" id="bg1Link"></a>
+                </div>
+                <div id="b2" class=" column col-4 col-sm-11 popDiv">
+                    <h5 id="bg2Name"></h5>
+                    <img src="" alt="bg2Img" id="bg2Img">
+                    <a href="" target="_blank" class="popLink" id="bg2Link"></a>
+                </div>
+                <div id="b3" class=" column col-4 col-sm-11 popDiv">
+                    <h5 id="bg3Name"></h5>
+                    <img src="" alt="bg3Img" id="bg3Img">
+                    <a href="" target="_blank" class="popLink" id="bg3Link"></a>
+                </div>
+                <div id="b4" class=" column col-4 col-sm-11 popDiv">
+                    <h5 id="bg4Name"></h5>
+                    <img src="" alt="bg4Img" id="bg4Img">
+                    <a href="" target="_blank" class="popLink" id="bg4Link"></a>
+                </div>
+            </div>
+        </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary customButtons" id="closePopModal">Close</button>
+            </div>
+        </div>
     </div>
     <section>
         <div class="container" id="testRes">
@@ -242,6 +339,7 @@
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/boardGames.js"></script>
     <script src="./assets/js/videogames.js"></script>
+    
   </body>
 </html>
 
