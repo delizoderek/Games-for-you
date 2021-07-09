@@ -1,51 +1,86 @@
 var reqURL = 'https://api.boardgameatlas.com/api'
-var searchBar = document.getElementById('name');
+var reqCID = '&client_id=JLBr5npPhV'
+var rawgURL = 'https://api.rawg.io/api'
+// var rawgKey = '67a03305827341eaaf787bd38cb5cafa'
+// var searchBtn = document.getElementById('name-btn')
+// var searchBar = document.getElementById('name')
+var categenre = [];
+var newArr = [];
 
-var jsonResponse = ''
 
 function getParams(reqParams) {
     if(reqParams.type) {
         if(reqParams.type === "name") {
-            return getData(`search?${reqParams.type}=`, reqParams.value)
-        } else if(reqParams.type === "categories") {
-            return getData(`search?${reqParams.type}=`, reqParams.value)
-        } else {
-            alert("could not find any games that match the description")
+            getData(reqURL, reqCID, `search?${reqParams.type}=`, reqParams.value, 'nameResults')
         }
     } else if(reqParams.doThis) {
         if(reqParams.doThis === "getCategories") {
-            getData("game","/categories?pretty=true")
+            getData(reqURL, reqCID, "game","/categories?pretty=true", 'categoriesResults')
         }
-    }
-    
-}
+    } else if(reqParams.rawg) {
+        if(reqParams.rawg === "genres") {
+            getData(rawgURL, rawgKey, "genres", '?key=', 'rawgGenres')
+        }
+    } else if(reqParams.genreArray) {
+        (reqParams.genreArray)
+        for(var i = 0; i < reqParams.genreArray.length; i++) {
+            if(newArr[i].name = reqParams.genreArray[i]) {
+                getData(reqURL, reqCID, "search?", `categories=${newArr[i].id}`, 'genreResults')
+            }
+        }
 
-async function getData(typeParam, typeValue) {
-    fetch(`${reqURL}/${typeParam}${typeValue}&client_id=JLBr5npPhV`)
+    }
+}
+async function getData(url, key, typeParam, typeValue, type) {
+    fetch(`${url}/${typeParam}${typeValue}${key}`)
         .then(response => response.json())
         .then(data => {
             // genCards(data.games)
-            useData(data)
+            useData({results: data, purpose: type})
         })
 }
 
 // checks data to see if needs to run fetch again with selected categories or generate cards
 function useData(data) {
-    if(data.games) {
-        generateCards(data.games)
+    if(data.purpose === 'nameResults') {
+        //this code executes if the data object received is a list of games from searching
+        generateCards(data.results.games)
     }
-    if(data.category) {
-        console.log("do this");
-        
+    else if(data.purpose === 'categoriesResults') {
+        //this code executes if the data received from getData() is the list of categories from atlas api, gets ids for all of the genres that were selected
+        for(var i = 0; i < categenre.length; i++) {
+            for(var x = 0; x < data.results.categories.length; x++) {
+                if(categenre[i] === data.results.categories[x].name) {
+                    newArr.push({id: data.results.categories[x].id, name: categenre[i]})
+                }
+            }
+        }
+        getParams({catObject: newArr})
+
+    } else if(data.purpose === 'rawgGenres') {
+        //this code executes if data passed from getData() is the genres array from rawg api
+        for(var i = 0; i < data.results.results.length; i++) {
+            categenre.push(data.results.results[i].name)
+        }
+        getParams({doThis: "getCategories"})
+    } else if(data.purpose === 'genreResults') {
+        filteredGenreResults = filteredGenreResults.concat(data.results.games.slice(0, 10))
     }
 }
+
+
+
 
 function generateCards(games) {
     var list = document.getElementById('testRes');
     var columns = document.createElement('div');
     list.append(columns);
     columns.setAttribute('class', 'columns')
-    for(var i = 0; i < 20; i++) {
+    var maxLength = 20
+    if(games.length < 20) {
+        maxLength = games.length
+    }
+    for(var i = 0; i < maxLength; i++) {
         var col = document.createElement('div'); 
         col.setAttribute('class', 'column col-sm-6 col-md-4 col-lg-3 col-xl-3')
 
@@ -86,34 +121,30 @@ function generateCards(games) {
 
     }
 }
-
+getParams({rawg: 'genres'})
 // getParams({type: "categories",
 //         value: "Adventure"})
-// getParams({doThis: "getCategories"})
 
 
-// searchBtn.addEventListener('click', function() {
-//     getParams({type: 'name', value: searchBar.value});
-// })
+// getParams({type: 'categories', value: ''})
 
-
-
-
+searchBtn.addEventListener('click', function() {
+    getParams({type: 'name', value: searchInput.value})
+})
 
 
 
 
 
-function genCards(dataArr) {
 
-    var list = document.getElementById('testRes');
-    var columns = document.createElement('div');
-    columns.setAttribute('class', 'columns')
 
-    for(var i = 0; i < 20; i++) {
-        columns.append(generateCard(dataArr[i].name, dataArr[i].image_url, dataArr[i].price, dataArr[i].description))
-    }
-}
+
+
+// function genCards(dataArr) {
+
+//     var list = document.getElementById('testRes');
+//     var columns = document.createElement('div');
+//     columns.setAttribute('class', 'columns')
 
 function generateCard(cardTitle, cardSubtitle, cardImg, cardBody) {
     var col = document.createElement('div');
