@@ -73,6 +73,7 @@ async function searchByName(query) {
   const rawgResults = await rawgResp.json();
   const atlasResponse = await fetch(bgUrl);
   const atlasResults = await atlasResponse.json();
+  setLoadingText();
 
   // populate list
   let resultList = [];
@@ -95,6 +96,14 @@ async function searchByName(query) {
   useData(resultList);
 }
 
+function setLoadingText(){
+  var cardList = document.getElementById("card-list");
+  let loadingText = document.createElement("h2");
+  loadingText.setAttribute("style","color: var(--text);");
+  loadingText.textContent = "Finding Your Games...";
+  cardList.append(loadingText);
+}
+
 /*
  *
  */
@@ -105,6 +114,7 @@ async function searchByGenre(genQuery, catQuery) {
   let resultList = [];
   const rawgResp = await fetch(vgUrl);
   const rawgResults = await rawgResp.json();
+  setLoadingText();
 
   if (catQuery.length > 0) {
     let limitRatio = Math.floor(16 / catQuery.length);
@@ -156,6 +166,7 @@ async function searchByEsrb(esrbRating) {
   let rawgFiltered = [];
   const atlasResponse = await fetch(bgUrl);
   const atlasResults = await atlasResponse.json();
+  setLoadingText();
 
   for (let bGame of atlasResults.games) {
     resultList.push({
@@ -221,8 +232,8 @@ function filterByEsrb(gameList,ageRating){
 
 function useData(gameData) {
   var cardList = document.getElementById("card-list");
+  cardList.textContent = "";
   if(gameData.length > 0){
-    cardList.textContent = "";
     for (var i = 0; i < gameData.length; i++) {
       var card = document.createElement("div");
       var imageContainer = document.createElement("div");

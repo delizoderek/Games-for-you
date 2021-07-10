@@ -51,9 +51,11 @@ searchInput.addEventListener("keypress", function(event){
 genreBtn.addEventListener("click", function (event) {
   event.preventDefault();
   let genreString = buildGenreString();
-  location.assign(
-    `./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`
-  );
+  if(genreString.genreQuery.length > 0){
+    location.assign(
+      `./searchresults.html?q=${genreString.genreQuery}+${genreString.categoryQuery}&type=genre`
+    );
+  }
 });
 
 function esrbSearch(event) {
