@@ -4,6 +4,12 @@
 ​
 ## Developed by: Derek Delizo, Erik Lew, Nathaniel Turcotte, and Zach Maurer
 ​
+## Technologies Used
+- [Spectre CSS](https://picturepan2.github.io/spectre/getting-started/installation.html)
+- [Board Game Atlas API](https://www.boardgameatlas.com/api/docs)
+- [RAWG API](https://rawg.io/apidocs)
+- [Git](https://git-scm.com/)
+
 ### User Story
 ​
 ```md
