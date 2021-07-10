@@ -232,8 +232,8 @@ function filterByEsrb(gameList,ageRating){
 
 function useData(gameData) {
   var cardList = document.getElementById("card-list");
+  cardList.textContent = "";
   if(gameData.length > 0){
-    cardList.textContent = "";
     for (var i = 0; i < gameData.length; i++) {
       var card = document.createElement("div");
       var imageContainer = document.createElement("div");
