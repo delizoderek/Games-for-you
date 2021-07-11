@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./assets/css/searchresultsstyle.css" />
   </head>
   <body>
+    <!-- navbar -->
     <header class="navbar">
       <section class="navbar-section" >
         <h1 id="navName" class="customColor">Games for You!</h1>
@@ -30,13 +31,11 @@
       </section>
       </header>
 
-      <main>
-        <div class="container">
-
     <main>
       <div class="container">
         <div class="columns">
           <div class="column col-4 col-md-12 col-sm-12">
+            <!-- tab block for search parameters -->
             <div class="col-10 tabBlock">
               <ul class="tab tab-block">
                   <li class="tab-item customLink" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
@@ -46,10 +45,12 @@
           </div>
           <div class="filterBox container">
             <div class="col-10 col-sm-12">
+              <!-- name search -->
               <div class="input-group" id="nameSearch">
                 <input class="form-input" type="text" placeholder="Search by Name" id="name" />
                 <button id="name-btn" class="btn btn-primary input-group-btn customButtons">Search</button>
               </div>
+              <!-- genre search -->
               <div class="input-group columns hidden filters" id="genreSearch">
                   <label class="form-checkbox column col-6 form-inline text-right customLink">
                     <input type="checkbox" data-rawg-id="4" data-atlas-id="PzWI2uaif0"><i class="form-icon mx-2 customButtons"></i> Action
@@ -102,7 +103,7 @@
 
                 <button id="genre-search" class="btn btn-primary input-group-btn mx-2 customButtons">Search by Genre</button>
               </div>
-                <!-- dropdown button group -->
+                <!-- dropdown button age search -->
                 <div class="dropdown hidden filters col-10 col-sm-12" id="ageSearch">
                   <div class="btn-group col-sm-8">
                     <a class="btn customButtons ageBtn">
@@ -112,7 +113,7 @@
                       <i class="icon icon-caret"></i>
                     </a>
                 
-                    <!-- menu component -->
+                    <!-- age search options -->
                     <ul class="menu customButtons col-sm-8">
                       <li class="ageRating customButtons" id="everyone" data-esrbId="1">Everyone</li>
                       <li class="ageRating customButtons" id="everyone10" data-esrbId="2">Everyone 10+</li>
@@ -125,6 +126,7 @@
             </div>
             
           </div>
+          <!-- cards generated here -->
           <div class="col-8 col-sm-12" id="card-list">
         </div>
       </div>

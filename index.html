@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body class="landingPage">
+    <!-- navbar -->
     <header class="navbar">
       <section class="navbar-section" >
         <h1 id="navName" class="customColor">Games for You!</h1>
@@ -126,6 +127,7 @@
         </div>
       </div>
     </div>
+    <!-- navigation tabs for search parameters -->
     <div class="col-10 tabBlock">
     <ul class="tab tab-block">
         <li class="tab-item customLink" > <a class="active" id="nameTab" data-name="Name">Name</a></li>
@@ -135,10 +137,12 @@
     </div>
     <div class="filterBox container flex-centered">
       <div class="col-7 col-sm-10">
+        <!-- name search -->
         <div class="input-group" id="nameSearch">
           <input class="form-input" type="text" placeholder="Search by Name" id="name" />
           <button id="name-btn" class="btn btn-primary input-group-btn customButtons">Search</button>
         </div>
+        <!-- genre search -->
         <div class="input-group columns hidden" id="genreSearch">
             <label class="form-checkbox column col-3 col-md-4  col-sm-6 form-inline text-center customLink">
                 <input type="checkbox" data-rawg-id="4" data-atlas-id="PzWI2uaif0"><i class="form-icon mx-2 customButtons"></i> Action
@@ -191,7 +195,7 @@
 
           <button id="genre-search" class="btn btn-primary input-group-btn mx-2 customButtons">Search by Genre</button>
         </div>
-          <!-- dropdown button group -->
+          <!-- dropdown button group for age search-->
           <div class="dropdown hidden" id="ageSearch">
             <div class="btn-group">
               <a class="btn customButtons ageBtn">
@@ -201,7 +205,7 @@
                 <i class="icon icon-caret"></i>
               </a>
 
-              <!-- menu component -->
+              <!-- age ratings -->
               <ul class="menu customButtons">
                 <li class="ageRating customButtons" id="everyone" data-esrbId="1">Everyone</li>
                 <li class="ageRating customButtons" id="everyone10" data-esrbId="2">Everyone 10+</li>
@@ -293,6 +297,7 @@
         <div class="container" id="testRes">
         </div>
     </section>
+    <!-- contact us footer -->
     <footer class="container">
       <div class="columns">
         <div class="column col-2 contact text-center">
