@@ -136,7 +136,7 @@ html {
   margin-bottom: 30px;
   margin-top: 30px;
 }
-
+/* formatting for mobile */
 @media (max-width: 768px) {
   .navbar {
     justify-content: center;
