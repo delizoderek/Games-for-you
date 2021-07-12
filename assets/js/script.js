@@ -1,8 +1,3 @@
-var rawgApi = "4ff9656ea1344d38abef9231d5a4547f";
-let rawgKey = "4ff9656ea1344d38abef9231d5a4547f";
-var bgAtlasApi = "id6TuxDAFr";
-var erikTesting = [];
-var filteredGenreResults = [];
 var car1 = document.getElementById("car1");
 var car2 = document.getElementById("car2");
 var car3 = document.getElementById("car3");
@@ -14,21 +9,29 @@ var ranModal = document.getElementById("ranModal");
 var showRanModal = document.getElementById("random");
 var closeRanModal = document.getElementById("closeRanModal");
 
+// Event listener for showing the popular games modal
 showPopModal.addEventListener("click", function () {
   popModal.classList.add("active");
   popularModal();
 });
+
+// Event listener for closing the popular games modal
 closePopModal.addEventListener("click", function () {
   popModal.classList.remove("active");
 });
+
+// Event Listener for showing the random games modal
 showRanModal.addEventListener("click", function () {
   ranModal.classList.add("active");
   randomModal();
 });
+
+// Event Listener for closing the random games modal
 closeRanModal.addEventListener("click", function () {
   ranModal.classList.remove("active");
 });
 
+// Opens a modal and displays a random game in it
 function randomModal() {
   fetch(
     `https://api.boardgameatlas.com/api/search?random=true&client_id=${bgAtlasApi}`
@@ -50,6 +53,7 @@ function randomModal() {
     });
 }
 
+// Opens a modal and displays 2 popular board games and 2 popular video games
 function popularModal() {
   fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)
     .then(function (response) {
@@ -97,7 +101,7 @@ function popularModal() {
     });
 }
 
-
+// Gets the games from the atlas and rawg api, then dispalys them in the carousel
 function carouselImg() {
   fetch(`https://api.rawg.io/api/games?page_size=4&key=${rawgApi}`)
     .then(function (response) {
@@ -138,6 +142,7 @@ function carouselImg() {
     });
 }
 
+// Handles showing/displaying the contents of each tab
 var changeTab = function (event) {
   document.getElementById("nameTab").classList.remove("active");
   document.getElementById("ageTab").classList.remove("active");
@@ -159,16 +164,10 @@ var changeTab = function (event) {
   }
 };
 
-
-
-
-
-
-
-
-
-
+// Adds event listeners to each tab button
 document.querySelector("#nameTab").addEventListener("click", changeTab);
 document.querySelector("#genreTab").addEventListener("click", changeTab);
 document.querySelector("#ageTab").addEventListener("click", changeTab);
+
+// first function that is run on page load, to begin loading the search results
 carouselImg();
