@@ -36,12 +36,15 @@ THEN I am shown popular games
 ​
 ​
 The purpose of this web application is to have a web page where you can easily search for video games and board games. Upon loading the web application you will see the landing page.
+
 ​
 ​
 ![landing page](./assets/images/landing-page.png)
+
 ​
 ​
 Clicking on the Random Button in the top right side of the screen will display a random game for you.
+
 ​
 ​
 ![random modal](./assets/images/ran-modal.png)
@@ -56,6 +59,7 @@ Clicking on the Popular button will show you the four most popular video games a
 Underneath the carousel you will find the tabs for search parameters. You can search by name.
 ​
 ![name search](./assets/images/search-name.png)
+
 ​
 ​
 You can search by genre.

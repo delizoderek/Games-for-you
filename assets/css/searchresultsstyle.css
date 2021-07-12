@@ -167,7 +167,7 @@ body {
 #title {
   color: var(--text);
 }
-
+/* formatting for mobile */
 @media (max-width: 768px) {
   .navbar {
     justify-content: center;
